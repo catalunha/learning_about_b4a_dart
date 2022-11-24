@@ -1,15 +1,3 @@
-# learning_about_b4a_dart
-Um pequeno projeto para aprender um pouco mais sobre b4a com puro dart.
-
-
-# run
-
-dart bin/learning_about_b4a_dart.dart
-
-
-# ConnectB4A
-```dart
-// lib/data/b4a/connect_b4a.dart
 import 'dart:io';
 
 import 'package:parse_server_sdk/parse_server_sdk.dart';
@@ -37,6 +25,3 @@ class ConnectB4A {
     }
   }
 }
-
-```
-
