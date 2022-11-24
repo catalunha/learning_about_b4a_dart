@@ -19,7 +19,8 @@ void main(List<String> arguments) async {
   // await profileView.getAllWithRelations();
   // await profileView.getAllWithoutRelations();
   // await profileView.queryWithRelations();
+  // await profileView.queryWithPointer();
   // await profileView.queryWithoutRelations();
   // await profileView.queryOrderByAscending();
-  await profileView.queryOrderByDescending();
+  // await profileView.queryOrderByDescending();
 }

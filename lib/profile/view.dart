@@ -73,6 +73,17 @@ class ProfileView {
     log('--- queryWithRelations ---');
   }
 
+  Future<void> queryWithPointer() async {
+    log('+++ queryWithPointer +++');
+    ProfileController profileController = ProfileController();
+    List<ProfileModel> result = await profileController.queryWithPointer();
+    log('... queryWithPointer ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryWithPointer ---');
+  }
+
   Future<void> queryWithoutRelations() async {
     log('+++ queryWithoutRelations +++');
     ProfileController profileController = ProfileController();

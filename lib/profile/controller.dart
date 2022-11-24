@@ -88,6 +88,22 @@ class ProfileController {
     return list;
   }
 
+  Future<List<ProfileModel>> queryWithPointer() async {
+    QueryBuilder<ParseObject> queryBuilder =
+        QueryBuilder<ParseObject>(ParseObject('Profile'));
+    queryBuilder.includeObject(['typePointer']);
+
+    var apiResponse = await queryBuilder.query();
+
+    var list = <ProfileModel>[];
+    if (apiResponse.success && apiResponse.results != null) {
+      for (var element in apiResponse.results!) {
+        list.add(await ProfileEntity().toModel(element));
+      }
+    }
+    return list;
+  }
+
   Future<List<ProfileModel>> queryOrderByDescending() async {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject('Profile'));
