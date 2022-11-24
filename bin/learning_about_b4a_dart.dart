@@ -4,7 +4,6 @@ import 'package:learning_about_b4a_dart/profile/view.dart';
 void main(List<String> arguments) async {
   ConnectB4A connectB4A = ConnectB4A();
   await connectB4A.initialize();
-  await connectB4A.healthCheck();
 
   // ProfileAddData.add();
   ProfileView profileView = ProfileView();
@@ -14,7 +13,7 @@ void main(List<String> arguments) async {
   // await profileView.getAllWithRelations();
   // await profileView.getAllWithoutRelations();
   // await profileView.queryWithRelations();
-  await profileView.queryWithPointer();
+  // await profileView.queryWithPointer();
   // await profileView.queryWithoutRelations();
   // await profileView.queryOrderByAscending();
   // await profileView.queryOrderByDescending();

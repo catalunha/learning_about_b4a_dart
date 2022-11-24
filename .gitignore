@@ -6,4 +6,4 @@
 build/
 
 # meu arquivos
-lib/connect_b4a.dart
+.env
