@@ -7,10 +7,11 @@ class AuthorEntity {
 
   AuthorModel toModel(ParseObject parseObject) {
     //+++ typeObject
-    Map<String, String>? typeObject = <String, String>{};
+    Map<String, String>? typeObject;
     Map<String, dynamic>? typeObjectTemp =
         parseObject.get<Map<String, dynamic>>('typeObject');
     if (typeObjectTemp != null) {
+      typeObject = <String, String>{};
       for (var item in typeObjectTemp.entries) {
         typeObject[item.key] = item.value;
       }

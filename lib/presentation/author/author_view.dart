@@ -4,107 +4,77 @@ import 'package:learning_about_b4a_dart/core/models/author_model.dart';
 import 'package:learning_about_b4a_dart/presentation/author/author_controller.dart';
 
 class AuthorView {
-  Future<void> count() async {
-    log('+++ count +++');
-    AuthorController profileController = AuthorController();
-    var result = await profileController.count();
-    log('... count ...');
-    log(result.toString());
-    log('--- count ---');
-  }
-
-  Future<void> get(String objectId) async {
-    log('+++ get +++');
-    AuthorController profileController = AuthorController();
-    AuthorModel? profileModel = await profileController.get(objectId);
-    log('... get ...');
-    if (profileModel == null) {
-      log('null');
-    } else {
-      log(profileModel.toString());
-    }
-    log('--- get ---');
-  }
-
-  Future<void> getAll() async {
-    log('+++ getAll +++');
-    AuthorController profileController = AuthorController();
-    List<AuthorModel> result = await profileController.getAll();
-    log('... getAll ...');
-    for (var item in result) {
-      log('${item.toString()}\n');
-    }
-    log('--- getAll ---');
-  }
-
-  Future<void> queryBuilder() async {
-    log('+++ queryBuilder +++');
-    AuthorController profileController = AuthorController();
-    List<AuthorModel> result = await profileController.queryBuilder();
-    log('... queryBuilder ...');
-    for (var item in result) {
-      log('${item.toString()}\n');
-    }
-    log('--- queryBuilder ---');
-  }
-
-  Future<void> queryBuilderOrderByAscending(String columnName) async {
-    log('+++ queryBuilderOrderByAscending +++');
-    AuthorController profileController = AuthorController();
+  Future<void> queryBuilderIncludeObject(List<String> columnsName) async {
+    log('+++ queryBuilderIncludeObject +++');
+    AuthorController authorController = AuthorController();
     List<AuthorModel> result =
-        await profileController.queryBuilderOrderByAscending(columnName);
-    log('... queryBuilderOrderByAscending ...');
+        await authorController.queryBuilderIncludeObject(columnsName);
+    log('... queryBuilderIncludeObject ...');
     for (var item in result) {
       log('${item.toString()}\n');
     }
-    log('--- queryBuilderOrderByAscending ---');
+    log('--- queryBuilderIncludeObject ---');
   }
 
-  Future<void> queryBuilderOrderByDescending(String columnName) async {
-    log('+++ queryBuilderOrderByDescending +++');
-    AuthorController profileController = AuthorController();
+  void queryBuilderWhereEqualToPointer(
+      String columnName, String pointerClassName, String pointerId) async {
+    log('+++ queryBuilderWhereEqualToPointer +++');
+    AuthorController authorController = AuthorController();
     List<AuthorModel> result =
-        await profileController.queryBuilderOrderByDescending(columnName);
-    log('... queryBuilderOrderByDescending ...');
+        await authorController.queryBuilderWhereEqualToPointer(
+            columnName, pointerClassName, pointerId);
+    log('... queryBuilderWhereEqualToPointer ...');
     for (var item in result) {
       log('${item.toString()}\n');
     }
-    log('--- queryBuilderOrderByDescending ---');
+    log('--- queryBuilderWhereEqualToPointer ---');
   }
 
-  Future<void> queryBuilderExcludeKeys(List<String> columnsName) async {
-    log('+++ queryBuilderExcludeKeys +++');
-    AuthorController profileController = AuthorController();
+  void queryBuilderWhereMatchesQuery() async {
+    log('+++ queryBuilderWhereMatchesQuery +++');
+    AuthorController authorController = AuthorController();
     List<AuthorModel> result =
-        await profileController.queryBuilderExcludeKeys(columnsName);
-    log('... queryBuilderExcludeKeys ...');
+        await authorController.queryBuilderWhereMatchesQuery();
+    log('... queryBuilderWhereMatchesQuery ...');
     for (var item in result) {
       log('${item.toString()}\n');
     }
-    log('--- queryBuilderExcludeKeys ---');
+    log('--- queryBuilderWhereMatchesQuery ---');
   }
 
-  Future<void> queryBuilderKeysToReturn(List<String> columnsName) async {
-    log('+++ queryBuilderKeysToReturn +++');
-    AuthorController profileController = AuthorController();
+  void queryBuilderWhereDoesNotMatchQuery() async {
+    log('+++ queryBuilderWhereDoesNotMatchQuery +++');
+    AuthorController authorController = AuthorController();
     List<AuthorModel> result =
-        await profileController.queryBuilderKeysToReturn(columnsName);
-    log('... queryBuilderKeysToReturn ...');
+        await authorController.queryBuilderWhereDoesNotMatchQuery();
+    log('... queryBuilderWhereDoesNotMatchQuery ...');
     for (var item in result) {
       log('${item.toString()}\n');
     }
-    log('--- queryBuilderKeysToReturn ---');
+    log('--- queryBuilderWhereDoesNotMatchQuery ---');
   }
 
-  Future<void> queryBuilderPagination(int page, int limit) async {
-    log('+++ queryBuilderPagination +++');
-    AuthorController profileController = AuthorController();
+  void queryBuilderWhereMatchesKeyInQuery() async {
+    log('+++ queryBuilderWhereMatchesKeyInQuery +++');
+    AuthorController authorController = AuthorController();
     List<AuthorModel> result =
-        await profileController.queryBuilderPagination(page, limit);
-    log('... queryBuilderPagination ...');
+        await authorController.queryBuilderWhereMatchesKeyInQuery();
+    log('... queryBuilderWhereMatchesKeyInQuery ...');
     for (var item in result) {
       log('${item.toString()}\n');
     }
-    log('--- queryBuilderPagination ---');
+    log('--- queryBuilderWhereMatchesKeyInQuery ---');
+  }
+
+  void queryBuilderWhereDoesNotMatchKeyInQuery() async {
+    log('+++ queryBuilderWhereDoesNotMatchKeyInQuery +++');
+    AuthorController authorController = AuthorController();
+    List<AuthorModel> result =
+        await authorController.queryBuilderWhereDoesNotMatchKeyInQuery();
+    log('... queryBuilderWhereDoesNotMatchKeyInQuery ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereDoesNotMatchKeyInQuery ---');
   }
 }

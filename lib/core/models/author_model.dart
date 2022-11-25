@@ -10,7 +10,6 @@ class AuthorModel {
   final DateTime? typeDate;
   final Map<String, dynamic>? typeObject;
   final List<String>? typeArray;
-  final String? typeFile;
   final GenreModel? typePointer;
   AuthorModel({
     this.objectId,
@@ -20,7 +19,6 @@ class AuthorModel {
     this.typeDate,
     this.typeObject,
     this.typeArray,
-    this.typeFile,
     this.typePointer,
   });
 
@@ -32,7 +30,6 @@ class AuthorModel {
     DateTime? typeDate,
     Map<String, dynamic>? typeObject,
     List<String>? typeArray,
-    String? typeFile,
     GenreModel? typePointer,
   }) {
     return AuthorModel(
@@ -43,7 +40,6 @@ class AuthorModel {
       typeDate: typeDate ?? this.typeDate,
       typeObject: typeObject ?? this.typeObject,
       typeArray: typeArray ?? this.typeArray,
-      typeFile: typeFile ?? this.typeFile,
       typePointer: typePointer ?? this.typePointer,
     );
   }
@@ -72,9 +68,7 @@ class AuthorModel {
     if (typeArray != null) {
       result.addAll({'typeArray': typeArray});
     }
-    if (typeFile != null) {
-      result.addAll({'typeFile': typeFile});
-    }
+
     if (typePointer != null) {
       result.addAll({'typePointer': typePointer!.toMap()});
     }
@@ -93,7 +87,6 @@ class AuthorModel {
           : null,
       typeObject: Map<String, dynamic>.from(map['typeObject']),
       typeArray: List<String>.from(map['typeArray']),
-      typeFile: map['typeFile'],
       typePointer: map['typePointer'] != null
           ? GenreModel.fromMap(map['typePointer'])
           : null,
@@ -107,6 +100,6 @@ class AuthorModel {
 
   @override
   String toString() {
-    return 'AuthorModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeObject: $typeObject, typeArray: $typeArray, typeFile: $typeFile, typePointer: $typePointer)';
+    return 'AuthorModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeObject: $typeObject, typeArray: $typeArray, typePointer: $typePointer)';
   }
 }

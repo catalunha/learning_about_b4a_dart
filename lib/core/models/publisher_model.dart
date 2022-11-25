@@ -1,23 +1,25 @@
 import 'dart:convert';
 
+import 'package:learning_about_b4a_dart/core/models/genre_model.dart';
+
 class PublisherModel {
   final String? objectId;
   final String? typeString;
   final bool? typeBoolean;
   final num? typeNumber;
   final DateTime? typeDate;
-  final Map<String, dynamic>? typeObject;
   final List<String>? typeArray;
   final String? typeFile;
+  final GenreModel? typePointer;
   PublisherModel({
     this.objectId,
     this.typeString,
     this.typeBoolean,
     this.typeNumber,
     this.typeDate,
-    this.typeObject,
     this.typeArray,
     this.typeFile,
+    this.typePointer,
   });
 
   PublisherModel copyWith({
@@ -26,9 +28,9 @@ class PublisherModel {
     bool? typeBoolean,
     num? typeNumber,
     DateTime? typeDate,
-    Map<String, dynamic>? typeObject,
     List<String>? typeArray,
     String? typeFile,
+    GenreModel? typePointer,
   }) {
     return PublisherModel(
       objectId: objectId ?? this.objectId,
@@ -36,9 +38,9 @@ class PublisherModel {
       typeBoolean: typeBoolean ?? this.typeBoolean,
       typeNumber: typeNumber ?? this.typeNumber,
       typeDate: typeDate ?? this.typeDate,
-      typeObject: typeObject ?? this.typeObject,
       typeArray: typeArray ?? this.typeArray,
       typeFile: typeFile ?? this.typeFile,
+      typePointer: typePointer ?? this.typePointer,
     );
   }
 
@@ -60,14 +62,14 @@ class PublisherModel {
     if (typeDate != null) {
       result.addAll({'typeDate': typeDate!.millisecondsSinceEpoch});
     }
-    if (typeObject != null) {
-      result.addAll({'typeObject': typeObject});
-    }
     if (typeArray != null) {
       result.addAll({'typeArray': typeArray});
     }
     if (typeFile != null) {
       result.addAll({'typeFile': typeFile});
+    }
+    if (typePointer != null) {
+      result.addAll({'typePointer': typePointer!.toMap()});
     }
 
     return result;
@@ -82,9 +84,11 @@ class PublisherModel {
       typeDate: map['typeDate'] != null
           ? DateTime.fromMillisecondsSinceEpoch(map['typeDate'])
           : null,
-      typeObject: Map<String, dynamic>.from(map['typeObject']),
       typeArray: List<String>.from(map['typeArray']),
       typeFile: map['typeFile'],
+      typePointer: map['typePointer'] != null
+          ? GenreModel.fromMap(map['typePointer'])
+          : null,
     );
   }
 
@@ -95,6 +99,6 @@ class PublisherModel {
 
   @override
   String toString() {
-    return 'PublisherModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeObject: $typeObject, typeArray: $typeArray, typeFile: $typeFile)';
+    return 'PublisherModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeArray: $typeArray, typeFile: $typeFile, typePointer: $typePointer)';
   }
 }

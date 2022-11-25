@@ -4,19 +4,10 @@ import 'package:learning_about_b4a_dart/core/models/genre_model.dart';
 import 'package:learning_about_b4a_dart/presentation/genre/genre_controller.dart';
 
 class GenreView {
-  Future<void> count() async {
-    log('+++ count +++');
-    GenreController profileController = GenreController();
-    var result = await profileController.count();
-    log('... count ...');
-    log(result.toString());
-    log('--- count ---');
-  }
-
-  Future<void> get(String objectId) async {
+  void get(String objectId) async {
     log('+++ get +++');
-    GenreController profileController = GenreController();
-    GenreModel? profileModel = await profileController.get(objectId);
+    GenreController genreController = GenreController();
+    GenreModel? profileModel = await genreController.get(objectId);
     log('... get ...');
     if (profileModel == null) {
       log('null');
@@ -26,10 +17,10 @@ class GenreView {
     log('--- get ---');
   }
 
-  Future<void> getAll() async {
+  void getAll() async {
     log('+++ getAll +++');
-    GenreController profileController = GenreController();
-    List<GenreModel> result = await profileController.getAll();
+    GenreController genreController = GenreController();
+    List<GenreModel> result = await genreController.getAll();
     log('... getAll ...');
     for (var item in result) {
       log('${item.toString()}\n');
@@ -37,10 +28,30 @@ class GenreView {
     log('--- getAll ---');
   }
 
-  Future<void> queryBuilder() async {
+  void unset(String objectId, List<String> columnsName) async {
+    log('+++ unset +++');
+    GenreController genreController = GenreController();
+    for (var column in columnsName) {
+      await genreController.unset(objectId, column);
+    }
+    log('... unset ...');
+    log('always true\n');
+    log('--- unset ---');
+  }
+
+  void count() async {
+    log('+++ count +++');
+    GenreController genreController = GenreController();
+    var result = await genreController.count();
+    log('... count ...');
+    log(result.toString());
+    log('--- count ---');
+  }
+
+  void queryBuilder() async {
     log('+++ queryBuilder +++');
-    GenreController profileController = GenreController();
-    List<GenreModel> result = await profileController.queryBuilder();
+    GenreController genreController = GenreController();
+    List<GenreModel> result = await genreController.queryBuilder();
     log('... queryBuilder ...');
     for (var item in result) {
       log('${item.toString()}\n');
@@ -48,11 +59,11 @@ class GenreView {
     log('--- queryBuilder ---');
   }
 
-  Future<void> queryBuilderOrderByAscending(String columnName) async {
+  void queryBuilderOrderByAscending(String columnName) async {
     log('+++ queryBuilderOrderByAscending +++');
-    GenreController profileController = GenreController();
+    GenreController genreController = GenreController();
     List<GenreModel> result =
-        await profileController.queryBuilderOrderByAscending(columnName);
+        await genreController.queryBuilderOrderByAscending(columnName);
     log('... queryBuilderOrderByAscending ...');
     for (var item in result) {
       log('${item.toString()}\n');
@@ -60,11 +71,11 @@ class GenreView {
     log('--- queryBuilderOrderByAscending ---');
   }
 
-  Future<void> queryBuilderOrderByDescending(String columnName) async {
+  void queryBuilderOrderByDescending(String columnName) async {
     log('+++ queryBuilderOrderByDescending +++');
-    GenreController profileController = GenreController();
+    GenreController genreController = GenreController();
     List<GenreModel> result =
-        await profileController.queryBuilderOrderByDescending(columnName);
+        await genreController.queryBuilderOrderByDescending(columnName);
     log('... queryBuilderOrderByDescending ...');
     for (var item in result) {
       log('${item.toString()}\n');
@@ -72,11 +83,11 @@ class GenreView {
     log('--- queryBuilderOrderByDescending ---');
   }
 
-  Future<void> queryBuilderExcludeKeys(List<String> columnsName) async {
+  void queryBuilderExcludeKeys(List<String> columnsName) async {
     log('+++ queryBuilderExcludeKeys +++');
-    GenreController profileController = GenreController();
+    GenreController genreController = GenreController();
     List<GenreModel> result =
-        await profileController.queryBuilderExcludeKeys(columnsName);
+        await genreController.queryBuilderExcludeKeys(columnsName);
     log('... queryBuilderExcludeKeys ...');
     for (var item in result) {
       log('${item.toString()}\n');
@@ -84,11 +95,11 @@ class GenreView {
     log('--- queryBuilderExcludeKeys ---');
   }
 
-  Future<void> queryBuilderKeysToReturn(List<String> columnsName) async {
+  void queryBuilderKeysToReturn(List<String> columnsName) async {
     log('+++ queryBuilderKeysToReturn +++');
-    GenreController profileController = GenreController();
+    GenreController genreController = GenreController();
     List<GenreModel> result =
-        await profileController.queryBuilderKeysToReturn(columnsName);
+        await genreController.queryBuilderKeysToReturn(columnsName);
     log('... queryBuilderKeysToReturn ...');
     for (var item in result) {
       log('${item.toString()}\n');
@@ -96,15 +107,166 @@ class GenreView {
     log('--- queryBuilderKeysToReturn ---');
   }
 
-  Future<void> queryBuilderPagination(int page, int limit) async {
+  void queryBuilderPagination(int page, int limit) async {
     log('+++ queryBuilderPagination +++');
-    GenreController profileController = GenreController();
+    GenreController genreController = GenreController();
     List<GenreModel> result =
-        await profileController.queryBuilderPagination(page, limit);
+        await genreController.queryBuilderPagination(page, limit);
     log('... queryBuilderPagination ...');
     for (var item in result) {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderPagination ---');
+  }
+
+  void queryBuilderWhereEqualToSimpleColumn(
+      String columnName, dynamic value) async {
+    log('+++ queryBuilderWhereEqualToSimpleColumn +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result = await genreController
+        .queryBuilderWhereEqualToSimpleColumn(columnName, value);
+    log('... queryBuilderWhereEqualToSimpleColumn ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereEqualToSimpleColumn ---');
+  }
+
+  void queryBuilderWhereNotEqualToSimpleColumn(
+      String columnName, dynamic value) async {
+    log('+++ queryBuilderWhereNotEqualToSimpleColumn +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result = await genreController
+        .queryBuilderWhereNotEqualToSimpleColumn(columnName, value);
+    log('... queryBuilderWhereNotEqualToSimpleColumn ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereNotEqualToSimpleColumn ---');
+  }
+
+  void queryBuilderWhereGreaterThan(String columnName, dynamic value) async {
+    log('+++ queryBuilderWhereGreaterThan +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result =
+        await genreController.queryBuilderWhereGreaterThan(columnName, value);
+    log('... queryBuilderWhereGreaterThan ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereGreaterThan ---');
+  }
+
+  void queryBuilderWhereGreaterThanOrEqualsTo(
+      String columnName, dynamic value) async {
+    log('+++ queryBuilderWhereGreaterThanOrEqualsTo +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result = await genreController
+        .queryBuilderWhereGreaterThanOrEqualsTo(columnName, value);
+    log('... queryBuilderWhereGreaterThanOrEqualsTo ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereGreaterThanOrEqualsTo ---');
+  }
+
+  void queryBuilderWhereLessThan(String columnName, dynamic value) async {
+    log('+++ queryBuilderWhereLessThan +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result =
+        await genreController.queryBuilderWhereLessThan(columnName, value);
+    log('... queryBuilderWhereLessThan ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereLessThan ---');
+  }
+
+  void queryBuilderWhereLessThanOrEqualTo(
+      String columnName, dynamic value) async {
+    log('+++ queryBuilderWhereLessThanOrEqualTo +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result = await genreController
+        .queryBuilderWhereLessThanOrEqualTo(columnName, value);
+    log('... queryBuilderWhereLessThanOrEqualTo ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereLessThanOrEqualTo ---');
+  }
+
+  void queryBuilderWhereValueExists(
+      String columnName, bool containValue) async {
+    log('+++ queryBuilderWhereValueExists +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result = await genreController
+        .queryBuilderWhereValueExists(columnName, containValue);
+    log('... queryBuilderWhereValueExists ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereValueExists ---');
+  }
+
+  void queryBuilderWhereStartsWith(String columnName, String text) async {
+    log('+++ queryBuilderWhereStartsWith +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result =
+        await genreController.queryBuilderWhereStartsWith(columnName, text);
+    log('... queryBuilderWhereStartsWith ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereStartsWith ---');
+  }
+
+  void queryBuilderWhereEndsWith(String columnName, String text) async {
+    log('+++ queryBuilderWhereEndsWith +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result =
+        await genreController.queryBuilderWhereEndsWith(columnName, text);
+    log('... queryBuilderWhereEndsWith ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereEndsWith ---');
+  }
+
+  void queryBuilderWhereContains(String columnName, String text) async {
+    log('+++ queryBuilderWhereContains +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result =
+        await genreController.queryBuilderWhereContains(columnName, text);
+    log('... queryBuilderWhereContains ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereContains ---');
+  }
+
+  void queryBuilderWhereContainedIn(
+      String columnName, List<dynamic> values) async {
+    log('+++ queryBuilderWhereContainedIn +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result =
+        await genreController.queryBuilderWhereContainedIn(columnName, values);
+    log('... queryBuilderWhereContainedIn ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereContainedIn ---');
+  }
+
+  void queryBuilderWhereArrayContainsAll(
+      String columnName, List<dynamic> values) async {
+    log('+++ queryBuilderWhereArrayContainsAll +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result = await genreController
+        .queryBuilderWhereArrayContainsAll(columnName, values);
+    log('... queryBuilderWhereArrayContainsAll ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderWhereArrayContainsAll ---');
   }
 }

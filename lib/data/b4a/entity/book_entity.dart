@@ -4,8 +4,8 @@ import 'package:learning_about_b4a_dart/data/b4a/entity/author_entity.dart';
 import 'package:learning_about_b4a_dart/data/b4a/entity/publisher_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
-class ProfileEntity {
-  static const String className = 'Profile';
+class BookEntity {
+  static const String className = 'Book';
 
   Future<BookModel> toModel(ParseObject parseObject,
       {List<String>? includeColumns}) async {
@@ -19,33 +19,23 @@ class ProfileEntity {
     if (includeColumns.contains('typeRelation')) {
       QueryBuilder<ParseObject> queryAuthor =
           QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
-      queryAuthor.whereRelatedTo(
-          'typeRelation', 'Author', parseObject.objectId!);
+      queryAuthor.whereRelatedTo('typeRelation', 'Book', parseObject.objectId!);
+      queryAuthor.includeObject(['typePointer']);
       final ParseResponse responseAuthor = await queryAuthor.query();
       if (responseAuthor.success && responseAuthor.results != null) {
         for (var e in responseAuthor.results!) {
-          typeRelationList.add(AuthorEntity().toModel(e as ParseObject));
+          typeRelationList.add(AuthorEntity().toModel(e));
         }
       }
     }
     //--- get typeRelation
-    //+++ typeObject
-    Map<String, String>? typeObject = <String, String>{};
-    Map<String, dynamic>? typeObjectTemp =
-        parseObject.get<Map<String, dynamic>>('typeObject');
-    if (typeObjectTemp != null) {
-      for (var item in typeObjectTemp.entries) {
-        typeObject[item.key] = item.value;
-      }
-    }
-    //--- typeObject
+
     BookModel model = BookModel(
       objectId: parseObject.objectId!,
       typeString: parseObject.get<String>('typeString'),
       typeBoolean: parseObject.get<bool>('typeBoolean'),
       typeNumber: parseObject.get<num>('typeNumber'),
       typeDate: parseObject.get<DateTime>('typeDate')?.toLocal(),
-      typeObject: typeObject,
       typeArray: parseObject.get<List<dynamic>>('typeArray') != null
           ? parseObject
               .get<List<dynamic>>('typeArray')!
@@ -61,8 +51,8 @@ class ProfileEntity {
     return model;
   }
 
-  Future<ParseObject> toParse(BookModel model) async {
-    final parseObject = ParseObject(ProfileEntity.className);
+  ParseObject toParse(BookModel model) {
+    final parseObject = ParseObject(BookEntity.className);
     if (model.objectId != null) {
       parseObject.objectId = model.objectId;
     }
@@ -100,7 +90,7 @@ class ProfileEntity {
   }
 
   ParseObject toParseUnset(String objectId, List<String> unsetFields) {
-    final parseObject = ParseObject(ProfileEntity.className);
+    final parseObject = ParseObject(BookEntity.className);
     parseObject.objectId = objectId;
 
     for (var field in unsetFields) {
@@ -115,7 +105,7 @@ class ProfileEntity {
     required List<String> modelIdList,
     required bool add,
   }) {
-    final parseObject = ParseObject(ProfileEntity.className);
+    final parseObject = ParseObject(BookEntity.className);
     parseObject.objectId = objectId;
     if (modelIdList.isEmpty) {
       parseObject.unset('typeRelation');
