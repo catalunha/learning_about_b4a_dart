@@ -1,14 +1,15 @@
-import 'package:learning_about_b4a_dart/core/models/other_data.dart';
-import 'package:learning_about_b4a_dart/core/models/profile_model.dart';
-import 'package:learning_about_b4a_dart/data/b4a/entity/other_data_entity.dart';
+import 'package:learning_about_b4a_dart/core/models/author_model.dart';
+import 'package:learning_about_b4a_dart/core/models/book_model.dart';
+import 'package:learning_about_b4a_dart/data/b4a/entity/author_entity.dart';
+import 'package:learning_about_b4a_dart/data/b4a/entity/publisher_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class ProfileEntity {
   static const String className = 'Profile';
 
-  Future<ProfileModel> toModel(ParseObject parseObject,
+  Future<BookModel> toModel(ParseObject parseObject,
       {List<String>? includeColumns}) async {
-    List<OtherDataModel> typeRelationList = [];
+    List<AuthorModel> typeRelationList = [];
     if (includeColumns == null) {
       includeColumns = [];
       includeColumns.add('typeRelation');
@@ -16,14 +17,14 @@ class ProfileEntity {
 
     //+++ get typeRelation
     if (includeColumns.contains('typeRelation')) {
-      QueryBuilder<ParseObject> queryOtherData =
-          QueryBuilder<ParseObject>(ParseObject(OtherDataEntity.className));
-      queryOtherData.whereRelatedTo(
-          'typeRelation', 'Profile', parseObject.objectId!);
-      final ParseResponse responseOtherData = await queryOtherData.query();
-      if (responseOtherData.success && responseOtherData.results != null) {
-        for (var e in responseOtherData.results!) {
-          typeRelationList.add(OtherDataEntity().fromParse(e as ParseObject));
+      QueryBuilder<ParseObject> queryAuthor =
+          QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
+      queryAuthor.whereRelatedTo(
+          'typeRelation', 'Author', parseObject.objectId!);
+      final ParseResponse responseAuthor = await queryAuthor.query();
+      if (responseAuthor.success && responseAuthor.results != null) {
+        for (var e in responseAuthor.results!) {
+          typeRelationList.add(AuthorEntity().toModel(e as ParseObject));
         }
       }
     }
@@ -38,7 +39,7 @@ class ProfileEntity {
       }
     }
     //--- typeObject
-    ProfileModel model = ProfileModel(
+    BookModel model = BookModel(
       objectId: parseObject.objectId!,
       typeString: parseObject.get<String>('typeString'),
       typeBoolean: parseObject.get<bool>('typeBoolean'),
@@ -52,16 +53,15 @@ class ProfileEntity {
               .toList()
           : null,
       typePointer: parseObject.get('typePointer') != null
-          ? OtherDataEntity()
-              .fromParse(parseObject.get('typePointer') as ParseObject)
+          ? PublisherEntity()
+              .toModel(parseObject.get('typePointer') as ParseObject)
           : null,
       typeRelation: typeRelationList,
     );
-    // log('$model', name: 'ProfileEntity.fromParse');
     return model;
   }
 
-  Future<ParseObject> toParse(ProfileModel model) async {
+  Future<ParseObject> toParse(BookModel model) async {
     final parseObject = ParseObject(ProfileEntity.className);
     if (model.objectId != null) {
       parseObject.objectId = model.objectId;
@@ -92,7 +92,7 @@ class ProfileEntity {
     if (model.typePointer != null) {
       parseObject.set(
           'typePointer',
-          (ParseObject(OtherDataEntity.className)
+          (ParseObject(PublisherEntity.className)
                 ..objectId = model.typePointer!.objectId)
               .toPointer());
     }
@@ -127,7 +127,7 @@ class ProfileEntity {
         modelIdList
             .map(
               (element) =>
-                  ParseObject(OtherDataEntity.className)..objectId = element,
+                  ParseObject(AuthorEntity.className)..objectId = element,
             )
             .toList(),
       );
@@ -136,7 +136,7 @@ class ProfileEntity {
           'typeRelation',
           modelIdList
               .map((element) =>
-                  ParseObject(OtherDataEntity.className)..objectId = element)
+                  ParseObject(AuthorEntity.className)..objectId = element)
               .toList());
     }
     return parseObject;

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dotenv/dotenv.dart';
@@ -13,7 +14,7 @@ class ConnectB4A {
     _clientKey = env['clientKey'] ?? _clientKey;
   }
 
-  Future<void> initialize() async {
+  Future<void> initialize({bool debug = false}) async {
     getCredentials();
     String keyParseServerUrl = 'https://parseapi.back4app.com';
     await Parse().initialize(
@@ -21,16 +22,16 @@ class ConnectB4A {
       keyParseServerUrl,
       clientKey: _clientKey,
       autoSendSessionId: true,
-      debug: true,
+      debug: debug,
     );
     await healthCheck();
   }
 
   Future<void> healthCheck() async {
     if ((await Parse().healthCheck()).success) {
-      print('Back4app Connected.');
+      log('Back4app Connected.');
     } else {
-      print('Back4app NOT Connected.');
+      log('Back4app NOT Connected.');
       exit(0);
     }
   }

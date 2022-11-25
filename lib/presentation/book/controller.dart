@@ -1,5 +1,5 @@
-import 'package:learning_about_b4a_dart/core/models/profile_model.dart';
-import 'package:learning_about_b4a_dart/data/b4a/entity/profile_entity.dart';
+import 'package:learning_about_b4a_dart/core/models/book_model.dart';
+import 'package:learning_about_b4a_dart/data/b4a/entity/book_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class ProfileController {
@@ -15,9 +15,9 @@ class ProfileController {
     return result;
   }
 
-  Future<ProfileModel?> getWithRelations() async {
+  Future<BookModel?> getWithRelations() async {
     final apiResponse = await ParseObject('Profile').getObject('0zswR3nQg7');
-    ProfileModel? profileModel;
+    BookModel? profileModel;
 
     if (apiResponse.success && apiResponse.results != null) {
       profileModel = await ProfileEntity().toModel(apiResponse.results!.first);
@@ -25,9 +25,9 @@ class ProfileController {
     return profileModel;
   }
 
-  Future<ProfileModel?> getWithoutRelations() async {
+  Future<BookModel?> getWithoutRelations() async {
     final apiResponse = await ParseObject('Profile').getObject('0zswR3nQg7');
-    ProfileModel? profileModel;
+    BookModel? profileModel;
 
     if (apiResponse.success && apiResponse.results != null) {
       profileModel = await ProfileEntity()
@@ -36,9 +36,9 @@ class ProfileController {
     return profileModel;
   }
 
-  Future<List<ProfileModel>> getAllWithRelations() async {
+  Future<List<BookModel>> getAllWithRelations() async {
     final apiResponse = await ParseObject('Profile').getAll();
-    var list = <ProfileModel>[];
+    var list = <BookModel>[];
 
     if (apiResponse.success && apiResponse.results != null) {
       for (var element in apiResponse.results!) {
@@ -48,9 +48,9 @@ class ProfileController {
     return list;
   }
 
-  Future<List<ProfileModel>> getAllWithoutRelations() async {
+  Future<List<BookModel>> getAllWithoutRelations() async {
     final apiResponse = await ParseObject('Profile').getAll();
-    var list = <ProfileModel>[];
+    var list = <BookModel>[];
 
     if (apiResponse.success && apiResponse.results != null) {
       for (var element in apiResponse.results!) {
@@ -60,12 +60,12 @@ class ProfileController {
     return list;
   }
 
-  Future<List<ProfileModel>> queryWithRelations() async {
+  Future<List<BookModel>> queryWithRelations() async {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject('Profile'));
     var apiResponse = await queryBuilder.query();
 
-    var list = <ProfileModel>[];
+    var list = <BookModel>[];
     if (apiResponse.success && apiResponse.results != null) {
       for (var element in apiResponse.results!) {
         list.add(await ProfileEntity().toModel(element));
@@ -74,12 +74,12 @@ class ProfileController {
     return list;
   }
 
-  Future<List<ProfileModel>> queryWithoutRelations() async {
+  Future<List<BookModel>> queryWithoutRelations() async {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject('Profile'));
     var apiResponse = await queryBuilder.query();
 
-    var list = <ProfileModel>[];
+    var list = <BookModel>[];
     if (apiResponse.success && apiResponse.results != null) {
       for (var element in apiResponse.results!) {
         list.add(await ProfileEntity().toModel(element, includeColumns: []));
@@ -88,14 +88,14 @@ class ProfileController {
     return list;
   }
 
-  Future<List<ProfileModel>> queryWithPointer() async {
+  Future<List<BookModel>> queryWithPointer() async {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject('Profile'));
     queryBuilder.includeObject(['typePointer']);
 
     var apiResponse = await queryBuilder.query();
 
-    var list = <ProfileModel>[];
+    var list = <BookModel>[];
     if (apiResponse.success && apiResponse.results != null) {
       for (var element in apiResponse.results!) {
         list.add(await ProfileEntity().toModel(element));
@@ -104,13 +104,13 @@ class ProfileController {
     return list;
   }
 
-  Future<List<ProfileModel>> queryOrderByDescending() async {
+  Future<List<BookModel>> queryOrderByDescending() async {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject('Profile'));
     queryBuilder.orderByDescending('typeString');
     var apiResponse = await queryBuilder.query();
 
-    var list = <ProfileModel>[];
+    var list = <BookModel>[];
     if (apiResponse.success && apiResponse.results != null) {
       for (var element in apiResponse.results!) {
         list.add(await ProfileEntity().toModel(element, includeColumns: []));
@@ -119,13 +119,13 @@ class ProfileController {
     return list;
   }
 
-  Future<List<ProfileModel>> queryOrderByAscending() async {
+  Future<List<BookModel>> queryOrderByAscending() async {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject('Profile'));
     queryBuilder.orderByAscending('typeString');
     var apiResponse = await queryBuilder.query();
 
-    var list = <ProfileModel>[];
+    var list = <BookModel>[];
     if (apiResponse.success && apiResponse.results != null) {
       for (var element in apiResponse.results!) {
         list.add(await ProfileEntity().toModel(element, includeColumns: []));
