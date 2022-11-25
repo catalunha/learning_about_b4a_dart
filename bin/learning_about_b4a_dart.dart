@@ -1,6 +1,7 @@
 import 'package:learning_about_b4a_dart/data/b4a/connect_b4a.dart';
 import 'package:learning_about_b4a_dart/presentation/author/author_view.dart';
 import 'package:learning_about_b4a_dart/presentation/book/book_view.dart';
+import 'package:learning_about_b4a_dart/presentation/genre/genre_view.dart';
 
 void main(List<String> arguments) async {
   ConnectB4A connectB4A = ConnectB4A();
@@ -9,7 +10,7 @@ void main(List<String> arguments) async {
 
 // Genre
   // GenreAddData.add();
-  // GenreView genreView = GenreView();
+  GenreView genreView = GenreView();
   //  genreView.count();
   //  genreView.get('I9npZLFtqI');
   //  genreView.unset('I9npZLFtqI', ['typeString']);
@@ -75,11 +76,12 @@ void main(List<String> arguments) async {
   // genreView.queryBuilderWhereContains('typeString', '0');
   // genreView.queryBuilderWhereContainedIn('typeArray', ['a', '4']);
   // genreView.queryBuilderWhereArrayContainsAll('typeArray', ['a', '1']);
+  genreView.queryBuilderOr();
 
   // Author
   // AuthorAddData.add();
   AuthorView authorView = AuthorView();
-  // authorView.queryBuilderIncludeObject(['typePointer']);
+  // authorView.queryBuilderIncludeObject(['typePointerGenre']);
   // authorView.queryBuilderWhereEqualToPointer(
   //     'typePointer', 'Genre', 'mrsMiyXeuP');
   // authorView.queryBuilderWhereMatchesQuery();
@@ -93,9 +95,8 @@ void main(List<String> arguments) async {
   // Book
   // BookAddData.add();
   BookView bookView = BookView();
-  bookView
-      .queryBuilderIncludeObject(['typePointer', 'typePointer.typePointer']);
-
+  bookView.queryBuilderIncludeObject(
+      ['typePointerPublisher', 'typePointerPublisher.typePointerGenre']);
   // bookView.queryBuilderWhereEqualToRelation('Author', 'VUDROrC3iK');
   // bookView.queryBuilderWhereMatchesQuery();
   // bookView.queryBuilderWhereDoesNotMatchQuery();

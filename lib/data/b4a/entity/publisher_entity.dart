@@ -18,8 +18,9 @@ class PublisherEntity {
               .map((e) => e.toString())
               .toList()
           : null,
-      typePointer: parseObject.get('typePointer') != null
-          ? GenreEntity().toModel(parseObject.get('typePointer') as ParseObject)
+      typePointerGenre: parseObject.get('typePointerGenre') != null
+          ? GenreEntity()
+              .toModel(parseObject.get('typePointerGenre') as ParseObject)
           : null,
     );
     return model;
@@ -47,11 +48,11 @@ class PublisherEntity {
     if (model.typeArray != null) {
       parseObject.set('typeArray', model.typeArray);
     }
-    if (model.typePointer != null) {
+    if (model.typePointerGenre != null) {
       parseObject.set(
-          'typePointer',
+          'typePointerGenre',
           (ParseObject(GenreEntity.className)
-                ..objectId = model.typePointer!.objectId)
+                ..objectId = model.typePointerGenre!.objectId)
               .toPointer());
     }
     return parseObject;

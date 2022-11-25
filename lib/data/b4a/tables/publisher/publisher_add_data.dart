@@ -14,7 +14,7 @@ class PublisherAddData {
         typeNumber: 1,
         typeDate: DateTime.now(),
         typeArray: ['a', '1'],
-        typePointer: GenreModel(objectId: 'kyCtliyFaK'),
+        typePointerGenre: GenreModel(objectId: 'kyCtliyFaK'),
       ),
       PublisherModel(
         typeString: 'Publisher02',
@@ -22,7 +22,7 @@ class PublisherAddData {
         typeNumber: 2,
         typeDate: DateTime(2022, 11, 26, 12).add(Duration(hours: 1)),
         typeArray: ['b', '2'],
-        typePointer: GenreModel(objectId: 'mrsMiyXeuP'),
+        typePointerGenre: GenreModel(objectId: 'mrsMiyXeuP'),
       ),
       PublisherModel(
         typeString: 'Publisher03',
@@ -30,7 +30,7 @@ class PublisherAddData {
         typeNumber: 3,
         typeDate: DateTime.now().add(Duration(hours: 2)),
         typeArray: ['c', '3'],
-        typePointer: GenreModel(objectId: 'w7n72uFBv2'),
+        typePointerGenre: GenreModel(objectId: 'w7n72uFBv2'),
       ),
       PublisherModel(
         typeString: 'Publisher04',
@@ -38,7 +38,7 @@ class PublisherAddData {
         typeNumber: 4,
         typeDate: DateTime.now().add(Duration(hours: 23)),
         typeArray: ['d', '4'],
-        typePointer: GenreModel(objectId: 'bxirK4sWKU'),
+        typePointerGenre: GenreModel(objectId: 'bxirK4sWKU'),
       ),
     ]);
     for (var authorModel in authorModelList) {

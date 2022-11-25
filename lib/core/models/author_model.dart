@@ -8,18 +8,16 @@ class AuthorModel {
   final bool? typeBoolean;
   final num? typeNumber;
   final DateTime? typeDate;
-  final Map<String, dynamic>? typeObject;
   final List<String>? typeArray;
-  final GenreModel? typePointer;
+  final GenreModel? typePointerGenre;
   AuthorModel({
     this.objectId,
     this.typeString,
     this.typeBoolean,
     this.typeNumber,
     this.typeDate,
-    this.typeObject,
     this.typeArray,
-    this.typePointer,
+    this.typePointerGenre,
   });
 
   AuthorModel copyWith({
@@ -38,9 +36,8 @@ class AuthorModel {
       typeBoolean: typeBoolean ?? this.typeBoolean,
       typeNumber: typeNumber ?? this.typeNumber,
       typeDate: typeDate ?? this.typeDate,
-      typeObject: typeObject ?? this.typeObject,
       typeArray: typeArray ?? this.typeArray,
-      typePointer: typePointer ?? this.typePointer,
+      typePointerGenre: typePointer ?? typePointerGenre,
     );
   }
 
@@ -62,15 +59,13 @@ class AuthorModel {
     if (typeDate != null) {
       result.addAll({'typeDate': typeDate!.millisecondsSinceEpoch});
     }
-    if (typeObject != null) {
-      result.addAll({'typeObject': typeObject});
-    }
+
     if (typeArray != null) {
       result.addAll({'typeArray': typeArray});
     }
 
-    if (typePointer != null) {
-      result.addAll({'typePointer': typePointer!.toMap()});
+    if (typePointerGenre != null) {
+      result.addAll({'typePointer': typePointerGenre!.toMap()});
     }
 
     return result;
@@ -85,9 +80,8 @@ class AuthorModel {
       typeDate: map['typeDate'] != null
           ? DateTime.fromMillisecondsSinceEpoch(map['typeDate'])
           : null,
-      typeObject: Map<String, dynamic>.from(map['typeObject']),
       typeArray: List<String>.from(map['typeArray']),
-      typePointer: map['typePointer'] != null
+      typePointerGenre: map['typePointer'] != null
           ? GenreModel.fromMap(map['typePointer'])
           : null,
     );
@@ -100,6 +94,6 @@ class AuthorModel {
 
   @override
   String toString() {
-    return 'AuthorModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeObject: $typeObject, typeArray: $typeArray, typePointer: $typePointer)';
+    return 'AuthorModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeArray: $typeArray, typePointer: $typePointerGenre)';
   }
 }

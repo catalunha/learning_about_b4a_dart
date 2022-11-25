@@ -6,32 +6,21 @@ class AuthorEntity {
   static const String className = 'Author';
 
   AuthorModel toModel(ParseObject parseObject) {
-    //+++ typeObject
-    Map<String, String>? typeObject;
-    Map<String, dynamic>? typeObjectTemp =
-        parseObject.get<Map<String, dynamic>>('typeObject');
-    if (typeObjectTemp != null) {
-      typeObject = <String, String>{};
-      for (var item in typeObjectTemp.entries) {
-        typeObject[item.key] = item.value;
-      }
-    }
-    //--- typeObject
     AuthorModel model = AuthorModel(
       objectId: parseObject.objectId!,
       typeString: parseObject.get<String>('typeString'),
       typeBoolean: parseObject.get<bool>('typeBoolean'),
       typeNumber: parseObject.get<num>('typeNumber'),
       typeDate: parseObject.get<DateTime>('typeDate')?.toLocal(),
-      typeObject: typeObject,
       typeArray: parseObject.get<List<dynamic>>('typeArray') != null
           ? parseObject
               .get<List<dynamic>>('typeArray')!
               .map((e) => e.toString())
               .toList()
           : null,
-      typePointer: parseObject.get('typePointer') != null
-          ? GenreEntity().toModel(parseObject.get('typePointer') as ParseObject)
+      typePointerGenre: parseObject.get('typePointerGenre') != null
+          ? GenreEntity()
+              .toModel(parseObject.get('typePointerGenre') as ParseObject)
           : null,
     );
     return model;
@@ -55,21 +44,15 @@ class AuthorEntity {
     if (model.typeDate != null) {
       parseObject.set('typeDate', model.typeDate);
     }
-    if (model.typeObject != null) {
-      var typeObjectData = <String, dynamic>{};
-      for (var item in model.typeObject!.entries) {
-        typeObjectData[item.key] = item.value;
-      }
-      parseObject.set('typeObject', typeObjectData);
-    }
+
     if (model.typeArray != null) {
       parseObject.set('typeArray', model.typeArray);
     }
-    if (model.typePointer != null) {
+    if (model.typePointerGenre != null) {
       parseObject.set(
-          'typePointer',
+          'typePointerGenre',
           (ParseObject(GenreEntity.className)
-                ..objectId = model.typePointer!.objectId)
+                ..objectId = model.typePointerGenre!.objectId)
               .toPointer());
     }
     return parseObject;

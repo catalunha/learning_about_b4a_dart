@@ -12,8 +12,8 @@ class BookModel {
   final Map<String, dynamic>? typeObject;
   final List<String>? typeArray;
   final String? typeFile;
-  final PublisherModel? typePointer;
-  final List<AuthorModel>? typeRelation;
+  final PublisherModel? typePointerPublisher;
+  final List<AuthorModel>? typeRelationAuthor;
   BookModel({
     this.objectId,
     this.typeString,
@@ -23,10 +23,9 @@ class BookModel {
     this.typeObject,
     this.typeArray,
     this.typeFile,
-    this.typePointer,
-    this.typeRelation,
+    this.typePointerPublisher,
+    this.typeRelationAuthor,
   });
-
   BookModel copyWith({
     String? objectId,
     String? typeString,
@@ -48,8 +47,8 @@ class BookModel {
       typeObject: typeObject ?? this.typeObject,
       typeArray: typeArray ?? this.typeArray,
       typeFile: typeFile ?? this.typeFile,
-      typePointer: typePointer ?? this.typePointer,
-      typeRelation: typeRelation ?? this.typeRelation,
+      typePointerPublisher: typePointer ?? typePointerPublisher,
+      typeRelationAuthor: typeRelation ?? typeRelationAuthor,
     );
   }
 
@@ -80,12 +79,12 @@ class BookModel {
     if (typeFile != null) {
       result.addAll({'typeFile': typeFile});
     }
-    if (typePointer != null) {
-      result.addAll({'typePointer': typePointer!.toMap()});
+    if (typePointerPublisher != null) {
+      result.addAll({'typePointer': typePointerPublisher!.toMap()});
     }
-    if (typeRelation != null) {
+    if (typeRelationAuthor != null) {
       result.addAll(
-          {'typeRelation': typeRelation!.map((x) => x.toMap()).toList()});
+          {'typeRelation': typeRelationAuthor!.map((x) => x.toMap()).toList()});
     }
 
     return result;
@@ -103,10 +102,10 @@ class BookModel {
       typeObject: Map<String, dynamic>.from(map['typeObject']),
       typeArray: List<String>.from(map['typeArray']),
       typeFile: map['typeFile'],
-      typePointer: map['typePointer'] != null
+      typePointerPublisher: map['typePointer'] != null
           ? PublisherModel.fromMap(map['typePointer'])
           : null,
-      typeRelation: map['typeRelation'] != null
+      typeRelationAuthor: map['typeRelation'] != null
           ? List<AuthorModel>.from(
               map['typeRelation']?.map((x) => AuthorModel.fromMap(x)))
           : null,
@@ -120,6 +119,6 @@ class BookModel {
 
   @override
   String toString() {
-    return 'BookModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeObject: $typeObject, typeArray: $typeArray, typeFile: $typeFile, typePointer: $typePointer, typeRelation: $typeRelation)';
+    return 'BookModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeObject: $typeObject, typeArray: $typeArray, typeFile: $typeFile, typePointer: $typePointerPublisher, typeRelation: $typeRelationAuthor)';
   }
 }

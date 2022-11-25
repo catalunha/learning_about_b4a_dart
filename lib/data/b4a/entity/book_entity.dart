@@ -19,8 +19,9 @@ class BookEntity {
     if (includeColumns.contains('typeRelation')) {
       QueryBuilder<ParseObject> queryAuthor =
           QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
-      queryAuthor.whereRelatedTo('typeRelation', 'Book', parseObject.objectId!);
-      queryAuthor.includeObject(['typePointer']);
+      queryAuthor.whereRelatedTo(
+          'typeRelationAuthor', 'Book', parseObject.objectId!);
+      queryAuthor.includeObject(['typePointerGenre']);
       final ParseResponse responseAuthor = await queryAuthor.query();
       if (responseAuthor.success && responseAuthor.results != null) {
         for (var e in responseAuthor.results!) {
@@ -42,11 +43,11 @@ class BookEntity {
               .map((e) => e.toString())
               .toList()
           : null,
-      typePointer: parseObject.get('typePointer') != null
+      typePointerPublisher: parseObject.get('typePointerPublisher') != null
           ? PublisherEntity()
-              .toModel(parseObject.get('typePointer') as ParseObject)
+              .toModel(parseObject.get('typePointerPublisher') as ParseObject)
           : null,
-      typeRelation: typeRelationList,
+      typeRelationAuthor: typeRelationList,
     );
     return model;
   }
@@ -79,11 +80,11 @@ class BookEntity {
     if (model.typeArray != null) {
       parseObject.set('typeArray', model.typeArray);
     }
-    if (model.typePointer != null) {
+    if (model.typePointerPublisher != null) {
       parseObject.set(
           'typePointer',
           (ParseObject(PublisherEntity.className)
-                ..objectId = model.typePointer!.objectId)
+                ..objectId = model.typePointerPublisher!.objectId)
               .toPointer());
     }
     return parseObject;

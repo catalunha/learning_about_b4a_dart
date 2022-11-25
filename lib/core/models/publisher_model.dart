@@ -10,7 +10,7 @@ class PublisherModel {
   final DateTime? typeDate;
   final List<String>? typeArray;
   final String? typeFile;
-  final GenreModel? typePointer;
+  final GenreModel? typePointerGenre;
   PublisherModel({
     this.objectId,
     this.typeString,
@@ -19,7 +19,7 @@ class PublisherModel {
     this.typeDate,
     this.typeArray,
     this.typeFile,
-    this.typePointer,
+    this.typePointerGenre,
   });
 
   PublisherModel copyWith({
@@ -40,7 +40,7 @@ class PublisherModel {
       typeDate: typeDate ?? this.typeDate,
       typeArray: typeArray ?? this.typeArray,
       typeFile: typeFile ?? this.typeFile,
-      typePointer: typePointer ?? this.typePointer,
+      typePointerGenre: typePointer ?? typePointerGenre,
     );
   }
 
@@ -68,8 +68,8 @@ class PublisherModel {
     if (typeFile != null) {
       result.addAll({'typeFile': typeFile});
     }
-    if (typePointer != null) {
-      result.addAll({'typePointer': typePointer!.toMap()});
+    if (typePointerGenre != null) {
+      result.addAll({'typePointer': typePointerGenre!.toMap()});
     }
 
     return result;
@@ -86,7 +86,7 @@ class PublisherModel {
           : null,
       typeArray: List<String>.from(map['typeArray']),
       typeFile: map['typeFile'],
-      typePointer: map['typePointer'] != null
+      typePointerGenre: map['typePointer'] != null
           ? GenreModel.fromMap(map['typePointer'])
           : null,
     );
@@ -99,6 +99,6 @@ class PublisherModel {
 
   @override
   String toString() {
-    return 'PublisherModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeArray: $typeArray, typeFile: $typeFile, typePointer: $typePointer)';
+    return 'PublisherModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeArray: $typeArray, typeFile: $typeFile, typePointer: $typePointerGenre)';
   }
 }

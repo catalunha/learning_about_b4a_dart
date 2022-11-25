@@ -269,4 +269,15 @@ class GenreView {
     }
     log('--- queryBuilderWhereArrayContainsAll ---');
   }
+
+  void queryBuilderOr() async {
+    log('+++ queryBuilderOr +++');
+    GenreController genreController = GenreController();
+    List<GenreModel> result = await genreController.queryBuilderOr();
+    log('... queryBuilderOr ...');
+    for (var item in result) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderOr ---');
+  }
 }

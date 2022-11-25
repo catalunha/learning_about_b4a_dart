@@ -349,4 +349,26 @@ class GenreController {
     }
     return list;
   }
+
+  Future<List<GenreModel>> queryBuilderOr() async {
+    QueryBuilder<ParseObject> queryBuilder1 =
+        QueryBuilder<ParseObject>(ParseObject(GenreEntity.className));
+    queryBuilder1.whereLessThan('typeNumber', 2);
+    QueryBuilder<ParseObject> queryBuilder2 =
+        QueryBuilder<ParseObject>(ParseObject(GenreEntity.className));
+    queryBuilder2.whereGreaterThan('typeNumber', 3);
+    QueryBuilder<ParseObject> queryBuilder = QueryBuilder.or(
+      ParseObject(GenreEntity.className),
+      [queryBuilder1, queryBuilder2],
+    );
+    var parseResponse = await queryBuilder.query();
+
+    var list = <GenreModel>[];
+    if (parseResponse.success && parseResponse.results != null) {
+      for (var element in parseResponse.results!) {
+        list.add(GenreEntity().toModel(element));
+      }
+    }
+    return list;
+  }
 }
