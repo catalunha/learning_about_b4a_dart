@@ -119,6 +119,8 @@ class GenreView {
     log('--- queryBuilderPagination ---');
   }
 
+  /// Se coluna for DateTime cuidar para valor ser exato até millisecond
+  /// Informe DateTime local que ele compara em UTC no Back4app. Ou seja +3h
   void queryBuilderWhereEqualToSimpleColumn(
       String columnName, dynamic value) async {
     log('+++ queryBuilderWhereEqualToSimpleColumn +++');
@@ -132,6 +134,8 @@ class GenreView {
     log('--- queryBuilderWhereEqualToSimpleColumn ---');
   }
 
+  /// Se coluna for DateTime cuidar para valor ser exato até millisecond
+  /// Informe DateTime local que ele compara em UTC no Back4app. Ou seja +3h
   void queryBuilderWhereNotEqualToSimpleColumn(
       String columnName, dynamic value) async {
     log('+++ queryBuilderWhereNotEqualToSimpleColumn +++');
@@ -145,6 +149,10 @@ class GenreView {
     log('--- queryBuilderWhereNotEqualToSimpleColumn ---');
   }
 
+  /// Como false=0 e true=1 então Maior que funciona como inteiro.
+  /// Funciona como ordem alfabética
+  /// Se coluna for DateTime cuidar para valor ser exato até millisecond
+  /// Informe DateTime local que ele compara em UTC no Back4app. Ou seja +3h
   void queryBuilderWhereGreaterThan(String columnName, dynamic value) async {
     log('+++ queryBuilderWhereGreaterThan +++');
     GenreController genreController = GenreController();
@@ -182,6 +190,7 @@ class GenreView {
     log('--- queryBuilderWhereLessThan ---');
   }
 
+  ///
   void queryBuilderWhereLessThanOrEqualTo(
       String columnName, dynamic value) async {
     log('+++ queryBuilderWhereLessThanOrEqualTo +++');
