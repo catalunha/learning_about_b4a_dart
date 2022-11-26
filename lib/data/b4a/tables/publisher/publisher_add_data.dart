@@ -1,3 +1,6 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:learning_about_b4a_dart/core/models/genre_model.dart';
 import 'package:learning_about_b4a_dart/core/models/publisher_model.dart';
 import 'package:learning_about_b4a_dart/data/b4a/entity/publisher_entity.dart';
@@ -44,6 +47,24 @@ class PublisherAddData {
     for (var authorModel in authorModelList) {
       ParseObject authorParseObject = PublisherEntity().toParse(authorModel);
       await authorParseObject.save();
+    }
+  }
+
+  static addFile(String pathFile, String publisherId) async {
+    // String dataFile = 'readmes/files/uml.jpg';
+    // String objectId = '5iLu1JOO9x';
+    ParseFileBase? parseFileBase = ParseFile(File(pathFile));
+    final ParseResponse parseResponseFile = await parseFileBase.save();
+    if (parseResponseFile.success && parseResponseFile.results != null) {
+      final parseObject = ParseObject(PublisherEntity.className);
+      parseObject.objectId = publisherId;
+      parseObject.set('typeFile', parseFileBase);
+      final ParseResponse responseParseObject = await parseObject.save();
+      if (responseParseObject.success && responseParseObject.results != null) {
+        log('File $pathFile save in ${PublisherEntity.className}.$publisherId');
+      } else {
+        log('Problem in save file');
+      }
     }
   }
 
