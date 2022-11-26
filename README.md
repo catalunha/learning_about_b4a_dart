@@ -7,3 +7,6 @@ Um pequeno projeto para aprender um pouco mais sobre b4a com puro dart.
 dart bin/learning_about_b4a_dart.dart
 
 
+# uml
+
+https://docs.google.com/drawings/d/1K9bse4n3gUFP6ux4JMcX6rTjSFCCsmOIk5ff-bW9474/edit
