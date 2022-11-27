@@ -84,7 +84,7 @@ class BookAddData {
 
   static addRelations() async {
     log('addRelation 01');
-    //Ruim desta abordagem que ela faz um fetch nos dados.
+    //The downside of this approach is that it fetches the data.
     var parseObjectBook01 = ParseObject(BookEntity.className);
     parseObjectBook01.objectId = 'aeOTTuGO7r';
     parseObjectBook01 = await parseObjectBook01.fetch();
