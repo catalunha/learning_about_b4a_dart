@@ -84,11 +84,16 @@ class BookAddData {
 
   static addRelations() async {
     log('addRelation 01');
-    final parseObjectBook01 = ParseObject(BookEntity.className);
+    //Ruim desta abordagem que ela faz um fetch nos dados.
+    var parseObjectBook01 = ParseObject(BookEntity.className);
     parseObjectBook01.objectId = 'aeOTTuGO7r';
+    parseObjectBook01 = await parseObjectBook01.fetch();
+    var parseRelationBook = parseObjectBook01.getRelation('typeRelationAuthor');
+    print(parseRelationBook.toJson());
+    print(parseRelationBook.toString());
     final parseObjectAuthor01 = ParseObject(AuthorEntity.className);
     parseObjectAuthor01.objectId = 'fK4I00NlBy';
-    parseObjectBook01.addRelation('typeRelationAuthor', [parseObjectAuthor01]);
+    parseRelationBook.add(parseObjectAuthor01);
     await parseObjectBook01.save();
 
     log('addRelation 02');
@@ -99,17 +104,6 @@ class BookAddData {
     parseObjectBook02.addRelation(
         'typeRelationAuthor', [parseObjectAuthor01, parseObjectAuthor02]);
     await parseObjectBook02.save();
-  }
-
-  static addRelations2() async {
-    log('addRelation 01a');
-    final parseObjectBook01 = ParseObject(BookEntity.className);
-    parseObjectBook01.objectId = 'aeOTTuGO7r';
-    var parseRelationBook = parseObjectBook01.getRelation('typeRelationAuthor');
-    final parseObjectAuthor01 = ParseObject(AuthorEntity.className);
-    parseObjectAuthor01.objectId = 'fK4I00NlBy';
-    parseRelationBook.add(parseObjectAuthor01);
-    await parseObjectBook01.save();
   }
 
   static removeAll() async {

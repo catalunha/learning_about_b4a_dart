@@ -28,6 +28,7 @@ class ConnectB4A {
   }
 
   Future<void> healthCheck() async {
+    //https://github.com/parse-community/Parse-SDK-Flutter/issues/799
     if ((await Parse().healthCheck()).success) {
       log('Back4app Connected.');
     } else {
