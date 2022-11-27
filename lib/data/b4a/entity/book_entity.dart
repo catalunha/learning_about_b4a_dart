@@ -70,13 +70,6 @@ class BookEntity {
     if (model.typeDate != null) {
       parseObject.set('typeDate', model.typeDate);
     }
-    if (model.typeObject != null) {
-      var typeObjectData = <String, dynamic>{};
-      for (var item in model.typeObject!.entries) {
-        typeObjectData[item.key] = item.value;
-      }
-      parseObject.set('typeObject', typeObjectData);
-    }
     if (model.typeArray != null) {
       parseObject.set('typeArray', model.typeArray);
     }

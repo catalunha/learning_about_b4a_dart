@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:learning_about_b4a_dart/core/models/book_model.dart';
+import 'package:learning_about_b4a_dart/data/b4a/entity/author_entity.dart';
 import 'package:learning_about_b4a_dart/data/b4a/entity/book_entity.dart';
+import 'package:learning_about_b4a_dart/data/b4a/entity/publisher_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class BookAddData {
-  static add() async {
+  static addSimpleData() async {
     removeAll();
     var authorModelList = <BookModel>[];
     authorModelList.addAll([
@@ -12,7 +16,6 @@ class BookAddData {
         typeBoolean: true,
         typeNumber: 1,
         typeDate: DateTime.now(),
-        typeObject: {"key1": "value1"},
         typeArray: ['a', '1'],
       ),
       BookModel(
@@ -20,7 +23,6 @@ class BookAddData {
         typeBoolean: false,
         typeNumber: 2,
         typeDate: DateTime(2022, 11, 26, 12).add(Duration(hours: 1)),
-        typeObject: {"key2": "value2"},
         typeArray: ['b', '2'],
       ),
       BookModel(
@@ -28,7 +30,6 @@ class BookAddData {
         typeBoolean: true,
         typeNumber: 3,
         typeDate: DateTime.now().add(Duration(hours: 2)),
-        typeObject: {"key3": "value3"},
         typeArray: ['c', '3'],
       ),
       BookModel(
@@ -36,7 +37,6 @@ class BookAddData {
         typeBoolean: false,
         typeNumber: 4,
         typeDate: DateTime.now().add(Duration(hours: 23)),
-        typeObject: {"key4": "value4"},
         typeArray: ['d', '4'],
       ),
     ]);
@@ -44,6 +44,72 @@ class BookAddData {
       ParseObject authorParseObject = BookEntity().toParse(authorModel);
       await authorParseObject.save();
     }
+  }
+
+  static addPointer() async {
+    log('addPointer 01');
+    final parseObjectBook01 = ParseObject(BookEntity.className);
+    parseObjectBook01.objectId = 'aeOTTuGO7r';
+    final parseObjectPublisher01 = ParseObject(PublisherEntity.className);
+    parseObjectPublisher01.objectId = '5iLu1JOO9x';
+    parseObjectBook01.set('typePointerPublisher', parseObjectPublisher01);
+    await parseObjectBook01.save();
+
+    log('addPointer 02');
+    final parseObjectBook02 = ParseObject(BookEntity.className);
+    parseObjectBook02.objectId = 'gkotvO6IKI';
+    parseObjectBook02.set(
+        'typePointerPublisher',
+        (ParseObject(PublisherEntity.className)..objectId = 't6ziHJPZdb')
+            .toPointer());
+    await parseObjectBook02.save();
+
+    log('addPointer 03');
+    final parseObjectBook03 = ParseObject(BookEntity.className);
+    parseObjectBook03.objectId = 'wOXryOT9nK';
+    final parseObjectPublisher03 = ParseObject(PublisherEntity.className);
+    parseObjectPublisher03.objectId = 'aPqY5rvjzd';
+    parseObjectBook03.set('typePointerPublisher', parseObjectPublisher03);
+    await parseObjectBook03.save();
+
+    log('addPointer 04');
+    final parseObjectBook04 = ParseObject(BookEntity.className);
+    parseObjectBook04.objectId = 'feuMyNi2QR';
+    parseObjectBook04.set(
+        'typePointerPublisher',
+        (ParseObject(PublisherEntity.className)..objectId = 'kZWvjCE3xz')
+            .toPointer());
+    await parseObjectBook04.save();
+  }
+
+  static addRelations() async {
+    log('addRelation 01');
+    final parseObjectBook01 = ParseObject(BookEntity.className);
+    parseObjectBook01.objectId = 'aeOTTuGO7r';
+    final parseObjectAuthor01 = ParseObject(AuthorEntity.className);
+    parseObjectAuthor01.objectId = 'fK4I00NlBy';
+    parseObjectBook01.addRelation('typeRelationAuthor', [parseObjectAuthor01]);
+    await parseObjectBook01.save();
+
+    log('addRelation 02');
+    final parseObjectBook02 = ParseObject(BookEntity.className);
+    parseObjectBook02.objectId = 'gkotvO6IKI';
+    final parseObjectAuthor02 = ParseObject(AuthorEntity.className);
+    parseObjectAuthor02.objectId = 'ETwKYOAMh2';
+    parseObjectBook02.addRelation(
+        'typeRelationAuthor', [parseObjectAuthor01, parseObjectAuthor02]);
+    await parseObjectBook02.save();
+  }
+
+  static addRelations2() async {
+    log('addRelation 01a');
+    final parseObjectBook01 = ParseObject(BookEntity.className);
+    parseObjectBook01.objectId = 'aeOTTuGO7r';
+    var parseRelationBook = parseObjectBook01.getRelation('typeRelationAuthor');
+    final parseObjectAuthor01 = ParseObject(AuthorEntity.className);
+    parseObjectAuthor01.objectId = 'fK4I00NlBy';
+    parseRelationBook.add(parseObjectAuthor01);
+    await parseObjectBook01.save();
   }
 
   static removeAll() async {

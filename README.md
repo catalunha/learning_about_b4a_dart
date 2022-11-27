@@ -1,4 +1,5 @@
 # learning_about_b4a_dart
+
 Um pequeno projeto para aprender um pouco mais sobre b4a com puro dart.
 
 
@@ -6,6 +7,9 @@ Um pequeno projeto para aprender um pouco mais sobre b4a com puro dart.
 
 dart bin/learning_about_b4a_dart.dart
 
+# issues
+https://github.com/parse-community/Parse-SDK-Flutter/issues/799
+https://github.com/parse-community/Parse-SDK-Flutter/issues/801
 
 # uml
 

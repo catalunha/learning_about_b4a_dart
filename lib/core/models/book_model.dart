@@ -9,9 +9,7 @@ class BookModel {
   final bool? typeBoolean;
   final num? typeNumber;
   final DateTime? typeDate;
-  final Map<String, dynamic>? typeObject;
   final List<String>? typeArray;
-  final String? typeFile;
   final PublisherModel? typePointerPublisher;
   final List<AuthorModel>? typeRelationAuthor;
   BookModel({
@@ -20,9 +18,7 @@ class BookModel {
     this.typeBoolean,
     this.typeNumber,
     this.typeDate,
-    this.typeObject,
     this.typeArray,
-    this.typeFile,
     this.typePointerPublisher,
     this.typeRelationAuthor,
   });
@@ -44,9 +40,7 @@ class BookModel {
       typeBoolean: typeBoolean ?? this.typeBoolean,
       typeNumber: typeNumber ?? this.typeNumber,
       typeDate: typeDate ?? this.typeDate,
-      typeObject: typeObject ?? this.typeObject,
       typeArray: typeArray ?? this.typeArray,
-      typeFile: typeFile ?? this.typeFile,
       typePointerPublisher: typePointer ?? typePointerPublisher,
       typeRelationAuthor: typeRelation ?? typeRelationAuthor,
     );
@@ -70,14 +64,8 @@ class BookModel {
     if (typeDate != null) {
       result.addAll({'typeDate': typeDate!.millisecondsSinceEpoch});
     }
-    if (typeObject != null) {
-      result.addAll({'typeObject': typeObject});
-    }
     if (typeArray != null) {
       result.addAll({'typeArray': typeArray});
-    }
-    if (typeFile != null) {
-      result.addAll({'typeFile': typeFile});
     }
     if (typePointerPublisher != null) {
       result.addAll({'typePointer': typePointerPublisher!.toMap()});
@@ -99,9 +87,7 @@ class BookModel {
       typeDate: map['typeDate'] != null
           ? DateTime.fromMillisecondsSinceEpoch(map['typeDate'])
           : null,
-      typeObject: Map<String, dynamic>.from(map['typeObject']),
       typeArray: List<String>.from(map['typeArray']),
-      typeFile: map['typeFile'],
       typePointerPublisher: map['typePointer'] != null
           ? PublisherModel.fromMap(map['typePointer'])
           : null,
@@ -119,6 +105,6 @@ class BookModel {
 
   @override
   String toString() {
-    return 'BookModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeObject: $typeObject, typeArray: $typeArray, typeFile: $typeFile, typePointer: $typePointerPublisher, typeRelation: $typeRelationAuthor)';
+    return 'BookModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate,  typeArray: $typeArray, typePointer: $typePointerPublisher, typeRelation: $typeRelationAuthor)';
   }
 }

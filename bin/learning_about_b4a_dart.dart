@@ -1,4 +1,5 @@
 import 'package:learning_about_b4a_dart/data/b4a/connect_b4a.dart';
+import 'package:learning_about_b4a_dart/data/b4a/tables/book/book_add_data.dart';
 
 void main(List<String> arguments) async {
   ConnectB4A connectB4A = ConnectB4A();
@@ -57,7 +58,8 @@ void main(List<String> arguments) async {
   // genreView.queryBuilderOr();
 
   // Author
-  // AuthorAddData.add();
+  // AuthorAddData.addSimpleData();
+  // AuthorAddData.addPointer();
   // AuthorView authorView = AuthorView();
   // authorView.queryBuilderIncludeObject(['typePointerGenre']);
   // authorView.queryBuilderWhereEqualToPointer(
@@ -68,11 +70,15 @@ void main(List<String> arguments) async {
   // authorView.queryBuilderWhereDoesNotMatchKeyInQuery();
 
   // Publisher
-  // PublisherAddData.add();
+  // PublisherAddData.addSimpleData();
+  // PublisherAddData.addPointer();
   // PublisherAddData.addFile('readmes/files/uml.jpg', '5iLu1JOO9x');
 
   // Book
-  // BookAddData.add();
+  // BookAddData.addSimpleData();
+  // BookAddData.addPointer();
+  // BookAddData.addRelations();
+  BookAddData.addRelations2();
   // BookView bookView = BookView();
   // bookView.queryBuilderIncludeObject(
   //     ['typePointerPublisher', 'typePointerPublisher.typePointerGenre']);
