@@ -3,15 +3,15 @@ import 'package:learning_about_b4a_dart/data/b4a/entity/genre_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class GenreController {
-  Future<GenreModel?> get(String objectId) async {
+  Future<GenreModel?> getObject(String objectId) async {
     final parseResponse =
         await ParseObject(GenreEntity.className).getObject(objectId);
-    GenreModel? profileModel;
+    GenreModel? genreModel;
 
     if (parseResponse.success && parseResponse.results != null) {
-      profileModel = GenreEntity().toModel(parseResponse.results!.first);
+      genreModel = GenreEntity().toModel(parseResponse.results!.first);
     }
-    return profileModel;
+    return genreModel;
   }
 
   Future<List<GenreModel>> getAll() async {

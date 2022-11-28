@@ -4,15 +4,15 @@ import 'package:learning_about_b4a_dart/core/models/genre_model.dart';
 import 'package:learning_about_b4a_dart/presentation/genre/genre_controller.dart';
 
 class GenreView {
-  void get(String objectId) async {
+  void getObject(String objectId) async {
     log('+++ get +++');
     GenreController genreController = GenreController();
-    GenreModel? profileModel = await genreController.get(objectId);
+    GenreModel? genreModel = await genreController.getObject(objectId);
     log('... get ...');
-    if (profileModel == null) {
+    if (genreModel == null) {
       log('null');
     } else {
-      log(profileModel.toString());
+      log(genreModel.toString());
     }
     log('--- get ---');
   }

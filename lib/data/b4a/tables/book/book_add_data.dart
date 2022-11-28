@@ -89,8 +89,6 @@ class BookAddData {
     parseObjectBook01.objectId = 'aeOTTuGO7r';
     parseObjectBook01 = await parseObjectBook01.fetch();
     var parseRelationBook = parseObjectBook01.getRelation('typeRelationAuthor');
-    print(parseRelationBook.toJson());
-    print(parseRelationBook.toString());
     final parseObjectAuthor01 = ParseObject(AuthorEntity.className);
     parseObjectAuthor01.objectId = 'fK4I00NlBy';
     parseRelationBook.add(parseObjectAuthor01);
