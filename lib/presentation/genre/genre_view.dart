@@ -5,16 +5,16 @@ import 'package:learning_about_b4a_dart/presentation/genre/genre_controller.dart
 
 class GenreView {
   void getObject(String objectId) async {
-    log('+++ get +++');
+    log('+++ getObject +++');
     GenreController genreController = GenreController();
     GenreModel? genreModel = await genreController.getObject(objectId);
-    log('... get ...');
+    log('... getObject ...');
     if (genreModel == null) {
       log('null');
     } else {
       log(genreModel.toString());
     }
-    log('--- get ---');
+    log('--- getObject ---');
   }
 
   void getAll() async {

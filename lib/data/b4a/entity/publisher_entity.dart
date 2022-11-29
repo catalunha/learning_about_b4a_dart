@@ -12,6 +12,7 @@ class PublisherEntity {
       typeBoolean: parseObject.get<bool>('typeBoolean'),
       typeNumber: parseObject.get<num>('typeNumber'),
       typeDate: parseObject.get<DateTime>('typeDate')?.toLocal(),
+      typeFile: parseObject.get('typeFile')?.get('url'),
       typeArray: parseObject.get<List<dynamic>>('typeArray') != null
           ? parseObject
               .get<List<dynamic>>('typeArray')!
