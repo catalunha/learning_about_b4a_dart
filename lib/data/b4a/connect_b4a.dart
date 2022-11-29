@@ -16,23 +16,35 @@ class ConnectB4A {
 
   Future<void> initialize({bool debug = false}) async {
     getCredentials();
-    String keyParseServerUrl = 'https://parseapi.back4app.com';
+    String serverUrl = 'https://parseapi.back4app.com';
     await Parse().initialize(
       _appId,
-      keyParseServerUrl,
+      serverUrl,
       clientKey: _clientKey,
-      autoSendSessionId: true,
       debug: debug,
     );
     await healthCheck();
   }
 
+  /// No healthCheck se o valor de appId ou clientKey estiver errado
+  /// ele gera uma exceção.
+  /// Então relatei isto nesta issue
+  /// https://github.com/parse-community/Parse-SDK-Flutter/issues/799
+  /// Pra resolver isto envolvi com um try...catch
+
   Future<void> healthCheck() async {
-    //https://github.com/parse-community/Parse-SDK-Flutter/issues/799
-    if ((await Parse().healthCheck()).success) {
-      log('Back4app Connected.');
-    } else {
+    try {
+      if ((await Parse().healthCheck()).success) {
+        log('Back4app Connected.');
+      } else {
+        log('Back4app NOT Connected.');
+        log('Exit app.');
+        exit(0);
+      }
+    } catch (e) {
+      log('Parse().healthCheck() with erros.');
       log('Back4app NOT Connected.');
+      log('Exit app.');
       exit(0);
     }
   }

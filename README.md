@@ -39,3 +39,13 @@ Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews 
 
 # Sumário dos artigos
 
+* Introdução ao projeto completo
+* Criação do database no back4app.com
+* Criação do app Dart e Conexão do app com a b4a
+  * lib/data/b4a/connect_b4a.dart
+* Apresentação das tabelas, seus campos, e suas relações
+* Criação da tabela genre na b4a e via Dart
+  * lib/data/b4a/tables/genre/genre_add_data.dart
+  * lib/core/models/genre_model.dart
+  * lib/data/b4a/entity/genre_entity.dart
+* 

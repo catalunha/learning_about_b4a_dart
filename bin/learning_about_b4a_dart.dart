@@ -1,4 +1,5 @@
 import 'package:learning_about_b4a_dart/data/b4a/connect_b4a.dart';
+import 'package:learning_about_b4a_dart/presentation/genre/genre_view.dart';
 
 void main(List<String> arguments) async {
   ConnectB4A connectB4A = ConnectB4A();
@@ -7,9 +8,9 @@ void main(List<String> arguments) async {
 
   // Genre
   // GenreAddData.add();
-  // GenreView genreView = GenreView();
+  GenreView genreView = GenreView();
   // genreView.count();
-  // genreView.getObject('mrsMiyXeuP');
+  genreView.getObject('mrsMiyXeuP');
   // genreView.unset('I9npZLFtqI', ['typeString']);
   // genreView.getAll();
   // genreView.queryBuilder();
