@@ -1,42 +1,44 @@
 import 'dart:convert';
 
-import 'package:learning_about_b4a_dart/core/models/shape_model.dart';
-
-class PublisherModel {
+class ShapeModel {
   final String? objectId;
   final String? typeString;
   final bool? typeBoolean;
   final num? typeNumber;
   final DateTime? typeDate;
   final List<String>? typeArray;
-  final ShapeModel? typePointerShape;
-  PublisherModel({
+  final String? typeFile;
+  final Map<String, dynamic>? typeObject;
+  ShapeModel({
     this.objectId,
     this.typeString,
     this.typeBoolean,
     this.typeNumber,
     this.typeDate,
     this.typeArray,
-    this.typePointerShape,
+    this.typeFile,
+    this.typeObject,
   });
 
-  PublisherModel copyWith({
+  ShapeModel copyWith({
     String? objectId,
     String? typeString,
     bool? typeBoolean,
     num? typeNumber,
     DateTime? typeDate,
     List<String>? typeArray,
-    ShapeModel? typePointerShape,
+    String? typeFile,
+    Map<String, dynamic>? typeObject,
   }) {
-    return PublisherModel(
+    return ShapeModel(
       objectId: objectId ?? this.objectId,
       typeString: typeString ?? this.typeString,
       typeBoolean: typeBoolean ?? this.typeBoolean,
       typeNumber: typeNumber ?? this.typeNumber,
       typeDate: typeDate ?? this.typeDate,
       typeArray: typeArray ?? this.typeArray,
-      typePointerShape: typePointerShape ?? this.typePointerShape,
+      typeFile: typeFile ?? this.typeFile,
+      typeObject: typeObject ?? this.typeObject,
     );
   }
 
@@ -61,15 +63,18 @@ class PublisherModel {
     if (typeArray != null) {
       result.addAll({'typeArray': typeArray});
     }
-    if (typePointerShape != null) {
-      result.addAll({'typePointerShape': typePointerShape!.toMap()});
+    if (typeFile != null) {
+      result.addAll({'typeFile': typeFile});
+    }
+    if (typeObject != null) {
+      result.addAll({'typeObject': typeObject});
     }
 
     return result;
   }
 
-  factory PublisherModel.fromMap(Map<String, dynamic> map) {
-    return PublisherModel(
+  factory ShapeModel.fromMap(Map<String, dynamic> map) {
+    return ShapeModel(
       objectId: map['objectId'],
       typeString: map['typeString'],
       typeBoolean: map['typeBoolean'],
@@ -78,19 +83,18 @@ class PublisherModel {
           ? DateTime.fromMillisecondsSinceEpoch(map['typeDate'])
           : null,
       typeArray: List<String>.from(map['typeArray']),
-      typePointerShape: map['typePointerShape'] != null
-          ? ShapeModel.fromMap(map['typePointerShape'])
-          : null,
+      typeFile: map['typeFile'],
+      typeObject: Map<String, dynamic>.from(map['typeObject']),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory PublisherModel.fromJson(String source) =>
-      PublisherModel.fromMap(json.decode(source));
+  factory ShapeModel.fromJson(String source) =>
+      ShapeModel.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'PublisherModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeArray: $typeArray, typePointerShape: $typePointerShape)';
+    return 'ShapeModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeArray: $typeArray, typeFile: $typeFile, typeObject: $typeObject)';
   }
 }

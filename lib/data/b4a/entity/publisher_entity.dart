@@ -1,5 +1,5 @@
 import 'package:learning_about_b4a_dart/core/models/publisher_model.dart';
-import 'package:learning_about_b4a_dart/data/b4a/entity/genre_entity.dart';
+import 'package:learning_about_b4a_dart/data/b4a/entity/shape_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class PublisherEntity {
@@ -12,16 +12,15 @@ class PublisherEntity {
       typeBoolean: parseObject.get<bool>('typeBoolean'),
       typeNumber: parseObject.get<num>('typeNumber'),
       typeDate: parseObject.get<DateTime>('typeDate')?.toLocal(),
-      typeFile: parseObject.get('typeFile')?.get('url'),
       typeArray: parseObject.get<List<dynamic>>('typeArray') != null
           ? parseObject
               .get<List<dynamic>>('typeArray')!
               .map((e) => e.toString())
               .toList()
           : null,
-      typePointerGenre: parseObject.get('typePointerGenre') != null
-          ? GenreEntity()
-              .toModel(parseObject.get('typePointerGenre') as ParseObject)
+      typePointerShape: parseObject.get('typePointerShape') != null
+          ? ShapeEntity()
+              .toModel(parseObject.get('typePointerShape') as ParseObject)
           : null,
     );
     return model;
@@ -49,11 +48,11 @@ class PublisherEntity {
     if (model.typeArray != null) {
       parseObject.set('typeArray', model.typeArray);
     }
-    if (model.typePointerGenre != null) {
+    if (model.typePointerShape != null) {
       parseObject.set(
-          'typePointerGenre',
-          (ParseObject(GenreEntity.className)
-                ..objectId = model.typePointerGenre!.objectId)
+          'typePointerShape',
+          (ParseObject(ShapeEntity.className)
+                ..objectId = model.typePointerShape!.objectId)
               .toPointer());
     }
     return parseObject;

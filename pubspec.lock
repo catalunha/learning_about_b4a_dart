@@ -202,7 +202,7 @@ packages:
     description:
       path: "packages/dart"
       ref: HEAD
-      resolved-ref: ce1e995e3ccc0d9fb7640343c8f1fb80e347d314
+      resolved-ref: e72f616d425b9b953d44106d43d42a831fe220f3
       url: "https://github.com/catalunha/Parse-SDK-Flutter"
     source: git
     version: "3.1.3"

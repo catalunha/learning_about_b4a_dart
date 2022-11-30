@@ -1,11 +1,22 @@
-import 'package:learning_about_b4a_dart/core/models/genre_model.dart';
+import 'package:learning_about_b4a_dart/core/models/shape_model.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
-class GenreEntity {
-  static const String className = 'Genre';
+class ShapeEntity {
+  static const String className = 'Shape';
 
-  GenreModel toModel(ParseObject parseObject) {
-    GenreModel model = GenreModel(
+  ShapeModel toModel(ParseObject parseObject) {
+    //+++ typeObject
+    Map<String, String>? typeObject;
+    Map<String, dynamic>? typeObjectTemp =
+        parseObject.get<Map<String, dynamic>>('typeObject');
+    if (typeObjectTemp != null) {
+      typeObject = <String, String>{};
+      for (var item in typeObjectTemp.entries) {
+        typeObject[item.key] = item.value;
+      }
+    }
+    //--- typeObject
+    ShapeModel model = ShapeModel(
       objectId: parseObject.objectId!,
       typeString: parseObject.get<String>('typeString'),
       typeBoolean: parseObject.get<bool>('typeBoolean'),
@@ -17,12 +28,14 @@ class GenreEntity {
               .map((e) => e.toString())
               .toList()
           : null,
+      typeFile: parseObject.get('typeFile')?.get('url'),
+      typeObject: typeObject,
     );
     return model;
   }
 
-  ParseObject toParse(GenreModel model) {
-    final parseObject = ParseObject(GenreEntity.className);
+  ParseObject toParse(ShapeModel model) {
+    final parseObject = ParseObject(ShapeEntity.className);
     if (model.objectId != null) {
       parseObject.objectId = model.objectId;
     }
@@ -43,12 +56,18 @@ class GenreEntity {
     if (model.typeArray != null) {
       parseObject.set('typeArray', model.typeArray);
     }
-
+    if (model.typeObject != null) {
+      var typeObjectData = <String, dynamic>{};
+      for (var item in model.typeObject!.entries) {
+        typeObjectData[item.key] = item.value;
+      }
+      parseObject.set('typeObject', typeObjectData);
+    }
     return parseObject;
   }
 
   ParseObject toParseUnset(String objectId, List<String> unsetFields) {
-    final parseObject = ParseObject(GenreEntity.className);
+    final parseObject = ParseObject(ShapeEntity.className);
     parseObject.objectId = objectId;
 
     for (var field in unsetFields) {

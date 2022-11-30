@@ -6,8 +6,8 @@ class GenreModel {
   final bool? typeBoolean;
   final num? typeNumber;
   final DateTime? typeDate;
-  final Map<String, dynamic>? typeObject;
   final List<String>? typeArray;
+  final Map<String, dynamic>? typeObject;
   GenreModel({
     this.objectId,
     this.typeString,

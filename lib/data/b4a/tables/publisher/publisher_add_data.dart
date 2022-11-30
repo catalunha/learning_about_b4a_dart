@@ -1,7 +1,7 @@
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:learning_about_b4a_dart/core/models/publisher_model.dart';
+import 'package:learning_about_b4a_dart/core/models/shape_model.dart';
 import 'package:learning_about_b4a_dart/data/b4a/entity/genre_entity.dart';
 import 'package:learning_about_b4a_dart/data/b4a/entity/publisher_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
@@ -17,7 +17,7 @@ class PublisherAddData {
         typeNumber: 1,
         typeDate: DateTime.now(),
         typeArray: ['a', '1'],
-        // typePointerGenre: GenreModel(objectId: 'kyCtliyFaK'),
+        typePointerShape: ShapeModel(objectId: 'kyCtliyFaK'),
       ),
       PublisherModel(
         typeString: 'Publisher02',
@@ -50,32 +50,14 @@ class PublisherAddData {
     }
   }
 
-  static addFile(String pathFile, String publisherId) async {
-    // String dataFile = 'readmes/files/uml.jpg';
-    // String objectId = '5iLu1JOO9x';
-    ParseFileBase? parseFileBase = ParseFile(File(pathFile));
-    final ParseResponse parseResponseFile = await parseFileBase.save();
-    if (parseResponseFile.success && parseResponseFile.results != null) {
-      final parseObject = ParseObject(PublisherEntity.className);
-      parseObject.objectId = publisherId;
-      parseObject.set('typeFile', parseFileBase);
-      final ParseResponse responseParseObject = await parseObject.save();
-      if (responseParseObject.success && responseParseObject.results != null) {
-        log('File $pathFile save in ${PublisherEntity.className}.$publisherId');
-      } else {
-        log('Problem in save file');
-      }
-    }
-  }
-
   static addPointer() async {
-    log('addPointer 01');
-    final parseObjectPublisher01 = ParseObject(PublisherEntity.className);
-    parseObjectPublisher01.objectId = '5iLu1JOO9x';
-    final parseObjectGenre01 = ParseObject(GenreEntity.className);
-    parseObjectGenre01.objectId = 'kyCtliyFaK';
-    parseObjectPublisher01.set('typePointerGenre', parseObjectGenre01);
-    await parseObjectPublisher01.save();
+    // log('addPointer 01');
+    // final parseObjectPublisher01 = ParseObject(PublisherEntity.className);
+    // parseObjectPublisher01.objectId = '5iLu1JOO9x';
+    // final parseObjectGenre01 = ParseObject(GenreEntity.className);
+    // parseObjectGenre01.objectId = 'kyCtliyFaK';
+    // parseObjectPublisher01.set('typePointerGenre', parseObjectGenre01);
+    // await parseObjectPublisher01.save();
 
     log('addPointer 02');
     final parseObjectPublisher02 = ParseObject(PublisherEntity.className);

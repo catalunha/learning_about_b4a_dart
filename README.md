@@ -18,6 +18,7 @@ As seguintes issues foram geradas ao longo dos estudos.
 
 ### open
 https://github.com/parse-community/Parse-SDK-Flutter/issues/799
+https://github.com/parse-community/Parse-SDK-Flutter/issues/803
 
 ### closed
 https://github.com/parse-community/Parse-SDK-Flutter/issues/801
@@ -39,13 +40,33 @@ Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews 
 
 # Sumário dos artigos
 
-* Introdução ao projeto completo
+* Introdução ao projeto Dart completo
+* Apresentação das tabelas, seus campos, e suas relações.
 * Criação do database no back4app.com
+  * tabelas e campos
 * Criação do app Dart e Conexão do app com a b4a
   * lib/data/b4a/connect_b4a.dart
-* Apresentação das tabelas, seus campos, e suas relações
-* Criação da tabela genre na b4a e via Dart
+* Add dados em Genre via App Dart
   * lib/data/b4a/tables/genre/genre_add_data.dart
   * lib/core/models/genre_model.dart
   * lib/data/b4a/entity/genre_entity.dart
-* 
+* Buscas em Genre via App Dart
+* Add dados em Author via App Dart
+  * add Pointer to Genre
+* Buscas em Author via App Dart
+* Add dados em Shape via App Dart
+  * add Files
+  * add Object
+* Buscas em Shape via App Dart
+* Add dados em Publisher via App Dart
+  * add Pointer to Shape
+* Buscas em Publisher via App Dart
+* Add dados em Book via App Dart
+  * Pointer to Publisher
+  * Relations to Author
+* Buscas em Book via App Dart
+
+
+
+
+

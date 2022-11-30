@@ -1,5 +1,9 @@
 import 'package:learning_about_b4a_dart/data/b4a/connect_b4a.dart';
+import 'package:learning_about_b4a_dart/data/b4a/tables/publisher/publisher_add_data.dart';
+import 'package:learning_about_b4a_dart/data/b4a/tables/shape/shape_add_data.dart';
 import 'package:learning_about_b4a_dart/presentation/genre/genre_view.dart';
+import 'package:learning_about_b4a_dart/presentation/publisher/publisher_view.dart';
+import 'package:learning_about_b4a_dart/presentation/shape/shape_view.dart';
 
 void main(List<String> arguments) async {
   ConnectB4A connectB4A = ConnectB4A();
@@ -8,10 +12,10 @@ void main(List<String> arguments) async {
 
   // Genre
   // GenreAddData.add();
+  // genreView.unset('I9npZLFtqI', ['typeString']);
   GenreView genreView = GenreView();
   // genreView.count();
   genreView.getObject('mrsMiyXeuP');
-  // genreView.unset('I9npZLFtqI', ['typeString']);
   // genreView.getAll();
   // genreView.queryBuilder();
   // genreView.queryBuilderOrderByAscending('typeString');
@@ -69,12 +73,17 @@ void main(List<String> arguments) async {
   // authorView.queryBuilderWhereMatchesKeyInQuery();
   // authorView.queryBuilderWhereDoesNotMatchKeyInQuery();
 
+  // Shape
+  ShapeAddData.addSimpleData();
+  ShapeAddData.addFile('readmes/files/uml.jpg', '5iLu1JOO9x');
+  ShapeView shapeView = ShapeView();
+  shapeView.getObject('5iLu1JOO9x');
+
   // Publisher
-  // PublisherAddData.addSimpleData();
-  // PublisherAddData.addPointer();
-  // PublisherAddData.addFile('readmes/files/uml.jpg', '5iLu1JOO9x');
-  // PublisherView genreView = PublisherView();
-  // genreView.getObject('5iLu1JOO9x');
+  PublisherAddData.addSimpleData();
+  PublisherAddData.addPointer();
+  PublisherView publisherView = PublisherView();
+  publisherView.getObject('5iLu1JOO9x');
 
   // Book
   // BookAddData.addSimpleData();
