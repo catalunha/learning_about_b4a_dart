@@ -28,17 +28,6 @@ class GenreView {
     log('--- getAll ---');
   }
 
-  void unset(String objectId, List<String> columnsName) async {
-    log('+++ unset +++');
-    GenreController genreController = GenreController();
-    for (var column in columnsName) {
-      await genreController.unset(objectId, column);
-    }
-    log('... unset ...');
-    log('always true\n');
-    log('--- unset ---');
-  }
-
   void count() async {
     log('+++ count +++');
     GenreController genreController = GenreController();

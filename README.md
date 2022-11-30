@@ -1,12 +1,13 @@
 # Introdução
 ## learning_about_b4a_dart
 
-Este repositório é um pequeno projeto para aprender um pouco mais sobre b4a com puro dart. E compartilhar com vocês.
+Este repositório é um pequeno projeto para eu aprender um pouco mais sobre b4a com puro dart. E também compartilhar com vocês.
 
 
-## run
-Copie este repositorio.
-Instale com o VSCode
+## Como té-lo localmente
+Abra seu VSCode
+Clone este repositorio, https://github.com/catalunha/learning_about_b4a_dart.git, para uma pasta local em seu computador
+Atualize o pubspec.yaml
 Execute em modo Debug para pegar as saídas dos log().
 
 Ou simplesmente digite:
@@ -24,47 +25,55 @@ https://github.com/parse-community/Parse-SDK-Flutter/issues/803
 https://github.com/parse-community/Parse-SDK-Flutter/issues/801
 
 ## b4a Support
-As seguintes tickets foram geradas ao longo dos estudos.
+Os seguintes tickets foram geradas ao longo dos estudos.
 https://help.back4app.com/hc/en-us/requests
 https://help.back4app.com/hc/en-us/requests/new
+
 ### open
 https://help.back4app.com/hc/en-us/requests/31976
 https://help.back4app.com/hc/en-us/requests/31978
 https://help.back4app.com/hc/en-us/requests/31980
 https://help.back4app.com/hc/en-us/requests/31983
 https://help.back4app.com/hc/en-us/requests/31985
+
 ### closed
 
-# Artigos
+---
+
+# Os Artigos
 Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews https://www.tabnews.com.br/catalunha
 
 # Sumário dos artigos
 
-* Introdução ao projeto Dart completo
-* Apresentação das tabelas, seus campos, e suas relações.
-* Criação do database no back4app.com
-  * tabelas e campos
-* Criação do app Dart e Conexão do app com a b4a
+* [Apresentação do projeto Dart completo](/readmes/apresentacao.md)
+* [As tabelas, seus campos, e suas relações.](readmes/tabelas.md)
+* [Criação do database no back4app.com](readmes/database.md)
+  * tabelas
+  * campos
+  * edições
+* [Criação do app Dart e Conexão do app com a b4a](readmes/app.md)
   * lib/data/b4a/connect_b4a.dart
-* Add dados em Genre via App Dart
+* [Add dados em Genre via App Dart](readmes/genre_dados.md)
   * lib/data/b4a/tables/genre/genre_add_data.dart
   * lib/core/models/genre_model.dart
   * lib/data/b4a/entity/genre_entity.dart
-* Buscas em Genre via App Dart
-* Add dados em Author via App Dart
+* [Buscas em Genre via App Dart](readmes/genre_buscas.md)
+* [Add dados em Author via App Dart](readmes/author_dados.md)
   * add Pointer to Genre
-* Buscas em Author via App Dart
-* Add dados em Shape via App Dart
+* [Buscas em Author via App Dart](readmes/author_buscas.md)
+* [Add dados em Shape via App Dart](readmes/shape_dados.md)
   * add Files
   * add Object
-* Buscas em Shape via App Dart
-* Add dados em Publisher via App Dart
+* [Buscas em Shape via App Dart](readmes/shape_buscas.md)
+* [Add dados em Publisher via App Dart](readmes/publisher_dados.md)
   * add Pointer to Shape
-* Buscas em Publisher via App Dart
-* Add dados em Book via App Dart
+* [Buscas em Publisher via App Dart](readmes/publisher_buscas.md)
+* [Add dados em Book via App Dart](readmes/book_dados.md)
   * Pointer to Publisher
   * Relations to Author
-* Buscas em Book via App Dart
+* [Buscas em Book via App Dart](readmes/book_buscas.md)
+
+---
 
 
 

@@ -26,20 +26,6 @@ class GenreController {
     return list;
   }
 
-  Future<void> unset(String objectId, String columnName) async {
-    final parseObject = ParseObject(GenreEntity.className);
-    parseObject.objectId = objectId;
-    await parseObject.unset(columnName);
-    // É sempre parseResponse.success=true
-    // mesmo que coluna ja esteja undefined, ou
-    // nome da coluna esteja errado.
-    // print('parseResponse.count: ${parseResponse.count}');
-    // print('parseResponse.error: ${parseResponse.error}');
-    // print('parseResponse.results: ${parseResponse.results}');
-    // print('parseResponse.statusCode: ${parseResponse.statusCode}');
-    // print('parseResponse.success: ${parseResponse.success}');
-  }
-
   Future<int> count() async {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject(GenreEntity.className));

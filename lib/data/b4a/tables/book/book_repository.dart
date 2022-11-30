@@ -1,13 +1,14 @@
 import 'dart:developer';
 
 import 'package:learning_about_b4a_dart/core/models/book_model.dart';
+import 'package:learning_about_b4a_dart/core/models/publisher_model.dart';
 import 'package:learning_about_b4a_dart/data/b4a/entity/author_entity.dart';
 import 'package:learning_about_b4a_dart/data/b4a/entity/book_entity.dart';
 import 'package:learning_about_b4a_dart/data/b4a/entity/publisher_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
-class BookAddData {
-  static addSimpleData() async {
+class BookRepository {
+  addAll() async {
     removeAll();
     var authorModelList = <BookModel>[];
     authorModelList.addAll([
@@ -17,6 +18,7 @@ class BookAddData {
         typeNumber: 1,
         typeDate: DateTime.now(),
         typeArray: ['a', '1'],
+        typePointerPublisher: PublisherModel(objectId: 'kyCtliyFaK'),
       ),
       BookModel(
         typeString: 'Book02',
@@ -46,14 +48,14 @@ class BookAddData {
     }
   }
 
-  static addPointer() async {
-    log('addPointer 01');
-    final parseObjectBook01 = ParseObject(BookEntity.className);
-    parseObjectBook01.objectId = 'aeOTTuGO7r';
-    final parseObjectPublisher01 = ParseObject(PublisherEntity.className);
-    parseObjectPublisher01.objectId = '5iLu1JOO9x';
-    parseObjectBook01.set('typePointerPublisher', parseObjectPublisher01);
-    await parseObjectBook01.save();
+  addPointer() async {
+    // log('addPointer 01');
+    // final parseObjectBook01 = ParseObject(BookEntity.className);
+    // parseObjectBook01.objectId = 'aeOTTuGO7r';
+    // final parseObjectPublisher01 = ParseObject(PublisherEntity.className);
+    // parseObjectPublisher01.objectId = '5iLu1JOO9x';
+    // parseObjectBook01.set('typePointerPublisher', parseObjectPublisher01);
+    // await parseObjectBook01.save();
 
     log('addPointer 02');
     final parseObjectBook02 = ParseObject(BookEntity.className);
@@ -82,7 +84,7 @@ class BookAddData {
     await parseObjectBook04.save();
   }
 
-  static addRelations() async {
+  addRelations() async {
     log('addRelation 01');
     //The downside of this approach is that it fetches the data.
     var parseObjectBook01 = ParseObject(BookEntity.className);
@@ -104,7 +106,52 @@ class BookAddData {
     await parseObjectBook02.save();
   }
 
-  static removeAll() async {
+  add() async {
+    var bookModel = BookModel(
+      typeString: 'Book04',
+      typeBoolean: false,
+      typeNumber: 4,
+      typeDate: DateTime.now().add(Duration(hours: 23)),
+      typeArray: ['d', '4'],
+    );
+    ParseObject bookParseObject = BookEntity().toParse(bookModel);
+    await bookParseObject.save();
+  }
+
+  update() async {
+    var bookModel = BookModel(
+      objectId: '',
+      typeString: 'Book04',
+      typeBoolean: false,
+      typeNumber: 4,
+      typeDate: DateTime.now().add(Duration(hours: 23)),
+      typeArray: ['d', '4'],
+    );
+    ParseObject bookParseObject = BookEntity().toParse(bookModel);
+    await bookParseObject.save();
+  }
+
+  unset(String objectId, String columnName) async {
+    final parseObject = ParseObject(BookEntity.className);
+    parseObject.objectId = objectId;
+    await parseObject.unset(columnName);
+    // É sempre parseResponse.success=true
+    // mesmo que coluna ja esteja undefined, ou
+    // nome da coluna esteja errado.
+    // print('parseResponse.count: ${parseResponse.count}');
+    // print('parseResponse.error: ${parseResponse.error}');
+    // print('parseResponse.results: ${parseResponse.results}');
+    // print('parseResponse.statusCode: ${parseResponse.statusCode}');
+    // print('parseResponse.success: ${parseResponse.success}');
+  }
+
+  delete(String objectId) async {
+    final parseObject = ParseObject(BookEntity.className);
+    parseObject.objectId = objectId;
+    await parseObject.delete();
+  }
+
+  removeAll() async {
     final apiResponse = await ParseObject(BookEntity.className).getAll();
 
     if (apiResponse.success && apiResponse.results != null) {

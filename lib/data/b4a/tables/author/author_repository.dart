@@ -1,12 +1,13 @@
 import 'dart:developer';
 
 import 'package:learning_about_b4a_dart/core/models/author_model.dart';
+import 'package:learning_about_b4a_dart/core/models/genre_model.dart';
 import 'package:learning_about_b4a_dart/data/b4a/entity/author_entity.dart';
 import 'package:learning_about_b4a_dart/data/b4a/entity/genre_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
-class AuthorAddData {
-  static addSimpleData() async {
+class AuthorRepository {
+  addAll() async {
     removeAll();
     var authorModelList = <AuthorModel>[];
     authorModelList.addAll([
@@ -16,7 +17,7 @@ class AuthorAddData {
         typeNumber: 1,
         typeDate: DateTime.now(),
         typeArray: ['a', '1'],
-        // typePointerGenre: GenreModel(objectId: 'kyCtliyFaK'),
+        typePointerGenre: GenreModel(objectId: 'kyCtliyFaK'),
       ),
       AuthorModel(
         typeString: 'Author02',
@@ -50,14 +51,14 @@ class AuthorAddData {
     }
   }
 
-  static addPointer() async {
-    log('addPointer 01');
-    final parseObjectAuthor01 = ParseObject(AuthorEntity.className);
-    parseObjectAuthor01.objectId = 'fK4I00NlBy';
-    final parseObjectGenre01 = ParseObject(GenreEntity.className);
-    parseObjectGenre01.objectId = 'kyCtliyFaK';
-    parseObjectAuthor01.set('typePointerGenre', parseObjectGenre01);
-    await parseObjectAuthor01.save();
+  addPointer() async {
+    // log('addPointer 01');
+    // final parseObjectAuthor01 = ParseObject(AuthorEntity.className);
+    // parseObjectAuthor01.objectId = 'fK4I00NlBy';
+    // final parseObjectGenre01 = ParseObject(GenreEntity.className);
+    // parseObjectGenre01.objectId = 'kyCtliyFaK';
+    // parseObjectAuthor01.set('typePointerGenre', parseObjectGenre01);
+    // await parseObjectAuthor01.save();
 
     log('addPointer 02');
     final parseObjectAuthor02 = ParseObject(AuthorEntity.className);
@@ -86,7 +87,54 @@ class AuthorAddData {
     await parseObjectAuthor04.save();
   }
 
-  static removeAll() async {
+  add() async {
+    var authorModel = AuthorModel(
+      typeString: 'Author04',
+      typeBoolean: false,
+      typeNumber: 4,
+      typeDate: DateTime.now().add(Duration(hours: 23)),
+      typeArray: ['d', '4'],
+      // typePointerGenre: GenreModel(objectId: 'bxirK4sWKU'),
+    );
+    ParseObject authorParseObject = AuthorEntity().toParse(authorModel);
+    await authorParseObject.save();
+  }
+
+  update() async {
+    var authorModel = AuthorModel(
+      objectId: '',
+      typeString: 'Author04',
+      typeBoolean: false,
+      typeNumber: 4,
+      typeDate: DateTime.now().add(Duration(hours: 23)),
+      typeArray: ['d', '4'],
+      // typePointerGenre: GenreModel(objectId: 'bxirK4sWKU'),
+    );
+    ParseObject authorParseObject = AuthorEntity().toParse(authorModel);
+    await authorParseObject.save();
+  }
+
+  unset(String objectId, String columnName) async {
+    final parseObject = ParseObject(AuthorEntity.className);
+    parseObject.objectId = objectId;
+    await parseObject.unset(columnName);
+    // É sempre parseResponse.success=true
+    // mesmo que coluna ja esteja undefined, ou
+    // nome da coluna esteja errado.
+    // print('parseResponse.count: ${parseResponse.count}');
+    // print('parseResponse.error: ${parseResponse.error}');
+    // print('parseResponse.results: ${parseResponse.results}');
+    // print('parseResponse.statusCode: ${parseResponse.statusCode}');
+    // print('parseResponse.success: ${parseResponse.success}');
+  }
+
+  delete(String objectId) async {
+    final parseObject = ParseObject(GenreEntity.className);
+    parseObject.objectId = objectId;
+    await parseObject.delete();
+  }
+
+  removeAll() async {
     final apiResponse = await ParseObject(AuthorEntity.className).getAll();
 
     if (apiResponse.success && apiResponse.results != null) {

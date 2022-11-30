@@ -7,14 +7,12 @@ class GenreModel {
   final num? typeNumber;
   final DateTime? typeDate;
   final List<String>? typeArray;
-  final Map<String, dynamic>? typeObject;
   GenreModel({
     this.objectId,
     this.typeString,
     this.typeBoolean,
     this.typeNumber,
     this.typeDate,
-    this.typeObject,
     this.typeArray,
   });
 
@@ -33,7 +31,6 @@ class GenreModel {
       typeBoolean: typeBoolean ?? this.typeBoolean,
       typeNumber: typeNumber ?? this.typeNumber,
       typeDate: typeDate ?? this.typeDate,
-      typeObject: typeObject ?? this.typeObject,
       typeArray: typeArray ?? this.typeArray,
     );
   }
@@ -56,9 +53,6 @@ class GenreModel {
     if (typeDate != null) {
       result.addAll({'typeDate': typeDate!.millisecondsSinceEpoch});
     }
-    if (typeObject != null) {
-      result.addAll({'typeObject': typeObject});
-    }
     if (typeArray != null) {
       result.addAll({'typeArray': typeArray});
     }
@@ -75,7 +69,6 @@ class GenreModel {
       typeDate: map['typeDate'] != null
           ? DateTime.fromMillisecondsSinceEpoch(map['typeDate'])
           : null,
-      typeObject: Map<String, dynamic>.from(map['typeObject']),
       typeArray: List<String>.from(map['typeArray']),
     );
   }
@@ -87,6 +80,6 @@ class GenreModel {
 
   @override
   String toString() {
-    return 'GenreModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeObject: $typeObject, typeArray: $typeArray)';
+    return 'GenreModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeArray: $typeArray)';
   }
 }
