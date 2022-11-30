@@ -1,7 +1,13 @@
 
+# As tabelas, seus campos, e suas relações.
+
 As relações são:
 
-![](files/db_relation.jpg)
+![](/readmes/files/db_relation.jpg)
+
+Adotei coloca o tipo da coluna como nome da coluna pra facilitar o entendimento e no caso de Pointer e Relation informar a tabela relacionada.
+
+Como o nome da coluna informa se tipo você pode imaginar qualquer dado para exemplo e buscas.
 
 As tabelas e os seus campos serão:
 
@@ -46,3 +52,20 @@ As tabelas e os seus campos serão:
    6. typeArray
    7. typeFile
    8. typeObject
+
+Os tipos padroes do b4a são
+* String
+* Boolean
+* Number (que pode ser int ou double)
+* Date
+* Object (que é um json livre)
+* File
+* Array (que pode ser de)
+  * String
+  * Boolean
+  * Number
+  * Date
+  * File
+* Pointer (uma associação com outra tabela do tipo 1:n)
+* Relation (uma associação com outra tabela do tipo m:n)
+* GeoPoint (não abordaremos este recurso desta vez)

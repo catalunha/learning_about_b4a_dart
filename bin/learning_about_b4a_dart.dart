@@ -1,14 +1,35 @@
-import 'package:learning_about_b4a_dart/data/b4a/connect_b4a.dart';
-import 'package:learning_about_b4a_dart/data/b4a/tables/author/author_repository.dart';
-import 'package:learning_about_b4a_dart/data/b4a/tables/book/book_repository.dart';
-import 'package:learning_about_b4a_dart/data/b4a/tables/genre/genre_repository.dart';
-import 'package:learning_about_b4a_dart/data/b4a/tables/publisher/publisher_repository.dart';
-import 'package:learning_about_b4a_dart/data/b4a/tables/shape/shape_repository.dart';
-import 'package:learning_about_b4a_dart/presentation/genre/genre_view.dart';
-import 'package:learning_about_b4a_dart/presentation/publisher/publisher_view.dart';
-import 'package:learning_about_b4a_dart/presentation/shape/shape_view.dart';
+import 'dart:io';
+
+import 'package:learning_about_b4a_dart/app/data/b4a/connect_b4a.dart';
+import 'package:learning_about_b4a_dart/app/data/b4a/tables/author/author_repository.dart';
+import 'package:learning_about_b4a_dart/app/data/b4a/tables/book/book_repository.dart';
+import 'package:learning_about_b4a_dart/app/data/b4a/tables/genre/genre_repository.dart';
+import 'package:learning_about_b4a_dart/app/data/b4a/tables/publisher/publisher_repository.dart';
+import 'package:learning_about_b4a_dart/app/data/b4a/tables/shape/shape_repository.dart';
+import 'package:learning_about_b4a_dart/app/presentation/genre/genre_view.dart';
+import 'package:learning_about_b4a_dart/app/presentation/publisher/publisher_view.dart';
+import 'package:learning_about_b4a_dart/app/presentation/shape/shape_view.dart';
 
 void main(List<String> arguments) async {
+  joinPartsInReadme();
+  // app();
+}
+
+void joinPartsInReadme() {
+  String pathREADME = 'README.md';
+  var fileREADME = File(pathREADME).openWrite(mode: FileMode.write);
+  List<String> parts = ['introducao', 'apresentacao', 'tabelas'];
+  for (var part in parts) {
+    String pathPart = 'readmes/$part.md';
+    var dataPart = File(pathPart).readAsStringSync();
+    fileREADME.writeln(dataPart);
+    fileREADME.writeln('---');
+    fileREADME.writeln('---');
+  }
+  fileREADME.close();
+}
+
+app() async {
   ConnectB4A connectB4A = ConnectB4A();
   // await connectB4A.initialize();
   await connectB4A.initialize(debug: true);
