@@ -92,3 +92,7 @@ Crie as colunas typeString, typeBoolean, typeNumber, typeDate e typeArray igual 
 
 ### typeObject
 ![](/readmes/files/database/f15.png)
+
+A lista final de colunas ficou assim:
+
+![](/readmes/files/database/f16.png)
