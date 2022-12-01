@@ -16,7 +16,7 @@ Para padronizar informe
 App name: learning_about_b4a_2
 Database: mongoDB
 
-![](/readmes/files/database/f2.png)
+![](/readmes/files/database/f22.png)
 
 No restante do tutorial tentarei manter o maximo de coisas que eu já fiz com as que vou refazendo pra compartilhar com vc. Se algo estiver a frente ou a trás do que falo ou faço tentarei explicar no video. Mas se ainda nao ficar claro pode lançar suas dúvidas neste discord https://discord.com/channels/766282533292998691/766282694967296030
 
@@ -51,7 +51,7 @@ Criaremos agora as colunas desta tabela. Conforme as imagens a seguir. Após cad
 ### typeNumber
 ![](/readmes/files/database/f8.png)
 
-### typeDate
+### typeDateTime
 ![](/readmes/files/database/f9.png)
 
 ### typeArray
@@ -70,7 +70,7 @@ Agora vamos a proxima tabela
 
 ## Author
 
-Crie as colunas typeString, typeBoolean, typeNumber, typeDate e typeArray igual vc criou na tabela Genre. Acrescentando agora a coluna typePointerGenre que é um ponteiro, 1:n, para a tabela Genre. Desta forma
+Crie as colunas typeString, typeBoolean, typeNumber, typeDateTime e typeArray igual vc criou na tabela Genre. Acrescentando agora a coluna typePointerGenre que é um ponteiro, 1:n, para a tabela Genre. Desta forma
 
 ### typePointerGenre
 ![](/readmes/files/database/f12.png)
@@ -79,16 +79,14 @@ A lista final de colunas ficou assim:
 
 ![](/readmes/files/database/f13.png)
 
-
 Agora vamos a proxima tabela
 
 ## Shape
 
-Crie as colunas typeString, typeBoolean, typeNumber, typeDate e typeArray igual vc criou na tabela Genre. Acrescentando agora a coluna typeFile e typeObject. Desta forma
+Crie as colunas typeString, typeBoolean, typeNumber, typeDateTime e typeArray igual vc criou na tabela Genre. Acrescentando agora a coluna typeFile e typeObject. Desta forma
 
 ### typeFile
 ![](/readmes/files/database/f14.png)
-
 
 ### typeObject
 ![](/readmes/files/database/f15.png)
@@ -96,3 +94,36 @@ Crie as colunas typeString, typeBoolean, typeNumber, typeDate e typeArray igual 
 A lista final de colunas ficou assim:
 
 ![](/readmes/files/database/f16.png)
+
+## Publisher
+
+Crie as colunas typeString, typeBoolean, typeNumber, typeDateTime e typeArray igual vc criou na tabela Genre. Acrescentando agora a coluna typePointerShape que é um ponteiro, 1:n, para a tabela Shape. Desta forma
+
+### typePointerShape
+![](/readmes/files/database/f17.png)
+
+A lista final de colunas ficou assim:
+
+![](/readmes/files/database/f18.png)
+
+Agora vamos a proxima tabela
+
+## Book
+
+Crie as colunas typeString, typeBoolean, typeNumber, typeDateTime e typeArray igual vc criou na tabela Genre. Acrescentando agora a coluna typePointerPublisher que é um ponteiro, 1:n, para a tabela Publisher. E acrescentando agora a coluna typeRelationAuthor que é um relacionamento, m:n, para a tabela Author. Desta forma
+
+### typePointerPublisher
+![](/readmes/files/database/f19.png)
+
+### typeRelationAuthor
+![](/readmes/files/database/f20.png)
+
+A lista final de colunas ficou assim:
+
+![](/readmes/files/database/f21.png)
+
+## Database final
+O esquema completo com todas as tabela ficou assim 
+![](/readmes/files/database/f22.png)
+
+reveja o post/video sobre as relações entre elas para que apartir dagora você tenha uma clareza nas adição e busca dos dados.

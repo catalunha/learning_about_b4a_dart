@@ -6,13 +6,23 @@ Este repositório é um pequeno projeto para eu aprender um pouco mais sobre b4a
 
 
 ## Como té-lo localmente
-Abra seu VSCode
+Abra seu VSCode.
+
 Clone este repositorio, https://github.com/catalunha/learning_about_b4a_dart.git, para uma pasta local em seu computador
+
+Crie o arquivo .env na raiz do projeto e adicione estes linhas. Estas informações podem ser obtidas em seu projeto b4a no dashboard -> App Settings -> Security & Keys 
+```
+appId = 'your appId'
+clientKey = 'your clientKey'
+```
 Atualize o pubspec.yaml
+
 Execute em modo Debug para pegar as saídas dos log().
 
 Ou simplesmente digite:
+
 `dart bin/learning_about_b4a_dart.dart`
+
 Mas as saídas em log() ficarão ocultas.
 
 ## issues

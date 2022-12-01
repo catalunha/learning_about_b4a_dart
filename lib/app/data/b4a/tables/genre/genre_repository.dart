@@ -56,11 +56,12 @@ class GenreRepository {
 
   update() async {
     var genreModel = GenreModel(
-      objectId: '',
+      objectId: 'kyCtliyFaK',
       typeString: 'Genre01',
       typeBoolean: true,
       typeNumber: 1,
-      typeDate: DateTime.now(),
+      // typeDate: DateTime.now(),
+      typeDate: DateTime(2022, 12, 1, 0, 0, 0),
       typeArray: ['a', '1'],
     );
     ParseObject genreParseObject = GenreEntity().toParse(genreModel);

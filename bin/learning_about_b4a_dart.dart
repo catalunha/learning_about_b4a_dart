@@ -1,24 +1,17 @@
 import 'dart:io';
 
 import 'package:learning_about_b4a_dart/app/data/b4a/connect_b4a.dart';
-import 'package:learning_about_b4a_dart/app/data/b4a/tables/author/author_repository.dart';
-import 'package:learning_about_b4a_dart/app/data/b4a/tables/book/book_repository.dart';
 import 'package:learning_about_b4a_dart/app/data/b4a/tables/genre/genre_repository.dart';
-import 'package:learning_about_b4a_dart/app/data/b4a/tables/publisher/publisher_repository.dart';
-import 'package:learning_about_b4a_dart/app/data/b4a/tables/shape/shape_repository.dart';
-import 'package:learning_about_b4a_dart/app/presentation/genre/genre_view.dart';
-import 'package:learning_about_b4a_dart/app/presentation/publisher/publisher_view.dart';
-import 'package:learning_about_b4a_dart/app/presentation/shape/shape_view.dart';
 
 void main(List<String> arguments) async {
   joinPartsInReadme();
-  // app();
+  app();
 }
 
 void joinPartsInReadme() {
   String pathREADME = 'README.md';
   var fileREADME = File(pathREADME).openWrite(mode: FileMode.write);
-  List<String> parts = ['introducao', 'apresentacao', 'tabelas'];
+  List<String> parts = ['introducao', 'apresentacao', 'tabelas', 'database'];
   for (var part in parts) {
     String pathPart = 'readmes/$part.md';
     var dataPart = File(pathPart).readAsStringSync();
@@ -36,15 +29,15 @@ app() async {
 
   // Genre
   GenreRepository genreRepository = GenreRepository();
-  genreRepository.addAll();
-  genreRepository.add();
-  genreRepository.update();
-  genreRepository.unset('I9npZLFtqI', 'typeString');
-  genreRepository.delete('I9npZLFtqI');
-  genreRepository.removeAll();
-  GenreView genreView = GenreView();
+  // genreRepository.addAll();
+  // genreRepository.add();
+  // genreRepository.update();
+  // genreRepository.unset('I9npZLFtqI', 'typeString');
+  // genreRepository.delete('I9npZLFtqI');
+  // genreRepository.removeAll();
+  // GenreView genreView = GenreView();
   // genreView.count();
-  genreView.getObject('mrsMiyXeuP');
+  // genreView.getObject('mrsMiyXeuP');
   // genreView.getAll();
   // genreView.queryBuilder();
   // genreView.queryBuilderOrderByAscending('typeString');
@@ -90,15 +83,15 @@ app() async {
   // genreView.queryBuilderWhereArrayContainsAll('typeArray', ['a', '1']);
   // genreView.queryBuilderOr();
 
-  // Author
-  AuthorRepository authorRepository = AuthorRepository();
-  authorRepository.addAll();
-  authorRepository.addPointer();
-  authorRepository.add();
-  authorRepository.update();
-  authorRepository.unset('I9npZLFtqI', 'typeString');
-  authorRepository.delete('I9npZLFtqI');
-  authorRepository.removeAll();
+  // // Author
+  // AuthorRepository authorRepository = AuthorRepository();
+  // authorRepository.addAll();
+  // authorRepository.addPointer();
+  // authorRepository.add();
+  // authorRepository.update();
+  // authorRepository.unset('I9npZLFtqI', 'typeString');
+  // authorRepository.delete('I9npZLFtqI');
+  // authorRepository.removeAll();
   // AuthorView authorView = AuthorView();
   // authorView.queryBuilderIncludeObject(['typePointerGenre']);
   // authorView.queryBuilderWhereEqualToPointer(
@@ -108,40 +101,40 @@ app() async {
   // authorView.queryBuilderWhereMatchesKeyInQuery();
   // authorView.queryBuilderWhereDoesNotMatchKeyInQuery();
 
-  // Shape
-  ShapeRepository shapeRepository = ShapeRepository();
-  shapeRepository.addAll();
-  shapeRepository.addFile('readmes/files/uml.jpg', '5iLu1JOO9x');
-  shapeRepository.add();
-  shapeRepository.update();
-  shapeRepository.unset('I9npZLFtqI', 'typeString');
-  shapeRepository.delete('I9npZLFtqI');
-  shapeRepository.removeAll();
-  ShapeView shapeView = ShapeView();
-  shapeView.getObject('5iLu1JOO9x');
+  // // Shape
+  // ShapeRepository shapeRepository = ShapeRepository();
+  // shapeRepository.addAll();
+  // shapeRepository.addFile('readmes/files/uml.jpg', '5iLu1JOO9x');
+  // shapeRepository.add();
+  // shapeRepository.update();
+  // shapeRepository.unset('I9npZLFtqI', 'typeString');
+  // shapeRepository.delete('I9npZLFtqI');
+  // shapeRepository.removeAll();
+  // ShapeView shapeView = ShapeView();
+  // shapeView.getObject('5iLu1JOO9x');
 
-  // Publisher
-  PublisherRepository publisherRepository = PublisherRepository();
-  publisherRepository.addAll();
-  publisherRepository.addPointer();
-  publisherRepository.add();
-  publisherRepository.update();
-  publisherRepository.unset('I9npZLFtqI', 'typeString');
-  publisherRepository.delete('I9npZLFtqI');
-  publisherRepository.removeAll();
-  PublisherView publisherView = PublisherView();
-  publisherView.getObject('5iLu1JOO9x');
+  // // Publisher
+  // PublisherRepository publisherRepository = PublisherRepository();
+  // publisherRepository.addAll();
+  // publisherRepository.addPointer();
+  // publisherRepository.add();
+  // publisherRepository.update();
+  // publisherRepository.unset('I9npZLFtqI', 'typeString');
+  // publisherRepository.delete('I9npZLFtqI');
+  // publisherRepository.removeAll();
+  // PublisherView publisherView = PublisherView();
+  // publisherView.getObject('5iLu1JOO9x');
 
-  // Book
-  BookRepository bookRepository = BookRepository();
-  bookRepository.addAll();
-  bookRepository.addPointer();
-  bookRepository.addRelations();
-  bookRepository.add();
-  bookRepository.update();
-  bookRepository.unset('I9npZLFtqI', 'typeString');
-  bookRepository.delete('I9npZLFtqI');
-  bookRepository.removeAll();
+  // // Book
+  // BookRepository bookRepository = BookRepository();
+  // bookRepository.addAll();
+  // bookRepository.addPointer();
+  // bookRepository.addRelations();
+  // bookRepository.add();
+  // bookRepository.update();
+  // bookRepository.unset('I9npZLFtqI', 'typeString');
+  // bookRepository.delete('I9npZLFtqI');
+  // bookRepository.removeAll();
   // BookView bookView = BookView();
   // bookView.queryBuilderIncludeObject(
   //     ['typePointerPublisher', 'typePointerPublisher.typePointerGenre']);
