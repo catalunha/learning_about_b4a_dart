@@ -30,6 +30,9 @@ Estas informações podem ser obtidas em seu projeto b4a no dashboard -> App Set
 appId = 'your appId'
 clientKey = 'your clientKey'
 ```
+
+Existem outros recursos do liveQuery que é tipo uma stream do database. Mas não iremos abordar sobre ela neste momento.
+
 Maiores comentários sobre cada parte eu farei nos videos.
 
 Iremos construir cada arquivo a medida de sua necessidade

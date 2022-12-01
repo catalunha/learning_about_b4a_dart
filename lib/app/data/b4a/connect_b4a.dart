@@ -29,6 +29,8 @@ class ConnectB4A {
 
   /// No healthCheck se o valor de appId ou clientKey estiver errado
   /// ele gera uma exceção.
+  /// Mas ele nao deveria gerar uma exceção. Tinha que retornar um
+  /// (await Parse().healthCheck()).success = false
   /// Então relatei isto nesta issue
   /// https://github.com/parse-community/Parse-SDK-Flutter/issues/799
   /// Pra resolver isto envolvi com um try...catch
