@@ -32,7 +32,7 @@ class GenreRepository {
         typeString: 'Genre04',
         typeBoolean: false,
         typeNumber: 4,
-        typeDate: DateTime.now().add(Duration(hours: 23)),
+        typeDate: DateTime.now().add(Duration(hours: 3)),
         typeArray: ['d', '4'],
       ),
     ]);

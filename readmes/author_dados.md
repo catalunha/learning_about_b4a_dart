@@ -1,6 +1,11 @@
 # Dados em Author via App Dart
 
-A maior parte dos comentários desta parte estão neste video: 
+Este texto a seguir é melhor detalhado neste video: 
+
+Veremos sobre:
+* manipular colunas como typePointer to Genre
+
+Bora codar...
 
 A manipulação de dados nesta tabela envolverá:
 * addAll

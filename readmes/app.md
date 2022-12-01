@@ -1,8 +1,15 @@
 # Criando o app Dart e Conexão do app com a b4a
 
-Você pode clonar este repositorio em https://github.com/catalunha/learning_about_b4a_dart
+Este texto a seguir é melhor detalhado neste video: 
 
-Ou, para criar passo a passo nosso App em puro Dart faça assim:
+Veremos sobre:
+  * criar app em dart
+  * conectar com b4a
+    * lib/data/b4a/connect_b4a.dart
+
+Bora codar...
+
+Para criar passo a passo nosso App em puro Dart e ir desenvolvendo conforme cada video. Faça assim:
 * Abra seu VSCode
 * tecle **F1**
 * selecione o busque **Dart: New project**
@@ -19,7 +26,21 @@ dependencies:
   dotenv: ^4.0.1
   parse_server_sdk: ^3.1.3
 ```
-A estrutura de nosso projeto será:
+
+Crie o arquivo .env na raiz do projeto e adicione as credenciais de acesso ao database.
+
+Estas informações podem ser obtidas em seu projeto b4a no dashboard -> App Settings -> Security & Keys 
+
+```
+appId = 'your appId'
+clientKey = 'your clientKey'
+```
+Maiores comentários sobre cada parte eu farei nos videos.
+
+Iremos construir cada arquivo a medida de sua necessidade
+
+Mas a seguir apresento a estrutura completa para nosso acompanhamento.
+
 ```
 app/
 ├── app.dart
@@ -73,7 +94,7 @@ app/
         └── shape_view.dart
 
 ```
-Maiores comentários sobre cada parte eu farei nos videos.
 
-Iremos construir cada arquivo a medida de sua necessidade
+Execute o app em modo Debug para pegar as saídas dos log().
+
 

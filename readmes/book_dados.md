@@ -1,6 +1,12 @@
 # Dados em Book via App Dart
 
-A maior parte dos comentários desta parte estão neste video: 
+Este texto a seguir é melhor detalhado neste video: 
+
+Veremos sobre:
+* manipular colunas como typePointer to Publisher
+* manipular colunas como typeRelation to Author
+
+Bora codar... 
 
 A manipulação de dados nesta tabela envolverá:
 * addAll

@@ -2,6 +2,13 @@
 
 Este texto a seguir é melhor detalhado neste video: 
 
+Veremos sobre:
+  * criação das tabelas
+  * criação das colunas
+  * exemplos de edição dentro do database do b4a
+
+Bora codar...
+
 Acesse o site https://www.back4app.com/
 
 Realize seu cadastro.
