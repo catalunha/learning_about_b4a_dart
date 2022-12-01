@@ -35,14 +35,6 @@ class PublisherRepository {
         typeArray: ['c', '3'],
         // typePointerShape: ShapeModel(objectId: 'w7n72uFBv2'),
       ),
-      PublisherModel(
-        typeString: 'Publisher04',
-        typeBoolean: false,
-        typeNumber: 4,
-        typeDate: DateTime.now().add(Duration(hours: 23)),
-        typeArray: ['d', '4'],
-        // typePointerShape: ShapeModel(objectId: 'bxirK4sWKU'),
-      ),
     ]);
     for (var authorModel in authorModelList) {
       ParseObject authorParseObject = PublisherEntity().toParse(authorModel);

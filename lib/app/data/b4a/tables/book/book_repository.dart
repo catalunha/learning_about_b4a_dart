@@ -34,13 +34,6 @@ class BookRepository {
         typeDate: DateTime.now().add(Duration(hours: 2)),
         typeArray: ['c', '3'],
       ),
-      BookModel(
-        typeString: 'Book04',
-        typeBoolean: false,
-        typeNumber: 4,
-        typeDate: DateTime.now().add(Duration(hours: 23)),
-        typeArray: ['d', '4'],
-      ),
     ]);
     for (var authorModel in authorModelList) {
       ParseObject authorParseObject = BookEntity().toParse(authorModel);

@@ -5,7 +5,7 @@ class ShapeModel {
   final String? typeString;
   final bool? typeBoolean;
   final num? typeNumber;
-  final DateTime? typeDate;
+  final DateTime? typeDateTime;
   final List<String>? typeArray;
   final String? typeFile;
   final Map<String, dynamic>? typeObject;
@@ -14,7 +14,7 @@ class ShapeModel {
     this.typeString,
     this.typeBoolean,
     this.typeNumber,
-    this.typeDate,
+    this.typeDateTime,
     this.typeArray,
     this.typeFile,
     this.typeObject,
@@ -35,7 +35,7 @@ class ShapeModel {
       typeString: typeString ?? this.typeString,
       typeBoolean: typeBoolean ?? this.typeBoolean,
       typeNumber: typeNumber ?? this.typeNumber,
-      typeDate: typeDate ?? this.typeDate,
+      typeDateTime: typeDate ?? this.typeDateTime,
       typeArray: typeArray ?? this.typeArray,
       typeFile: typeFile ?? this.typeFile,
       typeObject: typeObject ?? this.typeObject,
@@ -57,8 +57,8 @@ class ShapeModel {
     if (typeNumber != null) {
       result.addAll({'typeNumber': typeNumber});
     }
-    if (typeDate != null) {
-      result.addAll({'typeDate': typeDate!.millisecondsSinceEpoch});
+    if (typeDateTime != null) {
+      result.addAll({'typeDate': typeDateTime!.millisecondsSinceEpoch});
     }
     if (typeArray != null) {
       result.addAll({'typeArray': typeArray});
@@ -79,7 +79,7 @@ class ShapeModel {
       typeString: map['typeString'],
       typeBoolean: map['typeBoolean'],
       typeNumber: map['typeNumber'],
-      typeDate: map['typeDate'] != null
+      typeDateTime: map['typeDate'] != null
           ? DateTime.fromMillisecondsSinceEpoch(map['typeDate'])
           : null,
       typeArray: List<String>.from(map['typeArray']),
@@ -95,6 +95,6 @@ class ShapeModel {
 
   @override
   String toString() {
-    return 'ShapeModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeArray: $typeArray, typeFile: $typeFile, typeObject: $typeObject)';
+    return 'ShapeModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDateTime, typeArray: $typeArray, typeFile: $typeFile, typeObject: $typeObject)';
   }
 }

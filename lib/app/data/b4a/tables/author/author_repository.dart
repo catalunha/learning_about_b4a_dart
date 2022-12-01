@@ -35,14 +35,6 @@ class AuthorRepository {
         typeArray: ['c', '3'],
         // typePointerGenre: GenreModel(objectId: 'w7n72uFBv2'),
       ),
-      AuthorModel(
-        typeString: 'Author04',
-        typeBoolean: false,
-        typeNumber: 4,
-        typeDate: DateTime.now().add(Duration(hours: 23)),
-        typeArray: ['d', '4'],
-        // typePointerGenre: GenreModel(objectId: 'bxirK4sWKU'),
-      ),
     ]);
     for (var authorModel in authorModelList) {
       log('addSimpleData ${authorModel.typeString}');

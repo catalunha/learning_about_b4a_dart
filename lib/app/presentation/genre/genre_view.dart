@@ -5,7 +5,7 @@ import 'package:learning_about_b4a_dart/app/presentation/genre/genre_controller.
 
 class GenreView {
   GenreView() {
-    log('... GenreView ...');
+    log('=== GenreView ===');
   }
   void getObject(String objectId) async {
     log('+++ getObject +++');

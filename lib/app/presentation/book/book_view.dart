@@ -5,7 +5,7 @@ import 'package:learning_about_b4a_dart/app/presentation/book/book_controller.da
 
 class BookView {
   BookView() {
-    log('... BookView ...');
+    log('=== BookView ===');
   }
   Future<void> queryBuilderIncludeObject(List<String> columnsName) async {
     log('+++ queryBuilderIncludeObject +++');

@@ -5,7 +5,7 @@ import 'package:learning_about_b4a_dart/app/presentation/shape/shape_controller.
 
 class ShapeView {
   ShapeView() {
-    log('... ShapeView ...');
+    log('=== ShapeView ===');
   }
   void getObject(String objectId) async {
     log('+++ getObject +++');

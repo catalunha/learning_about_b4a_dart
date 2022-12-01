@@ -8,7 +8,7 @@ Este texto é apenas um roteiro, detalhamento, ou correção do que vou comparti
 Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews https://www.tabnews.com.br/catalunha
 
 ## Sumário dos Posts
-1. [Apresentação do projeto Dart/Flutter deste tutorial](/readmes/apresentacao.md)
+1. [Apresentação do projeto Dart/Flutter deste tutorial](readmes/apresentacao.md)
     1. Dart (ok)
     0. Flutter (em construção)
 0. [As tabelas, seus campos, e suas relações.](readmes/tabelas.md)
@@ -79,6 +79,7 @@ Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews 
     2. queryBuilder_WhereEqualToRelation
     3. queryBuilder_WhereMatchesQuery
     4. queryBuilder_WhereDoesNotMatchQuery
+0. [issues, tickets, etc](readmes/issues.md)
 ---
 ---
 # Apresentação do projeto Dart/Flutter deste tutorial

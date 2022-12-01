@@ -5,7 +5,7 @@ import 'package:learning_about_b4a_dart/app/presentation/author/author_controlle
 
 class AuthorView {
   AuthorView() {
-    log('... AuthorView ...');
+    log('=== AuthorView ===');
   }
   Future<void> queryBuilderIncludeObject(List<String> columnsName) async {
     log('+++ queryBuilderIncludeObject +++');

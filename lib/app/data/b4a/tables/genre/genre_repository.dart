@@ -1,9 +1,15 @@
+import 'dart:developer';
+
 import 'package:learning_about_b4a_dart/app/core/models/genre_model.dart';
 import 'package:learning_about_b4a_dart/app/data/b4a/entity/genre_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class GenreRepository {
+  GenreRepository() {
+    log('=== GenreRepository ===');
+  }
   addAll() async {
+    log('+++ addAll +++');
     removeAll();
     var genreModelList = <GenreModel>[];
     genreModelList.addAll([
@@ -28,13 +34,6 @@ class GenreRepository {
         typeDate: DateTime.now().add(Duration(hours: 2)),
         typeArray: ['c', '3'],
       ),
-      GenreModel(
-        typeString: 'Genre04',
-        typeBoolean: false,
-        typeNumber: 4,
-        typeDate: DateTime.now().add(Duration(hours: 3)),
-        typeArray: ['d', '4'],
-      ),
     ]);
     for (var genreModel in genreModelList) {
       ParseObject genreParseObject = GenreEntity().toParse(genreModel);
@@ -43,8 +42,10 @@ class GenreRepository {
   }
 
   add() async {
+    log('+++ add +++');
+
     var genreModel = GenreModel(
-      typeString: 'Genre01',
+      typeString: 'Genre01a',
       typeBoolean: true,
       typeNumber: 1,
       typeDate: DateTime.now(),
@@ -55,8 +56,10 @@ class GenreRepository {
   }
 
   update() async {
+    log('+++ update +++');
+
     var genreModel = GenreModel(
-      objectId: 'kyCtliyFaK',
+      objectId: '3xILA8Wjyp',
       typeString: 'Genre01',
       typeBoolean: true,
       typeNumber: 1,
@@ -69,6 +72,8 @@ class GenreRepository {
   }
 
   unset(String objectId, String columnName) async {
+    log('+++ unset +++');
+
     final parseObject = ParseObject(GenreEntity.className);
     parseObject.objectId = objectId;
     await parseObject.unset(columnName);
@@ -83,12 +88,16 @@ class GenreRepository {
   }
 
   delete(String objectId) async {
+    log('+++ delete +++');
+
     final parseObject = ParseObject(GenreEntity.className);
     parseObject.objectId = objectId;
     await parseObject.delete();
   }
 
   removeAll() async {
+    log('+++ removeAll +++');
+
     final apiResponse = await ParseObject(GenreEntity.className).getAll();
 
     if (apiResponse.success && apiResponse.results != null) {

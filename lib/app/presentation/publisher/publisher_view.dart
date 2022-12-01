@@ -5,7 +5,7 @@ import 'package:learning_about_b4a_dart/app/presentation/publisher/publisher_con
 
 class PublisherView {
   PublisherView() {
-    log('... PublisherView ...');
+    log('=== PublisherView ===');
   }
   void getObject(String objectId) async {
     log('+++ getObject +++');
