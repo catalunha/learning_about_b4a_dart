@@ -19,6 +19,7 @@ void joinPostsInReadme() {
     'publisher_buscas',
     'book_dados',
     'book_buscas',
+    'issues',
   ];
   for (var part in parts) {
     String pathPart = 'readmes/$part.md';
