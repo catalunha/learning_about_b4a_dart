@@ -22,7 +22,7 @@ class ConnectB4A {
       serverUrl,
       clientKey: _clientKey,
       debug: debug,
-      // hideCompletAppIdAndClientKey: true,
+      hideCompletAppIdAndClientKey: true,
     );
     await healthCheck();
   }
