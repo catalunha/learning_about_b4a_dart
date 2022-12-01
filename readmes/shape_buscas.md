@@ -1,10 +1,6 @@
 # Buscas em Shape via App Dart
 
-
 Este texto a seguir é melhor detalhado neste video: 
-
-Veremos sobre:
-* buscas
 
 Bora codar...
 

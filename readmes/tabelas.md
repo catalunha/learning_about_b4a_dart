@@ -1,7 +1,11 @@
 
 # As tabelas, seus campos, e suas relações.
 
-As relações são:
+Este texto a seguir é melhor detalhado neste video: 
+
+Bora codar...
+
+Criei uma estrutura teórica de relacionamento apenas para facilitar nosso cadastro e busca de dados:
 
 ![](/readmes/files/tabelas/db_relation.jpg)
 

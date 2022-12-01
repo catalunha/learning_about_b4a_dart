@@ -2,10 +2,6 @@
 
 Este texto a seguir é melhor detalhado neste video: 
 
-Veremos sobre:
-  * criar lib/presentation/genre/genre_view.dart
-  * criar lib/presentation/genre/genre_controller.dart
-
 Bora codar...
 
 As buscas na tabela Genre serão:

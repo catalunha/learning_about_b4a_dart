@@ -2,11 +2,6 @@
 
 Este texto a seguir é melhor detalhado neste video: 
 
-Veremos sobre:
-  * criar app em dart
-  * conectar com b4a
-    * lib/data/b4a/connect_b4a.dart
-
 Bora codar...
 
 Para criar passo a passo nosso App em puro Dart e ir desenvolvendo conforme cada video. Faça assim:
