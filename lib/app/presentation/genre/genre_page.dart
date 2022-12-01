@@ -1,12 +1,12 @@
 import 'package:learning_about_b4a_dart/app/data/b4a/tables/genre/genre_repository.dart';
 import 'package:learning_about_b4a_dart/app/presentation/genre/genre_view.dart';
 
-void genre_page() {
+void genrePage() {
   // Genre repo
   GenreRepository genreRepository = GenreRepository();
   // genreRepository.addAll();
   // genreRepository.add();
-  // genreRepository.update();
+  genreRepository.update();
   // genreRepository.unset('3xILA8Wjyp', 'typeString');
   // genreRepository.delete('iBX9aQtUTv');
   // genreRepository.removeAll();

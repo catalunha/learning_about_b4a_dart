@@ -36,7 +36,7 @@ class BookEntity {
       typeString: parseObject.get<String>('typeString'),
       typeBoolean: parseObject.get<bool>('typeBoolean'),
       typeNumber: parseObject.get<num>('typeNumber'),
-      typeDate: parseObject.get<DateTime>('typeDate')?.toLocal(),
+      typeDateTime: parseObject.get<DateTime>('typeDateTime')?.toLocal(),
       typeArray: parseObject.get<List<dynamic>>('typeArray') != null
           ? parseObject
               .get<List<dynamic>>('typeArray')!
@@ -67,8 +67,8 @@ class BookEntity {
     if (model.typeNumber != null) {
       parseObject.set('typeNumber', model.typeNumber);
     }
-    if (model.typeDate != null) {
-      parseObject.set('typeDate', model.typeDate);
+    if (model.typeDateTime != null) {
+      parseObject.set('typeDateTime', model.typeDateTime);
     }
     if (model.typeArray != null) {
       parseObject.set('typeArray', model.typeArray);

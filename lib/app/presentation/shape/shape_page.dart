@@ -1,4 +1,4 @@
-void shape_page() {
+void shapePage() {
   // // Shape
   // ShapeRepository shapeRepository = ShapeRepository();
   // shapeRepository.addAll();

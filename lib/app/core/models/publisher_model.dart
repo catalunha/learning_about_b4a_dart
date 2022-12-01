@@ -7,7 +7,7 @@ class PublisherModel {
   final String? typeString;
   final bool? typeBoolean;
   final num? typeNumber;
-  final DateTime? typeDate;
+  final DateTime? typeDateTime;
   final List<String>? typeArray;
   final ShapeModel? typePointerShape;
   PublisherModel({
@@ -15,7 +15,7 @@ class PublisherModel {
     this.typeString,
     this.typeBoolean,
     this.typeNumber,
-    this.typeDate,
+    this.typeDateTime,
     this.typeArray,
     this.typePointerShape,
   });
@@ -34,7 +34,7 @@ class PublisherModel {
       typeString: typeString ?? this.typeString,
       typeBoolean: typeBoolean ?? this.typeBoolean,
       typeNumber: typeNumber ?? this.typeNumber,
-      typeDate: typeDate ?? this.typeDate,
+      typeDateTime: typeDate ?? this.typeDateTime,
       typeArray: typeArray ?? this.typeArray,
       typePointerShape: typePointerShape ?? this.typePointerShape,
     );
@@ -55,8 +55,8 @@ class PublisherModel {
     if (typeNumber != null) {
       result.addAll({'typeNumber': typeNumber});
     }
-    if (typeDate != null) {
-      result.addAll({'typeDate': typeDate!.millisecondsSinceEpoch});
+    if (typeDateTime != null) {
+      result.addAll({'typeDate': typeDateTime!.millisecondsSinceEpoch});
     }
     if (typeArray != null) {
       result.addAll({'typeArray': typeArray});
@@ -74,7 +74,7 @@ class PublisherModel {
       typeString: map['typeString'],
       typeBoolean: map['typeBoolean'],
       typeNumber: map['typeNumber'],
-      typeDate: map['typeDate'] != null
+      typeDateTime: map['typeDate'] != null
           ? DateTime.fromMillisecondsSinceEpoch(map['typeDate'])
           : null,
       typeArray: List<String>.from(map['typeArray']),
@@ -91,6 +91,6 @@ class PublisherModel {
 
   @override
   String toString() {
-    return 'PublisherModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate, typeArray: $typeArray, typePointerShape: $typePointerShape)';
+    return 'PublisherModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDateTime, typeArray: $typeArray, typePointerShape: $typePointerShape)';
   }
 }

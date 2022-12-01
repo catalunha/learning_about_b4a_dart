@@ -1,4 +1,4 @@
-void author_page() {
+void authorPage() {
   // // Author
   // AuthorRepository authorRepository = AuthorRepository();
   // authorRepository.addAll();

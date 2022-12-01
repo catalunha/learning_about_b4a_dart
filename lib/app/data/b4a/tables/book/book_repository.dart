@@ -16,7 +16,7 @@ class BookRepository {
         typeString: 'Book01',
         typeBoolean: true,
         typeNumber: 1,
-        typeDate: DateTime.now(),
+        typeDateTime: DateTime.now(),
         typeArray: ['a', '1'],
         typePointerPublisher: PublisherModel(objectId: 'kyCtliyFaK'),
       ),
@@ -24,14 +24,14 @@ class BookRepository {
         typeString: 'Book02',
         typeBoolean: false,
         typeNumber: 2,
-        typeDate: DateTime(2022, 11, 26, 12).add(Duration(hours: 1)),
+        typeDateTime: DateTime(2022, 11, 26, 12).add(Duration(hours: 1)),
         typeArray: ['b', '2'],
       ),
       BookModel(
         typeString: 'Book03',
         typeBoolean: true,
         typeNumber: 3,
-        typeDate: DateTime.now().add(Duration(hours: 2)),
+        typeDateTime: DateTime.now().add(Duration(hours: 2)),
         typeArray: ['c', '3'],
       ),
     ]);
@@ -104,7 +104,7 @@ class BookRepository {
       typeString: 'Book04',
       typeBoolean: false,
       typeNumber: 4,
-      typeDate: DateTime.now().add(Duration(hours: 23)),
+      typeDateTime: DateTime.now().add(Duration(hours: 23)),
       typeArray: ['d', '4'],
     );
     ParseObject bookParseObject = BookEntity().toParse(bookModel);
@@ -117,7 +117,7 @@ class BookRepository {
       typeString: 'Book04',
       typeBoolean: false,
       typeNumber: 4,
-      typeDate: DateTime.now().add(Duration(hours: 23)),
+      typeDateTime: DateTime.now().add(Duration(hours: 23)),
       typeArray: ['d', '4'],
     );
     ParseObject bookParseObject = BookEntity().toParse(bookModel);

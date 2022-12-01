@@ -1,4 +1,4 @@
-void publisher_page() {
+void publisherPage() {
   // // Publisher
   // PublisherRepository publisherRepository = PublisherRepository();
   // publisherRepository.addAll();

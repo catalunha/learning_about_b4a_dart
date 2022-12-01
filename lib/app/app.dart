@@ -11,9 +11,9 @@ void app() async {
   await connectB4A.initialize();
   // await connectB4A.initialize(debug: true);
 
-  genre_page();
-  author_page();
-  shape_page();
-  publisher_page();
-  book_page();
+  genrePage();
+  authorPage();
+  shapePage();
+  publisherPage();
+  bookPage();
 }

@@ -8,7 +8,7 @@ class BookModel {
   final String? typeString;
   final bool? typeBoolean;
   final num? typeNumber;
-  final DateTime? typeDate;
+  final DateTime? typeDateTime;
   final List<String>? typeArray;
   final PublisherModel? typePointerPublisher;
   final List<AuthorModel>? typeRelationAuthor;
@@ -17,7 +17,7 @@ class BookModel {
     this.typeString,
     this.typeBoolean,
     this.typeNumber,
-    this.typeDate,
+    this.typeDateTime,
     this.typeArray,
     this.typePointerPublisher,
     this.typeRelationAuthor,
@@ -39,7 +39,7 @@ class BookModel {
       typeString: typeString ?? this.typeString,
       typeBoolean: typeBoolean ?? this.typeBoolean,
       typeNumber: typeNumber ?? this.typeNumber,
-      typeDate: typeDate ?? this.typeDate,
+      typeDateTime: typeDate ?? this.typeDateTime,
       typeArray: typeArray ?? this.typeArray,
       typePointerPublisher: typePointer ?? typePointerPublisher,
       typeRelationAuthor: typeRelation ?? typeRelationAuthor,
@@ -61,8 +61,8 @@ class BookModel {
     if (typeNumber != null) {
       result.addAll({'typeNumber': typeNumber});
     }
-    if (typeDate != null) {
-      result.addAll({'typeDate': typeDate!.millisecondsSinceEpoch});
+    if (typeDateTime != null) {
+      result.addAll({'typeDate': typeDateTime!.millisecondsSinceEpoch});
     }
     if (typeArray != null) {
       result.addAll({'typeArray': typeArray});
@@ -84,7 +84,7 @@ class BookModel {
       typeString: map['typeString'],
       typeBoolean: map['typeBoolean'],
       typeNumber: map['typeNumber'],
-      typeDate: map['typeDate'] != null
+      typeDateTime: map['typeDate'] != null
           ? DateTime.fromMillisecondsSinceEpoch(map['typeDate'])
           : null,
       typeArray: List<String>.from(map['typeArray']),
@@ -105,6 +105,6 @@ class BookModel {
 
   @override
   String toString() {
-    return 'BookModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDate,  typeArray: $typeArray, typePointer: $typePointerPublisher, typeRelation: $typeRelationAuthor)';
+    return 'BookModel(objectId: $objectId, typeString: $typeString, typeBoolean: $typeBoolean, typeNumber: $typeNumber, typeDate: $typeDateTime,  typeArray: $typeArray, typePointer: $typePointerPublisher, typeRelation: $typeRelationAuthor)';
   }
 }

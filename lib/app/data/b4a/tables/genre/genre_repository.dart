@@ -17,21 +17,21 @@ class GenreRepository {
         typeString: 'Genre01',
         typeBoolean: true,
         typeNumber: 1,
-        typeDate: DateTime.now(),
+        typeDateTime: DateTime.now(),
         typeArray: ['a', '1'],
       ),
       GenreModel(
         typeString: 'Genre02',
         typeBoolean: false,
         typeNumber: 2,
-        typeDate: DateTime.now().add(Duration(hours: 1)),
+        typeDateTime: DateTime.now().add(Duration(hours: 1)),
         typeArray: ['b', '2'],
       ),
       GenreModel(
         typeString: 'Genre03',
         typeBoolean: true,
         typeNumber: 3,
-        typeDate: DateTime.now().add(Duration(hours: 2)),
+        typeDateTime: DateTime.now().add(Duration(hours: 2)),
         typeArray: ['c', '3'],
       ),
     ]);
@@ -48,7 +48,7 @@ class GenreRepository {
       typeString: 'Genre01a',
       typeBoolean: true,
       typeNumber: 1,
-      typeDate: DateTime.now(),
+      typeDateTime: DateTime.now(),
       typeArray: ['a', '1'],
     );
     ParseObject genreParseObject = GenreEntity().toParse(genreModel);
@@ -63,8 +63,8 @@ class GenreRepository {
       typeString: 'Genre01',
       typeBoolean: true,
       typeNumber: 1,
-      // typeDate: DateTime.now(),
-      typeDate: DateTime(2022, 12, 1, 0, 0, 0),
+      typeDateTime: DateTime.now(),
+      // typeDateTime: DateTime(2022, 12, 1, 0, 0, 0),
       typeArray: ['a', '1'],
     );
     ParseObject genreParseObject = GenreEntity().toParse(genreModel);

@@ -21,7 +21,7 @@ class ShapeEntity {
       typeString: parseObject.get<String>('typeString'),
       typeBoolean: parseObject.get<bool>('typeBoolean'),
       typeNumber: parseObject.get<num>('typeNumber'),
-      typeDateTime: parseObject.get<DateTime>('typeDate')?.toLocal(),
+      typeDateTime: parseObject.get<DateTime>('typeDateTime')?.toLocal(),
       typeArray: parseObject.get<List<dynamic>>('typeArray') != null
           ? parseObject
               .get<List<dynamic>>('typeArray')!
@@ -50,7 +50,7 @@ class ShapeEntity {
       parseObject.set('typeNumber', model.typeNumber);
     }
     if (model.typeDateTime != null) {
-      parseObject.set('typeDate', model.typeDateTime);
+      parseObject.set('typeDateTime', model.typeDateTime);
     }
 
     if (model.typeArray != null) {
