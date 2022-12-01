@@ -8,8 +8,8 @@ import 'package:learning_about_b4a_dart/app/presentation/shape/shape_page.dart';
 
 void app() async {
   ConnectB4A connectB4A = ConnectB4A();
-  // await connectB4A.initialize();
-  await connectB4A.initialize(debug: true);
+  await connectB4A.initialize();
+  // await connectB4A.initialize(debug: true);
 
   genre_page();
   author_page();

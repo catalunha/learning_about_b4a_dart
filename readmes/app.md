@@ -21,7 +21,8 @@ dependencies:
 ```
 A estrutura de nosso projeto será:
 ```
-lib/app/
+app/
+├── app.dart
 ├── core
 │   └── models
 │       ├── author_model.dart
@@ -52,19 +53,25 @@ lib/app/
 └── presentation
     ├── author
     │   ├── author_controller.dart
+    │   ├── author_page.dart
     │   └── author_view.dart
     ├── book
     │   ├── book_controller.dart
+    │   ├── book_page.dart
     │   └── book_view.dart
     ├── genre
     │   ├── genre_controller.dart
+    │   ├── genre_page.dart
     │   └── genre_view.dart
     ├── publisher
     │   ├── publisher_controller.dart
+    │   ├── publisher_page.dart
     │   └── publisher_view.dart
     └── shape
         ├── shape_controller.dart
+        ├── shape_page.dart
         └── shape_view.dart
+
 ```
 Maiores comentários sobre cada parte eu farei nos videos.
 
