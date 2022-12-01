@@ -4,6 +4,9 @@ import 'package:learning_about_b4a_dart/app/core/models/genre_model.dart';
 import 'package:learning_about_b4a_dart/app/presentation/genre/genre_controller.dart';
 
 class GenreView {
+  GenreView() {
+    log('... GenreView ...');
+  }
   void getObject(String objectId) async {
     log('+++ getObject +++');
     GenreController genreController = GenreController();

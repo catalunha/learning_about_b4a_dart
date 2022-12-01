@@ -4,6 +4,9 @@ import 'package:learning_about_b4a_dart/app/core/models/shape_model.dart';
 import 'package:learning_about_b4a_dart/app/presentation/shape/shape_controller.dart';
 
 class ShapeView {
+  ShapeView() {
+    log('... ShapeView ...');
+  }
   void getObject(String objectId) async {
     log('+++ getObject +++');
     ShapeController genreController = ShapeController();

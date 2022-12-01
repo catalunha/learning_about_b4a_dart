@@ -4,6 +4,9 @@ import 'package:learning_about_b4a_dart/app/core/models/book_model.dart';
 import 'package:learning_about_b4a_dart/app/presentation/book/book_controller.dart';
 
 class BookView {
+  BookView() {
+    log('... BookView ...');
+  }
   Future<void> queryBuilderIncludeObject(List<String> columnsName) async {
     log('+++ queryBuilderIncludeObject +++');
     BookController bookController = BookController();
