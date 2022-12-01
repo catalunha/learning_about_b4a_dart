@@ -11,7 +11,23 @@ void main(List<String> arguments) async {
 void joinPartsInReadme() {
   String pathREADME = 'README.md';
   var fileREADME = File(pathREADME).openWrite(mode: FileMode.write);
-  List<String> parts = ['introducao', 'apresentacao', 'tabelas', 'database'];
+  List<String> parts = [
+    'introducao',
+    'apresentacao',
+    'tabelas',
+    'database',
+    'app',
+    'genre_dados',
+    'genre_buscas',
+    'author_dados',
+    'author_buscas',
+    'shape_dados',
+    'shape_buscas',
+    'publisher_dados',
+    'publisher_buscas',
+    'book_dados',
+    'book_buscas',
+  ];
   for (var part in parts) {
     String pathPart = 'readmes/$part.md';
     var dataPart = File(pathPart).readAsStringSync();

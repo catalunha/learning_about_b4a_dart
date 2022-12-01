@@ -1,3 +1,7 @@
+# Buscas em Genre via App Dart
+
+A maior parte dos comentários desta parte estão neste video: 
+
 As buscas na tabela Genre serão:
 1. count
 2. getObject

@@ -59,29 +59,29 @@ Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews 
 * [Apresentação do projeto Dart/Flutter deste tutorial](/readmes/apresentacao.md)
 * [As tabelas, seus campos, e suas relações.](readmes/tabelas.md)
 * [Criando o database no back4app.com](readmes/database.md)
-  * tabelas
-  * campos
-  * edições
+  * criação das tabelas
+  * criação das colunas
+  * exemplos de edição dentro do database
 * [Criando o app Dart e Conexão do app com a b4a](readmes/app.md)
   * lib/data/b4a/connect_b4a.dart
-* [Add dados em Genre via App Dart](readmes/genre_dados.md)
+* [Dados em Genre via App Dart](readmes/genre_dados.md)
   * lib/data/b4a/tables/genre/genre_repository.dart
   * lib/core/models/genre_model.dart
   * lib/data/b4a/entity/genre_entity.dart
 * [Buscas em Genre via App Dart](readmes/genre_buscas.md)
   * lib/presentation/genre/genre_view.dart
   * lib/presentation/genre/genre_controller.dart
-* [Add dados em Author via App Dart](readmes/author_dados.md)
+* [Dados em Author via App Dart](readmes/author_dados.md)
   * add Pointer to Genre
 * [Buscas em Author via App Dart](readmes/author_buscas.md)
-* [Add dados em Shape via App Dart](readmes/shape_dados.md)
+* [Dados em Shape via App Dart](readmes/shape_dados.md)
   * add Files
   * add Object
 * [Buscas em Shape via App Dart](readmes/shape_buscas.md)
-* [Add dados em Publisher via App Dart](readmes/publisher_dados.md)
+* [Dados em Publisher via App Dart](readmes/publisher_dados.md)
   * add Pointer to Shape
 * [Buscas em Publisher via App Dart](readmes/publisher_buscas.md)
-* [Add dados em Book via App Dart](readmes/book_dados.md)
+* [Dados em Book via App Dart](readmes/book_dados.md)
   * Pointer to Publisher
   * Relations to Author
 * [Buscas em Book via App Dart](readmes/book_buscas.md)
@@ -361,5 +361,183 @@ O esquema completo com todas as tabela ficou assim
 
 reveja o post/video sobre as relações entre elas para que apartir dagora você tenha uma clareza nas adição e busca dos dados.
 
+---
+---
+# Criando o app Dart e Conexão do app com a b4a
+
+Você pode clonar este repositorio em https://github.com/catalunha/learning_about_b4a_dart
+
+Ou, para criar passo a passo nosso App em puro Dart faça assim:
+* Abra seu VSCode
+* tecle **F1**
+* selecione o busque **Dart: New project**
+* selecione **Console application**
+* selectione a pasta onde salvar este projeto
+* informe este nome para o projeto: learning_about_b4a_2_dart
+* espere o VSCode criar o projeto
+
+Edite o arquivo pubspec.yaml desta forma. Atualize-o.
+
+```yaml
+dependencies:
+  path: ^1.8.0
+  dotenv: ^4.0.1
+  parse_server_sdk: ^3.1.3
+```
+A estrutura de nosso projeto será:
+```
+lib/app/
+├── core
+│   └── models
+│       ├── author_model.dart
+│       ├── book_model.dart
+│       ├── genre_model.dart
+│       ├── publisher_model.dart
+│       └── shape_model.dart
+├── data
+│   └── b4a
+│       ├── connect_b4a.dart
+│       ├── entity
+│       │   ├── author_entity.dart
+│       │   ├── book_entity.dart
+│       │   ├── genre_entity.dart
+│       │   ├── publisher_entity.dart
+│       │   └── shape_entity.dart
+│       └── tables
+│           ├── author
+│           │   └── author_repository.dart
+│           ├── book
+│           │   └── book_repository.dart
+│           ├── genre
+│           │   └── genre_repository.dart
+│           ├── publisher
+│           │   └── publisher_repository.dart
+│           └── shape
+│               └── shape_repository.dart
+└── presentation
+    ├── author
+    │   ├── author_controller.dart
+    │   └── author_view.dart
+    ├── book
+    │   ├── book_controller.dart
+    │   └── book_view.dart
+    ├── genre
+    │   ├── genre_controller.dart
+    │   └── genre_view.dart
+    ├── publisher
+    │   ├── publisher_controller.dart
+    │   └── publisher_view.dart
+    └── shape
+        ├── shape_controller.dart
+        └── shape_view.dart
+```
+Maiores comentários sobre cada parte eu farei nos videos.
+
+Iremos construir cada arquivo a medida de sua necessidade
+
+
+---
+---
+# Dados em Genre via App Dart
+
+A maior parte dos comentários desta parte estão neste video:
+
+---
+---
+# Buscas em Genre via App Dart
+
+A maior parte dos comentários desta parte estão neste video: 
+
+As buscas na tabela Genre serão:
+1. count
+2. getObject
+3. getAll
+4. queryBuilder
+5. queryBuilderOrderByAscending
+6. queryBuilderOrderByDescending
+7. queryBuilderExcludeKeys
+8. queryBuilderKeysToReturn
+9. queryBuilderPagination
+10. queryBuilderWhereEqualToSimpleColumn
+11. queryBuilderWhereNotEqualToSimpleColumn
+12. queryBuilderWhereGreaterThan
+13. queryBuilderWhereGreaterThanOrEqualsTo
+14. queryBuilderWhereLessThan
+15. queryBuilderWhereLessThanOrEqualTo
+16. queryBuilderWhereValueExists
+17. queryBuilderWhereStartsWith
+18. queryBuilderWhereEndsWith
+19. queryBuilderWhereContains
+20. queryBuilderWhereContainedIn
+21. queryBuilderWhereArrayContainsAll
+22. queryBuilderOr
+
+---
+---
+# Dados em Author via App Dart
+
+A maior parte dos comentários desta parte estão neste video: 
+
+---
+---
+# Buscas em Author via App Dart
+
+A maior parte dos comentários desta parte estão neste video: 
+
+As buscas na tabela Author serão:
+1. queryBuilderIncludeObject
+2. queryBuilderWhereEqualToPointer
+3. queryBuilderWhereMatchesQuery
+4. queryBuilderWhereDoesNotMatchQuery
+5. queryBuilderWhereMatchesKeyInQuery
+6. queryBuilderWhereDoesNotMatchKeyInQuery
+
+---
+---
+# Dados em Shape via App Dart
+
+A maior parte dos comentários desta parte estão neste video: 
+
+---
+---
+# Buscas em Shape via App Dart
+
+A maior parte dos comentários desta parte estão neste video: 
+
+As buscas na tabela Shape serão:
+1. getObject
+
+---
+---
+# Dados em Publisher via App Dart
+
+A maior parte dos comentários desta parte estão neste video: 
+
+---
+---
+# Buscas em Publisher via App Dart
+
+A maior parte dos comentários desta parte estão neste video: 
+
+As buscas na tabela Publisher serão:
+1. getObject
+
+---
+---
+# Dados em Book via App Dart
+
+A maior parte dos comentários desta parte estão neste video: 
+
+---
+---
+# Buscas em Book via App Dart
+
+A maior parte dos comentários desta parte estão neste video: 
+
+As buscas na tabela Book serão:
+1. queryBuilderIncludeObject
+2. queryBuilderWhereEqualToRelation
+3. queryBuilderWhereMatchesQuery
+4. queryBuilderWhereDoesNotMatchQuery
 ---
 ---
