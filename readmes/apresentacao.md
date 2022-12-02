@@ -21,5 +21,3 @@ E trataremos também um pouco sobre cloud functions no cadastro do usuario.
 Colocaremos também todos estes conhecimentos de cadastro, atualização e busca de dados vistos no Dart de uma forma visual com Flutter.
 
 Faremos o deploy da aplicação em Flutter Web no b4a. 
-
-
