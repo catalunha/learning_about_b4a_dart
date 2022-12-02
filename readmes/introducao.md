@@ -14,11 +14,14 @@ Ai buscando outras alternativas, meu grande amigo Paulo Roberto Cruz, me indicou
 
 E aqui esto eu. Após várias cabeçadas compartilhando com vcs o que aprendi. E espero ajudar alguns.
 
-# Posts
+# Posts e Forum
 Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews https://www.tabnews.com.br/catalunha
 
+No restante do tutorial tentarei manter o maximo de coisas que eu já fiz com as que vou refazendo pra compartilhar com vc. Se algo estiver a frente ou a trás do que falo ou faço tentarei explicar no video ou atualizar via texto aqui. 
+E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://discord.com/channels/766282533292998691/766282694967296030
+
 ## Sumário dos Posts
-1. [Apresentação do projeto Dart/Flutter deste tutorial](readmes/apresentacao.md)
+1. [Apresentação do projeto Dart/Flutter](readmes/apresentacao.md)
     1. Dart (ok)
     0. Flutter (em construção)
 0. [As tabelas, seus campos, e suas relações.](readmes/tabelas.md)

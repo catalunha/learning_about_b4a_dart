@@ -26,8 +26,6 @@ Database: mongoDB
 
 ![](/readmes/files/database/f2.png)
 
-No restante do tutorial tentarei manter o maximo de coisas que eu já fiz com as que vou refazendo pra compartilhar com vc. Se algo estiver a frente ou a trás do que falo ou faço tentarei explicar no video. Mas se ainda nao ficar claro pode lançar suas dúvidas neste discord https://discord.com/channels/766282533292998691/766282694967296030
-
 Então o projeto que já fiz e esta testado se chama learning_about_b4a e este que faço junto com vc se chama learning_about_b4a_2.
 
 Este é o processo de criação e configuração do seu database e demais capacidades de backend que o b4a fornece.
