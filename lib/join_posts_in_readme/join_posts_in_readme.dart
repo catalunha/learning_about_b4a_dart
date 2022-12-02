@@ -24,7 +24,10 @@ void joinPostsInReadme() {
   for (var part in parts) {
     String pathPart = 'readmes/$part.md';
     var dataPart = File(pathPart).readAsStringSync();
+    fileREADME.writeln('<a id="$part"></a>');
     fileREADME.writeln(dataPart);
+    fileREADME.writeln('[Voltar ao sumário](#sumario)');
+    fileREADME.writeln();
     fileREADME.writeln('---');
     fileREADME.writeln('---');
   }

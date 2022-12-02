@@ -1,3 +1,4 @@
+
 # Criando o app Dart e Conexão do app com a b4a
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -94,5 +95,3 @@ app/
 ```
 
 Execute o app em modo Debug para pegar as saídas dos log().
-
-

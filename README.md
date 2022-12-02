@@ -1,3 +1,4 @@
+<a id="introducao"></a>
 # learning_about_b4a_dart
 
 Este repositório é um pequeno projeto para eu aprender um pouco mais sobre back4app usando puro Dart. Outro motivador em construir este repostorio é meu desejo de compartilhar com vocês o que venho aprendendo.
@@ -24,19 +25,19 @@ E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://di
 1. [Apresentação do projeto Dart/Flutter](#apresentacao)
     1. Dart (ok)
     2. Flutter (em construção)
-2. [As tabelas, seus campos, e suas relações.](readmes/tabelas.md)
+2. [As tabelas, seus campos, e suas relações.](#tabelas)
     1. Relações num DataBase b4a
     2. Tipos comuns em b4a
     3. json objects
-3. [Criando o database no back4app.com](readmes/database.md)
+3. [Criando o database no back4app.com](#database)
     1. Genre
     2. Author
     3. Shape
     4. Publisher
     5. Book
-4. [Criando o app Dart e Conexão do app com a b4a](readmes/app.md)
+4. [Criando o app Dart e Conexão do app com a b4a](#app)
     1. app console dart
-5. [Dados em Genre via App Dart](readmes/genre_dados.md)
+5. [Dados em Genre via App Dart](#genre_dados)
     1. typeString
     2. typeBoolean
     3. typeNumber
@@ -60,7 +61,7 @@ E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://di
     21. lib/app/presentation/genre/genre_page.dart
     22. lib/app/presentation/genre/genre_view.dart
     23. lib/app/presentation/genre/genre_controller.dart
-6. [Buscas em Genre via App Dart](readmes/genre_buscas.md)
+6. [Buscas em Genre via App Dart](#genre_buscas)
     1. count
     2. getObject
     3. getAll
@@ -83,34 +84,38 @@ E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://di
     20. queryBuilder_WhereContainedIn
     21. queryBuilder_WhereArrayContainsAll
     22. queryBuilder_Or
-7. [Dados em Author via App Dart](readmes/author_dados.md)
+7. [Dados em Author via App Dart](#author_dados)
     1. typePointer to Genre
-8. [Buscas em Author via App Dart](readmes/author_buscas.md)
+8. [Buscas em Author via App Dart](#author_buscas)
     1. queryBuilder_IncludeObject
     2. queryBuilder_WhereEqualToPointer
     3. queryBuilder_WhereMatchesQuery
     4. queryBuilder_WhereDoesNotMatchQuery
     5. queryBuilder_WhereMatchesKeyInQuery
     6. queryBuilder_WhereDoesNotMatchKeyInQuery
-9. [Dados em Shape via App Dart](readmes/shape_dados.md)
+9. [Dados em Shape via App Dart](#shape_dados)
     1. typeFile
     2. typeObject
-10. [Buscas em Shape via App Dart](readmes/shape_buscas.md)
-11. [Dados em Publisher via App Dart](readmes/publisher_dados.md)
+10. [Buscas em Shape via App Dart](#shape_buscas)
+11. [Dados em Publisher via App Dart](#publisher_dados)
     1. typePointer to Shape
-12. [Buscas em Publisher via App Dart](readmes/publisher_buscas.md)
-13. [Dados em Book via App Dart](readmes/book_dados.md)
+12. [Buscas em Publisher via App Dart](#publisher_buscas)
+13. [Dados em Book via App Dart](#book_dados)
     1. typePointer to Publisher
     2. typeRelation to Author
-14. [Buscas em Book via App Dart](readmes/book_buscas.md)
+14. [Buscas em Book via App Dart](#book_buscas)
     1. queryBuilder_IncludeObject
     2. queryBuilder_WhereEqualToRelation
     3. queryBuilder_WhereMatchesQuery
     4. queryBuilder_WhereDoesNotMatchQuery
-15. [issues, tickets, etc](readmes/issues.md)
+15. [issues, tickets, etc](#issues)
+
+[Voltar ao sumário](#sumario)
+
 ---
 ---
 <a id="apresentacao"></a>
+
 # Apresentação do projeto Dart/Flutter deste tutorial
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -139,6 +144,7 @@ Faremos o deploy da aplicação em Flutter Web no b4a.
 
 ---
 ---
+<a id="tabelas"></a>
 
 # As tabelas, seus campos, e suas relações.
 
@@ -256,8 +262,12 @@ Ou seja.
 DateTime em sua aplicação | DateTime no b4a
 ---|---
 2022-01-01 00:00:00 | 2022-01-01 03:00:00 
+
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="database"></a>
 # Criando o database no back4app.com
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -394,8 +404,12 @@ O esquema completo com todas as tabela ficou assim
 
 reveja o post/video sobre as relações entre elas para que apartir dagora você tenha uma clareza nas adição e busca dos dados.
 
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="app"></a>
+
 # Criando o app Dart e Conexão do app com a b4a
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -493,10 +507,11 @@ app/
 
 Execute o app em modo Debug para pegar as saídas dos log().
 
-
+[Voltar ao sumário](#sumario)
 
 ---
 ---
+<a id="genre_dados"></a>
 # Dados em Genre via App Dart
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -537,8 +552,12 @@ Então a seguencia de criação dos arquivos será
 6. lib/app/presentation/genre/genre_controller.dart
 
 Esta será a etapa mais trabalhosa, pois será a referencia para todas as outras. Então preste a atenção que nas demais não repetirei o processo.
+
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="genre_buscas"></a>
 # Buscas em Genre via App Dart
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -569,8 +588,11 @@ As buscas na tabela Genre serão:
 21. queryBuilderWhereArrayContainsAll
 22. queryBuilderOr
 
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="author_dados"></a>
 # Dados em Author via App Dart
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -585,8 +607,11 @@ A manipulação de dados nesta tabela envolverá:
 * delete
 * removeAll
 
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="author_buscas"></a>
 # Buscas em Author via App Dart
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -601,8 +626,11 @@ As buscas na tabela Author serão:
 5. queryBuilderWhereMatchesKeyInQuery
 6. queryBuilderWhereDoesNotMatchKeyInQuery
 
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="shape_dados"></a>
 # Dados em Shape via App Dart
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -617,8 +645,11 @@ A manipulação de dados nesta tabela envolverá:
 * delete
 * removeAll
 
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="shape_buscas"></a>
 # Buscas em Shape via App Dart
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -628,8 +659,11 @@ Bora codar...
 As buscas na tabela Shape serão:
 1. getObject
 
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="publisher_dados"></a>
 # Dados em Publisher via App Dart
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -644,8 +678,11 @@ A manipulação de dados nesta tabela envolverá:
 * delete
 * removeAll
 
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="publisher_buscas"></a>
 # Buscas em Publisher via App Dart
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -655,8 +692,11 @@ Bora codar...
 As buscas na tabela Publisher serão:
 1. getObject
 
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="book_dados"></a>
 # Dados em Book via App Dart
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -671,8 +711,11 @@ A manipulação de dados nesta tabela envolverá:
 * delete
 * removeAll
 
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="book_buscas"></a>
 # Buscas em Book via App Dart
 
 
@@ -688,8 +731,12 @@ As buscas na tabela Book serão:
 2. queryBuilderWhereEqualToRelation
 3. queryBuilderWhereMatchesQuery
 4. queryBuilderWhereDoesNotMatchQuery
+
+[Voltar ao sumário](#sumario)
+
 ---
 ---
+<a id="issues"></a>
 
 # issues, tickets, etc
 
@@ -713,6 +760,7 @@ Acessar meus tickets:
 * https://help.back4app.com/hc/en-us/requests
 * https://help.back4app.com/hc/en-us/requests/new
 
----
+[Voltar ao sumário](#sumario)
+
 ---
 ---

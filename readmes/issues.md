@@ -20,5 +20,3 @@ Os seguintes tickets no suport da b4a foram geradas ao longo dos estudos.
 Acessar meus tickets:
 * https://help.back4app.com/hc/en-us/requests
 * https://help.back4app.com/hc/en-us/requests/new
-
----
