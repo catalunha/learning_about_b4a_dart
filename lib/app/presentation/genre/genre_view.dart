@@ -7,6 +7,7 @@ class GenreView {
   GenreView() {
     log('=== GenreView ===');
   }
+
   void getObject(String objectId) async {
     log('+++ getObject +++');
     GenreController genreController = GenreController();
@@ -111,8 +112,6 @@ class GenreView {
     log('--- queryBuilderPagination ---');
   }
 
-  /// Se coluna for DateTime cuidar para valor ser exato até millisecond
-  /// Informe DateTime local que ele compara em UTC no Back4app. Ou seja +3h
   void queryBuilderWhereEqualToSimpleColumn(
       String columnName, dynamic value) async {
     log('+++ queryBuilderWhereEqualToSimpleColumn +++');

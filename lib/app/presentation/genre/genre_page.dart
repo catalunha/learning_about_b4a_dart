@@ -6,7 +6,7 @@ void genrePage() {
   GenreRepository genreRepository = GenreRepository();
   // genreRepository.addAll();
   // genreRepository.add();
-  genreRepository.update();
+  // genreRepository.update();
   // genreRepository.unset('3xILA8Wjyp', 'typeString');
   // genreRepository.delete('iBX9aQtUTv');
   // genreRepository.removeAll();
@@ -55,7 +55,7 @@ void genrePage() {
   // genreView.queryBuilderWhereStartsWith('typeString', 'g');
   // genreView.queryBuilderWhereEndsWith('typeString', '2');
   // genreView.queryBuilderWhereContains('typeString', '0');
-  // genreView.queryBuilderWhereContainedIn('typeArray', ['a', '4']);
-  // genreView.queryBuilderWhereArrayContainsAll('typeArray', ['a', '1']);
+  // genreView.queryBuilderWhereContainedIn('typeArray', ['a', '3']);
+  genreView.queryBuilderWhereArrayContainsAll('typeArray', ['a', '1']);
   // genreView.queryBuilderOr();
 }
