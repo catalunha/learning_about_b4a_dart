@@ -525,18 +525,18 @@ Trataremos apenas dos seguintes campos
 5. typeArray
 
 A manipulação de dados nesta tabela envolverá:
-1. addAll
-2. add
+1. add
+2. addAll
 3. update
 4. unset
 5. delete
 6. removeAll
-7.  typeArraySetAdd
-8.  typeArraySetAddUnique
-9.  typeArraySetAddAll
-10. typeArraySetAddAllUnique
-11. typeNumberIncrement
-12. typeNumberDecrement
+7.  typeNumberIncrement
+8.  typeNumberDecrement
+9.  typeArraySetAdd
+10. typeArraySetAddUnique
+11. typeArraySetAddAll
+12. typeArraySetAddAllUnique
 
 
 Bora codar...
