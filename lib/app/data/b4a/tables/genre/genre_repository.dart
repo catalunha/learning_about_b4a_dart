@@ -95,6 +95,64 @@ class GenreRepository {
     await parseObject.delete();
   }
 
+  /// Adiciona um elemento a um array.
+  /// Repetindo o valor se necessario
+  typeArraySetAdd(String objectId, dynamic value) async {
+    log('+++ typeArraySetAdd +++');
+    final parseObject = ParseObject(GenreEntity.className);
+    parseObject.objectId = objectId;
+    parseObject.setAdd('typeArray', value);
+    await parseObject.save();
+  }
+
+  /// Adiciona um elemento a um array.
+  /// Mas não repete o valor
+  typeArraySetAddUnique(String objectId, dynamic value) async {
+    log('+++ typeArraySetAddUnique +++');
+    final parseObject = ParseObject(GenreEntity.className);
+    parseObject.objectId = objectId;
+    parseObject.setAddUnique('typeArray', value);
+    await parseObject.save();
+  }
+
+  /// Adiciona multiplos elementos a um array.
+  /// Repetindo os valores se necessario
+  typeArraySetAddAll(String objectId, List<dynamic> values) async {
+    log('+++ typeArraySetAddAll +++');
+    final parseObject = ParseObject(GenreEntity.className);
+    parseObject.objectId = objectId;
+    parseObject.setAddAll('typeArray', values);
+    await parseObject.save();
+  }
+
+  /// Adiciona multiplos elementos a um array.
+  /// Mas não repete os valores
+  typeArraySetAddAllUnique(String objectId, List<dynamic> values) async {
+    log('+++ typeArraySetAddAllUnique +++');
+    final parseObject = ParseObject(GenreEntity.className);
+    parseObject.objectId = objectId;
+    parseObject.setAddAllUnique('typeArray', values);
+    await parseObject.save();
+  }
+
+  /// Incrementa um valor ao atributo do tipo number
+  typeNumberIncrement(String objectId, num amount) async {
+    log('+++ typeNumberIncrement +++');
+    final parseObject = ParseObject(GenreEntity.className);
+    parseObject.objectId = objectId;
+    parseObject.setIncrement('typeNumber', amount);
+    await parseObject.save();
+  }
+
+  /// Decrementa um valor ao atributo do tipo number
+  typeNumberDecrement(String objectId, num amount) async {
+    log('+++ typeNumberDecrement +++');
+    final parseObject = ParseObject(GenreEntity.className);
+    parseObject.objectId = objectId;
+    parseObject.setDecrement('typeNumber', amount);
+    await parseObject.save();
+  }
+
   removeAll() async {
     log('+++ removeAll +++');
 
