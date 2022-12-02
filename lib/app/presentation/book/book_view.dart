@@ -1,7 +1,9 @@
 import 'dart:developer';
 
 import 'package:learning_about_b4a_dart/app/core/models/book_model.dart';
-import 'package:learning_about_b4a_dart/app/presentation/book/book_controller.dart';
+import 'package:learning_about_b4a_dart/app/data/b4a/entity/author_entity.dart';
+import 'package:learning_about_b4a_dart/app/data/b4a/entity/book_entity.dart';
+import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class BookView {
   BookView() {
@@ -9,11 +11,19 @@ class BookView {
   }
   Future<void> queryBuilderIncludeObject(List<String> columnsName) async {
     log('+++ queryBuilderIncludeObject +++');
-    BookController bookController = BookController();
-    List<BookModel> result =
-        await bookController.queryBuilderIncludeObject(columnsName);
+    var list = <BookModel>[];
+    QueryBuilder<ParseObject> queryBuilder =
+        QueryBuilder<ParseObject>(ParseObject(BookEntity.className));
+    queryBuilder.includeObject(columnsName);
+    var parseResponse = await queryBuilder.query();
+
+    if (parseResponse.success && parseResponse.results != null) {
+      for (var element in parseResponse.results!) {
+        list.add(await BookEntity().toModel(element));
+      }
+    }
     log('... queryBuilderIncludeObject ...');
-    for (var item in result) {
+    for (var item in list) {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderIncludeObject ---');
@@ -22,11 +32,20 @@ class BookView {
   void queryBuilderWhereEqualToRelation(
       String relationClassName, String relationId) async {
     log('+++ queryBuilderWhereEqualToRelation +++');
-    BookController bookController = BookController();
-    List<BookModel> result = await bookController
-        .queryBuilderWhereEqualToRelation(relationClassName, relationId);
+    var list = <BookModel>[];
+    QueryBuilder<ParseObject> queryBuilder =
+        QueryBuilder<ParseObject>(ParseObject(BookEntity.className));
+    queryBuilder.whereEqualTo('typeRelation',
+        (ParseObject(relationClassName)..objectId = relationId).toPointer());
+    var apiResponse = await queryBuilder.query();
+
+    if (apiResponse.success && apiResponse.results != null) {
+      for (var element in apiResponse.results!) {
+        list.add(await BookEntity().toModel(element));
+      }
+    }
     log('... queryBuilderWhereEqualToRelation ...');
-    for (var item in result) {
+    for (var item in list) {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereEqualToRelation ---');
@@ -34,11 +53,24 @@ class BookView {
 
   void queryBuilderWhereMatchesQuery() async {
     log('+++ queryBuilderWhereMatchesQuery +++');
-    BookController bookController = BookController();
-    List<BookModel> result =
-        await bookController.queryBuilderWhereMatchesQuery();
+    var list = <BookModel>[];
+    QueryBuilder<ParseObject> otherQueryBuilder =
+        QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
+    otherQueryBuilder.whereContainedIn('typeArray', ['b', '2']);
+
+    QueryBuilder<ParseObject> queryBuilder =
+        QueryBuilder<ParseObject>(ParseObject(BookEntity.className));
+
+    queryBuilder.whereMatchesQuery('typeRelation', otherQueryBuilder);
+    var apiResponse = await queryBuilder.query();
+
+    if (apiResponse.success && apiResponse.results != null) {
+      for (var element in apiResponse.results!) {
+        list.add(await BookEntity().toModel(element));
+      }
+    }
     log('... queryBuilderWhereMatchesQuery ...');
-    for (var item in result) {
+    for (var item in list) {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereMatchesQuery ---');
@@ -46,11 +78,24 @@ class BookView {
 
   void queryBuilderWhereDoesNotMatchQuery() async {
     log('+++ queryBuilderWhereDoesNotMatchQuery +++');
-    BookController bookController = BookController();
-    List<BookModel> result =
-        await bookController.queryBuilderWhereDoesNotMatchQuery();
+    var list = <BookModel>[];
+    QueryBuilder<ParseObject> otherQueryBuilder =
+        QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
+    otherQueryBuilder.whereContainedIn('typeArray', ['a', '4']);
+
+    QueryBuilder<ParseObject> queryBuilder =
+        QueryBuilder<ParseObject>(ParseObject(BookEntity.className));
+
+    queryBuilder.whereDoesNotMatchQuery('typeRelation', otherQueryBuilder);
+    var apiResponse = await queryBuilder.query();
+
+    if (apiResponse.success && apiResponse.results != null) {
+      for (var element in apiResponse.results!) {
+        list.add(await BookEntity().toModel(element));
+      }
+    }
     log('... queryBuilderWhereDoesNotMatchQuery ...');
-    for (var item in result) {
+    for (var item in list) {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereDoesNotMatchQuery ---');
