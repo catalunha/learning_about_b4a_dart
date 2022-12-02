@@ -34,15 +34,21 @@ Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews 
 0. [Criando o app Dart e Conexão do app com a b4a](readmes/app.md)
     1. app console dart
 0. [Dados em Genre via App Dart](readmes/genre_dados.md)
-    1. typeString
-    0. typeBoolean
-    0. typeNumber
-    0. typeDateTime
-    0. typeArray
-    0. lib/data/b4a/tables/genre/genre_repository.dart
-    0. lib/core/models/genre_model.dart
-    0. lib/data/b4a/entity/genre_entity.dart
-0. [Buscas em Genre via App Dart](readmes/genre_buscas.md)
+    1. addAll
+    2. add
+    3. update
+    4. unset
+    5. delete
+    6. removeAll
+    7. typeString
+    8. typeBoolean
+    9. typeNumber
+    10. typeDateTime
+    11. typeArray
+    12. lib/data/b4a/tables/genre/genre_repository.dart
+    13. lib/core/models/genre_model.dart
+    14. lib/data/b4a/entity/genre_entity.dart
+1. [Buscas em Genre via App Dart](readmes/genre_buscas.md)
     1. count
     2. getObject
     3. getAll
@@ -65,28 +71,28 @@ Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews 
     20. queryBuilder_WhereContainedIn
     21. queryBuilder_WhereArrayContainsAll
     22. queryBuilder_Or
-0. [Dados em Author via App Dart](readmes/author_dados.md)
+2. [Dados em Author via App Dart](readmes/author_dados.md)
     1. typePointer to Genre
-0. [Buscas em Author via App Dart](readmes/author_buscas.md)
+3. [Buscas em Author via App Dart](readmes/author_buscas.md)
     1. queryBuilder_IncludeObject
     2. queryBuilder_WhereEqualToPointer
     3. queryBuilder_WhereMatchesQuery
     4. queryBuilder_WhereDoesNotMatchQuery
     5. queryBuilder_WhereMatchesKeyInQuery
     6. queryBuilder_WhereDoesNotMatchKeyInQuery
-0. [Dados em Shape via App Dart](readmes/shape_dados.md)
+4. [Dados em Shape via App Dart](readmes/shape_dados.md)
     1. typeFile
-    0. typeObject
-0. [Buscas em Shape via App Dart](readmes/shape_buscas.md)
-0. [Dados em Publisher via App Dart](readmes/publisher_dados.md)
+    2. typeObject
+5. [Buscas em Shape via App Dart](readmes/shape_buscas.md)
+6. [Dados em Publisher via App Dart](readmes/publisher_dados.md)
     1. typePointer to Shape
-0. [Buscas em Publisher via App Dart](readmes/publisher_buscas.md)
-0. [Dados em Book via App Dart](readmes/book_dados.md)
+7. [Buscas em Publisher via App Dart](readmes/publisher_buscas.md)
+8. [Dados em Book via App Dart](readmes/book_dados.md)
     1. typePointer to Publisher
-    1. typeRelation to Author
-0. [Buscas em Book via App Dart](readmes/book_buscas.md)
+    2. typeRelation to Author
+9.  [Buscas em Book via App Dart](readmes/book_buscas.md)
     1. queryBuilder_IncludeObject
     2. queryBuilder_WhereEqualToRelation
     3. queryBuilder_WhereMatchesQuery
     4. queryBuilder_WhereDoesNotMatchQuery
-0. [issues, tickets, etc](readmes/issues.md)
+10. [issues, tickets, etc](readmes/issues.md)
