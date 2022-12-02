@@ -2,13 +2,27 @@
 
 Este texto a seguir é melhor detalhado neste video: 
 
+Trataremos apenas dos seguintes campos
+1. typeString
+2. typeBoolean
+3. typeNumber
+4. typeDateTime
+5. typeArray
+
 A manipulação de dados nesta tabela envolverá:
-* addAll
-* add
-* update
-* unset
-* delete
-* removeAll
+1. addAll
+2. add
+3. update
+4. unset
+5. delete
+6. removeAll
+7.  typeArraySetAdd
+8.  typeArraySetAddUnique
+9.  typeArraySetAddAll
+10. typeArraySetAddAllUnique
+11. typeNumberIncrement
+12. typeNumberDecrement
+
 
 Bora codar...
 

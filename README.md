@@ -23,35 +23,44 @@ E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://di
 ## Sumário dos Posts
 1. [Apresentação do projeto Dart/Flutter](readmes/apresentacao.md)
     1. Dart (ok)
-    0. Flutter (em construção)
-0. [As tabelas, seus campos, e suas relações.](readmes/tabelas.md)
+    2. Flutter (em construção)
+2. [As tabelas, seus campos, e suas relações.](readmes/tabelas.md)
     1. Relações num DataBase b4a
-    0. Tipos comuns em b4a
-    0. json objects
-0. [Criando o database no back4app.com](readmes/database.md)
+    2. Tipos comuns em b4a
+    3. json objects
+3. [Criando o database no back4app.com](readmes/database.md)
     1. Genre
-    0. Author
-    0. Shape
-    0. Publisher
-    0. Book
-0. [Criando o app Dart e Conexão do app com a b4a](readmes/app.md)
+    2. Author
+    3. Shape
+    4. Publisher
+    5. Book
+4. [Criando o app Dart e Conexão do app com a b4a](readmes/app.md)
     1. app console dart
-0. [Dados em Genre via App Dart](readmes/genre_dados.md)
-    1. addAll
-    2. add
-    3. update
-    4. unset
-    5. delete
-    6. removeAll
-    7. typeString
-    8. typeBoolean
-    9. typeNumber
-    10. typeDateTime
-    11. typeArray
-    12. lib/data/b4a/tables/genre/genre_repository.dart
-    13. lib/core/models/genre_model.dart
-    14. lib/data/b4a/entity/genre_entity.dart
-1. [Buscas em Genre via App Dart](readmes/genre_buscas.md)
+5. [Dados em Genre via App Dart](readmes/genre_dados.md)
+    1. typeString
+    2. typeBoolean
+    3. typeNumber
+    4. typeDateTime
+    5. typeArray
+    6. addAll
+    7. add
+    8. update
+    9. unset
+    10. delete
+    11. removeAll
+    12. typeArraySetAdd
+    13. typeArraySetAddUnique
+    14. typeArraySetAddAll
+    15. typeArraySetAddAllUnique
+    16. typeNumberIncrement
+    17. typeNumberDecrement
+    18. lib/data/b4a/tables/genre/genre_repository.dart
+    19. lib/core/models/genre_model.dart
+    20. lib/data/b4a/entity/genre_entity.dart
+    21. lib/app/presentation/genre/genre_page.dart
+    22. lib/app/presentation/genre/genre_view.dart
+    23. lib/app/presentation/genre/genre_controller.dart
+6. [Buscas em Genre via App Dart](readmes/genre_buscas.md)
     1. count
     2. getObject
     3. getAll
@@ -60,7 +69,7 @@ E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://di
     6. queryBuilder_OrderByDescending
     7. queryBuilder_ExcludeKeys
     8. queryBuilder_KeysToReturn
-    9. queryBuilder_Pagination
+    9.  queryBuilder_Pagination
     10. queryBuilder_WhereEqualToSimpleColumn
     11. queryBuilder_WhereNotEqualToSimpleColumn
     12. queryBuilder_WhereGreaterThan
@@ -74,31 +83,31 @@ E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://di
     20. queryBuilder_WhereContainedIn
     21. queryBuilder_WhereArrayContainsAll
     22. queryBuilder_Or
-2. [Dados em Author via App Dart](readmes/author_dados.md)
+7. [Dados em Author via App Dart](readmes/author_dados.md)
     1. typePointer to Genre
-3. [Buscas em Author via App Dart](readmes/author_buscas.md)
+8. [Buscas em Author via App Dart](readmes/author_buscas.md)
     1. queryBuilder_IncludeObject
     2. queryBuilder_WhereEqualToPointer
     3. queryBuilder_WhereMatchesQuery
     4. queryBuilder_WhereDoesNotMatchQuery
     5. queryBuilder_WhereMatchesKeyInQuery
     6. queryBuilder_WhereDoesNotMatchKeyInQuery
-4. [Dados em Shape via App Dart](readmes/shape_dados.md)
+9. [Dados em Shape via App Dart](readmes/shape_dados.md)
     1. typeFile
     2. typeObject
-5. [Buscas em Shape via App Dart](readmes/shape_buscas.md)
-6. [Dados em Publisher via App Dart](readmes/publisher_dados.md)
+10. [Buscas em Shape via App Dart](readmes/shape_buscas.md)
+11. [Dados em Publisher via App Dart](readmes/publisher_dados.md)
     1. typePointer to Shape
-7. [Buscas em Publisher via App Dart](readmes/publisher_buscas.md)
-8. [Dados em Book via App Dart](readmes/book_dados.md)
+12. [Buscas em Publisher via App Dart](readmes/publisher_buscas.md)
+13. [Dados em Book via App Dart](readmes/book_dados.md)
     1. typePointer to Publisher
     2. typeRelation to Author
-9.  [Buscas em Book via App Dart](readmes/book_buscas.md)
+14. [Buscas em Book via App Dart](readmes/book_buscas.md)
     1. queryBuilder_IncludeObject
     2. queryBuilder_WhereEqualToRelation
     3. queryBuilder_WhereMatchesQuery
     4. queryBuilder_WhereDoesNotMatchQuery
-10. [issues, tickets, etc](readmes/issues.md)
+15. [issues, tickets, etc](readmes/issues.md)
 ---
 ---
 # Apresentação do projeto Dart/Flutter deste tutorial
@@ -491,13 +500,27 @@ Execute o app em modo Debug para pegar as saídas dos log().
 
 Este texto a seguir é melhor detalhado neste video: 
 
+Trataremos apenas dos seguintes campos
+1. typeString
+2. typeBoolean
+3. typeNumber
+4. typeDateTime
+5. typeArray
+
 A manipulação de dados nesta tabela envolverá:
-* addAll
-* add
-* update
-* unset
-* delete
-* removeAll
+1. addAll
+2. add
+3. update
+4. unset
+5. delete
+6. removeAll
+7.  typeArraySetAdd
+8.  typeArraySetAddUnique
+9.  typeArraySetAddAll
+10. typeArraySetAddAllUnique
+11. typeNumberIncrement
+12. typeNumberDecrement
+
 
 Bora codar...
 
