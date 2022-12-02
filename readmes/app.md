@@ -95,3 +95,5 @@ app/
 ```
 
 Execute o app em modo Debug para pegar as saídas dos log().
+
+Não esqueça de enviar este projeto ao seu github como privado enquanto vc desenvolve. Depois pode colocar publica pois as credenciais já vão estar salvas pelo dotenv. 
