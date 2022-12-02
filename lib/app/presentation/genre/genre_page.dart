@@ -1,5 +1,5 @@
 import 'package:learning_about_b4a_dart/app/data/b4a/tables/genre/genre_repository.dart';
-import 'package:learning_about_b4a_dart/app/presentation/genre/genre_view.dart';
+import 'package:learning_about_b4a_dart/app/presentation/genre/genre_search.dart';
 
 void genrePage() {
   // Genre repo
@@ -19,7 +19,7 @@ void genrePage() {
   // genreRepository.typeArraySetRemove('3PplSH1UZd', 'a');
   // genreRepository.typeArraySetRemoveAll('3PplSH1UZd', ['aa', 'd', 'g']);
   // Genre View
-  GenreView genreView = GenreView();
+  GenreSearch genreView = GenreSearch();
   // genreView.count();
   // genreView.getObject('3xILA8Wjyp');
   // genreView.getAll();

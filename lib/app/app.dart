@@ -1,5 +1,4 @@
 import 'package:learning_about_b4a_dart/app/data/b4a/connect_b4a.dart';
-import 'package:learning_about_b4a_dart/app/data/b4a/tables/genre/genre_repository.dart';
 import 'package:learning_about_b4a_dart/app/presentation/author/author_page.dart';
 import 'package:learning_about_b4a_dart/app/presentation/book/book_page.dart';
 import 'package:learning_about_b4a_dart/app/presentation/genre/genre_page.dart';
