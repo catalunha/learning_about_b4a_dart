@@ -19,9 +19,9 @@ Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews 
 
 No restante do tutorial tentarei manter o maximo de coisas que eu já fiz com as que vou refazendo pra compartilhar com vc. Se algo estiver a frente ou a trás do que falo ou faço tentarei explicar no video ou atualizar via texto aqui. 
 E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://discord.com/channels/766282533292998691/766282694967296030
-
+<a id="sumario"></a>
 ## Sumário dos Posts
-1. [Apresentação do projeto Dart/Flutter](readmes/apresentacao.md)
+1. [Apresentação do projeto Dart/Flutter](#apresentacao)
     1. Dart (ok)
     2. Flutter (em construção)
 2. [As tabelas, seus campos, e suas relações.](readmes/tabelas.md)
@@ -110,6 +110,7 @@ E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://di
 15. [issues, tickets, etc](readmes/issues.md)
 ---
 ---
+<a id="apresentacao"></a>
 # Apresentação do projeto Dart/Flutter deste tutorial
 
 Este texto a seguir é melhor detalhado neste video: 
@@ -134,7 +135,7 @@ Colocaremos também todos estes conhecimentos de cadastro, atualização e busca
 
 Faremos o deploy da aplicação em Flutter Web no b4a. 
 
-
+[Voltar ao sumário](#sumario)
 
 ---
 ---
