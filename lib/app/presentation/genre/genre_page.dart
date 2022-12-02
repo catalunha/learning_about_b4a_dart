@@ -10,12 +10,14 @@ void genrePage() {
   // genreRepository.unset('3xILA8Wjyp', 'typeString');
   // genreRepository.delete('iBX9aQtUTv');
   // genreRepository.removeAll();
+  // genreRepository.typeNumberIncrement('3xILA8Wjyp', 2.0);
+  // genreRepository.typeNumberDecrement('3xILA8Wjyp', 3.0);
   // genreRepository.typeArraySetAdd('3xILA8Wjyp', 'd');
   // genreRepository.typeArraySetAddUnique('3xILA8Wjyp', 'd');
   // genreRepository.typeArraySetAddAll('3xILA8Wjyp', ['e', 'f']);
   // genreRepository.typeArraySetAddAllUnique('3xILA8Wjyp', ['e', 'f']);
-  // genreRepository.typeNumberIncrement('3xILA8Wjyp', 2.0);
-  // genreRepository.typeNumberDecrement('3xILA8Wjyp', 3.0);
+  // genreRepository.typeArraySetRemove('3PplSH1UZd', 'a');
+  // genreRepository.typeArraySetRemoveAll('3PplSH1UZd', ['aa', 'd', 'g']);
   // Genre View
   GenreView genreView = GenreView();
   // genreView.count();

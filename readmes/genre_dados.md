@@ -22,6 +22,8 @@ A manipulação de dados nesta tabela envolverá:
 10. typeArraySetAddUnique
 11. typeArraySetAddAll
 12. typeArraySetAddAllUnique
+12. typeArraySetRemove
+13. typeArraySetRemoveAll
 
 
 Bora codar...

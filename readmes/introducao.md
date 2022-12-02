@@ -37,30 +37,32 @@ E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://di
 4. [Criando o app Dart e Conexão do app com a b4a](#app)
     1. app console dart
 5. [Dados em Genre via App Dart](#genre_dados)
-    1. typeString
-    2. typeBoolean
-    3. typeNumber
-    4. typeDateTime
-    5. typeArray
-    6. addAll
-    7. add
-    8. update
-    9. unset
-    10. delete
-    11. removeAll
-    12. typeArraySetAdd
-    13. typeArraySetAddUnique
-    14. typeArraySetAddAll
-    15. typeArraySetAddAllUnique
-    16. typeNumberIncrement
-    17. typeNumberDecrement
-    18. lib/data/b4a/tables/genre/genre_repository.dart
-    19. lib/core/models/genre_model.dart
-    20. lib/data/b4a/entity/genre_entity.dart
-    21. lib/app/presentation/genre/genre_page.dart
-    22. lib/app/presentation/genre/genre_view.dart
-    23. lib/app/presentation/genre/genre_controller.dart
-6. [Buscas em Genre via App Dart](#genre_buscas)
+   1. typeString
+   2. typeBoolean
+   3. typeNumber
+   4. typeDateTime
+   5.  typeArray
+   6.  add
+   7.  addAll
+   8.  update
+   9.  unset
+   10. delete
+   11. removeAll
+   12. typeNumberIncrement
+   13. typeNumberDecrement
+   14. typeArraySetAdd
+   15. typeArraySetAddUnique
+   16. typeArraySetAddAll
+   17. typeArraySetAddAllUnique
+   18. typeArraySetRemove
+   19. typeArraySetRemoveAll
+   20. lib/data/b4a/tables/genre/genre_repository.dart
+   21. lib/core/models/genre_model.dart
+   22. lib/data/b4a/entity/genre_entity.dart
+   23. lib/app/presentation/genre/genre_page.dart
+   24. lib/app/presentation/genre/genre_view.dart
+   25. lib/app/presentation/genre/genre_controller.dart
+6.  [Buscas em Genre via App Dart](#genre_buscas)
     1. count
     2. getObject
     3. getAll
@@ -83,16 +85,16 @@ E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://di
     20. queryBuilder_WhereContainedIn
     21. queryBuilder_WhereArrayContainsAll
     22. queryBuilder_Or
-7. [Dados em Author via App Dart](#author_dados)
+7.  [Dados em Author via App Dart](#author_dados)
     1. typePointer to Genre
-8. [Buscas em Author via App Dart](#author_buscas)
+8.  [Buscas em Author via App Dart](#author_buscas)
     1. queryBuilder_IncludeObject
     2. queryBuilder_WhereEqualToPointer
     3. queryBuilder_WhereMatchesQuery
     4. queryBuilder_WhereDoesNotMatchQuery
     5. queryBuilder_WhereMatchesKeyInQuery
     6. queryBuilder_WhereDoesNotMatchKeyInQuery
-9. [Dados em Shape via App Dart](#shape_dados)
+9.  [Dados em Shape via App Dart](#shape_dados)
     1. typeFile
     2. typeObject
 10. [Buscas em Shape via App Dart](#shape_buscas)

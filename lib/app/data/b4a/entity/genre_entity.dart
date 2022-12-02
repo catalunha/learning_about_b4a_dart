@@ -52,14 +52,14 @@ class GenreEntity {
     return parseObject;
   }
 
-  ParseObject toParseUnset(String objectId, List<String> unsetFields) {
+  Future<void> toParseUnset(String objectId, List<String> unsetFields) async {
     final parseObject = ParseObject(GenreEntity.className);
     parseObject.objectId = objectId;
 
     for (var field in unsetFields) {
-      parseObject.unset(field);
+      await parseObject.unset(field);
     }
 
-    return parseObject;
+    // return parseObject;
   }
 }

@@ -105,6 +105,16 @@ class GenreRepository {
     await parseObject.save();
   }
 
+  /// Remove um elemento a um array.
+  /// se repetir remove todos
+  typeArraySetRemove(String objectId, dynamic value) async {
+    log('+++ typeArraySetRemove +++');
+    final parseObject = ParseObject(GenreEntity.className);
+    parseObject.objectId = objectId;
+    parseObject.setRemove('typeArray', value);
+    await parseObject.save();
+  }
+
   /// Adiciona um elemento a um array.
   /// Mas não repete o valor
   typeArraySetAddUnique(String objectId, dynamic value) async {
@@ -122,6 +132,15 @@ class GenreRepository {
     final parseObject = ParseObject(GenreEntity.className);
     parseObject.objectId = objectId;
     parseObject.setAddAll('typeArray', values);
+    await parseObject.save();
+  }
+
+  /// Remove multiplos elementos a um array.
+  typeArraySetRemoveAll(String objectId, List<dynamic> values) async {
+    log('+++ typeArraySetRemoveAll +++');
+    final parseObject = ParseObject(GenreEntity.className);
+    parseObject.objectId = objectId;
+    parseObject.setRemoveAll('typeArray', values);
     await parseObject.save();
   }
 
