@@ -72,7 +72,6 @@ app/
 │               └── shape_repository.dart
 └── presentation
     ├── author
-    │   ├── author_controller.dart
     │   ├── author_page.dart
     │   └── author_view.dart
     ├── book
@@ -80,18 +79,14 @@ app/
     │   ├── book_page.dart
     │   └── book_view.dart
     ├── genre
-    │   ├── genre_controller.dart
     │   ├── genre_page.dart
-    │   └── genre_view.dart
+    │   └── genre_search.dart
     ├── publisher
-    │   ├── publisher_controller.dart
     │   ├── publisher_page.dart
-    │   └── publisher_view.dart
+    │   └── publisher_search.dart
     └── shape
-        ├── shape_controller.dart
         ├── shape_page.dart
-        └── shape_view.dart
-
+        └── shape_search.dart
 ```
 
 Execute o app em modo Debug para pegar as saídas dos log().
