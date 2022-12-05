@@ -57,7 +57,7 @@ class BookSearch {
     var list = <BookModel>[];
     QueryBuilder<ParseObject> otherQueryBuilder =
         QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
-    otherQueryBuilder.whereContainedIn('typeArray', ['b', '2']);
+    otherQueryBuilder.whereContainedIn('typeArray', ['a', '1']);
 
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject(BookEntity.className));
@@ -82,7 +82,7 @@ class BookSearch {
     var list = <BookModel>[];
     QueryBuilder<ParseObject> otherQueryBuilder =
         QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
-    otherQueryBuilder.whereContainedIn('typeArray', ['a', '4']);
+    otherQueryBuilder.whereContainedIn('typeArray', ['a', '1']);
 
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject(BookEntity.className));

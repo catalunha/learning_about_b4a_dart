@@ -9,14 +9,14 @@ class BookEntity {
 
   Future<BookModel> toModel(ParseObject parseObject,
       {List<String>? includeColumns}) async {
-    List<AuthorModel> typeRelationList = [];
     if (includeColumns == null) {
       includeColumns = [];
-      includeColumns.add('typeRelation');
+      includeColumns.add('typeRelationAuthor');
     }
 
     //+++ get typeRelation
-    if (includeColumns.contains('typeRelation')) {
+    List<AuthorModel> typeRelationAuthorList = [];
+    if (includeColumns.contains('typeRelationAuthor')) {
       QueryBuilder<ParseObject> queryAuthor =
           QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
       queryAuthor.whereRelatedTo(
@@ -25,7 +25,7 @@ class BookEntity {
       final ParseResponse responseAuthor = await queryAuthor.query();
       if (responseAuthor.success && responseAuthor.results != null) {
         for (var e in responseAuthor.results!) {
-          typeRelationList.add(AuthorEntity().toModel(e));
+          typeRelationAuthorList.add(AuthorEntity().toModel(e));
         }
       }
     }
@@ -47,7 +47,7 @@ class BookEntity {
           ? PublisherEntity()
               .toModel(parseObject.get('typePointerPublisher') as ParseObject)
           : null,
-      typeRelationAuthor: typeRelationList,
+      typeRelationAuthor: typeRelationAuthorList,
     );
     return model;
   }
