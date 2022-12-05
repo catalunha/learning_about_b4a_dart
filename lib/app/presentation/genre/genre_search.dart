@@ -48,7 +48,7 @@ class GenreSearch {
   }
 
   /// Retorna a quantidade de objetos da query
-  void count() async {
+  void queryBuilderCount() async {
     log('+++ count +++');
     int result = -1;
     QueryBuilder<ParseObject> queryBuilder =
@@ -429,9 +429,9 @@ class GenreSearch {
 
   /// Constroi a consulta onde qualquer objeto com [atributo] typeArray contem
   /// um elemento que é igual a qualquer um dos itens da lista
-  /// Por exemplo: atributo vale ["a","1"] e lista contem ["a","3"] o retorno é true
-  /// Por exemplo: atributo vale ["b","2"] e lista contem ["a","3"] o retorno é false
-  /// Por exemplo: atributo vale ["c","3"] e lista contem ["a","3"] o retorno é true
+  /// Por exemplo: atributo vale ["a","1"] e busca que contem ["a","3"] o retorno é true
+  /// Por exemplo: atributo vale ["b","2"] e busca que contem ["a","3"] o retorno é false
+  /// Por exemplo: atributo vale ["c","3"] e busca que contem ["a","3"] o retorno é true
   void queryBuilderWhereContainedIn(
       String columnName, List<dynamic> values) async {
     log('+++ queryBuilderWhereContainedIn +++');
@@ -455,9 +455,9 @@ class GenreSearch {
 
   /// Constroi a consulta onde qualquer objeto com [atributo] typeArray contem
   /// todos os itens da lista
-  /// Por exemplo: atributo vale ["a","1","4"] e lista contem ["a","1"] o retorno é true
-  /// Por exemplo: atributo vale ["b","2"] e lista contem ["a","3"] o retorno é false
-  /// Por exemplo: atributo vale ["c","3"] e lista contem ["a","3"] o retorno é false
+  /// Por exemplo: atributo vale ["a","1","4"] e busca que contem ["a","1"] o retorno é true
+  /// Por exemplo: atributo vale ["b","2"] e busca que contem ["a","1"] o retorno é false
+  /// Por exemplo: atributo vale ["c","3"] e busca que contem ["a","1"] o retorno é false
   void queryBuilderWhereArrayContainsAll(
       String columnName, List<dynamic> values) async {
     log('+++ queryBuilderWhereArrayContainsAll +++');
@@ -489,7 +489,7 @@ class GenreSearch {
     queryBuilder1.whereLessThan('typeNumber', 2);
     QueryBuilder<ParseObject> queryBuilder2 =
         QueryBuilder<ParseObject>(ParseObject(GenreEntity.className));
-    queryBuilder2.whereGreaterThan('typeNumber', 3);
+    queryBuilder2.whereGreaterThan('typeNumber', 2);
     QueryBuilder<ParseObject> queryBuilder = QueryBuilder.or(
       ParseObject(GenreEntity.className),
       [queryBuilder1, queryBuilder2],
@@ -506,5 +506,65 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderOr ---');
+  }
+
+  void queryBuilderCustom() async {
+    log('+++ queryBuilderCustom +++');
+    var list = <GenreModel>[];
+    QueryBuilder<ParseObject> queryBuilder =
+        QueryBuilder<ParseObject>(ParseObject(GenreEntity.className));
+    // Entra a busca aninhada com chamadas ja estudadas.
+    //+++
+    queryBuilder.orderByAscending('typeString');
+    queryBuilder.orderByDescending('typeString');
+    queryBuilder.excludeKeys(['typeString']);
+    queryBuilder.keysToReturn(['typeString']);
+    queryBuilder.setAmountToSkip(1);
+    queryBuilder.setLimit(1);
+    queryBuilder.whereEqualTo('typeBoolean', false);
+    queryBuilder.whereEqualTo('typeString', 'Genre01');
+    queryBuilder.whereEqualTo('typeNumber', 3);
+    queryBuilder.whereEqualTo('typeDate', DateTime(2022, 11, 26, 10));
+    queryBuilder.whereNotEqualTo('typeBoolean', true);
+    queryBuilder.whereNotEqualTo('typeString', 'Genre02');
+    queryBuilder.whereNotEqualTo('typeNumber', 3);
+    queryBuilder.whereEqualTo(
+        'typeDateTime', DateTime(2022, 12, 02, 16, 42, 36));
+    queryBuilder.whereGreaterThan('typeBoolean', false);
+    queryBuilder.whereGreaterThan('typeString', 'Genre02');
+    queryBuilder.whereGreaterThan('typeNumber', 3);
+    queryBuilder.whereGreaterThan('typeDate', DateTime(2022, 11, 25, 10));
+    queryBuilder.whereGreaterThanOrEqualsTo('typeBoolean', true);
+    queryBuilder.whereGreaterThanOrEqualsTo('typeString', 'Genre02');
+    queryBuilder.whereGreaterThanOrEqualsTo('typeNumber', 3);
+    queryBuilder.whereGreaterThanOrEqualsTo(
+        'typeDate', DateTime(2022, 11, 25, 10));
+    queryBuilder.whereLessThan('typeBoolean', true);
+    queryBuilder.whereLessThan('typeString', 'Genre02');
+    queryBuilder.whereLessThan('typeNumber', 3);
+    queryBuilder.whereLessThan('typeDate', DateTime(2022, 11, 25, 10));
+    queryBuilder.whereLessThanOrEqualTo('typeBoolean', true);
+    queryBuilder.whereLessThanOrEqualTo('typeString', 'Genre02');
+    queryBuilder.whereLessThanOrEqualTo('typeNumber', 3);
+    queryBuilder.whereLessThanOrEqualTo('typeDate', DateTime(2022, 11, 25, 10));
+    queryBuilder.whereValueExists('typeString', false);
+    queryBuilder.whereStartsWith('typeString', 'g');
+    queryBuilder.whereEndsWith('typeString', '2');
+    queryBuilder.whereContains('typeString', '0');
+    queryBuilder.whereContainedIn('typeArray', ['a', '3']);
+    queryBuilder.whereArrayContainsAll('typeArray', ['a', '1']);
+    //---
+    var parseResponse = await queryBuilder.query();
+
+    if (parseResponse.success && parseResponse.results != null) {
+      for (var element in parseResponse.results!) {
+        list.add(GenreEntity().toModel(element));
+      }
+    }
+    log('... queryBuilderCustom ...');
+    for (var item in list) {
+      log('${item.toString()}\n');
+    }
+    log('--- queryBuilderCustom ---');
   }
 }

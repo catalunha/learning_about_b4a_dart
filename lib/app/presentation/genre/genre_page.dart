@@ -21,7 +21,7 @@ void genrePage() {
   GenreSearch genreSearch = GenreSearch();
   // genreSearch.getObject('3xILA8Wjyp');
   // genreSearch.getAll();
-  // genreSearch.count();
+  // genreSearch.queryBuilderCount();
   // genreSearch.queryBuilder();
   // genreSearch.queryBuilderOrderByAscending('typeString');
   // genreSearch.queryBuilderOrderByDescending('typeString');
@@ -29,11 +29,11 @@ void genrePage() {
   // genreSearch.queryBuilderKeysToReturn(['typeString']);
   // genreSearch.queryBuilderPagination(1, 2);
   // genreSearch.queryBuilderPagination(2, 2);
-  genreSearch.queryBuilderWhereEqualToSimpleColumn('typeBoolean', false);
-  genreSearch.queryBuilderWhereEqualToSimpleColumn('typeString', 'Genre01');
-  genreSearch.queryBuilderWhereEqualToSimpleColumn('typeNumber', 3);
-  genreSearch.queryBuilderWhereEqualToSimpleColumn(
-      'typeDate', DateTime(2022, 11, 26, 10));
+  // genreSearch.queryBuilderWhereEqualToSimpleColumn('typeBoolean', false);
+  // genreSearch.queryBuilderWhereEqualToSimpleColumn('typeString', 'Genre01');
+  // genreSearch.queryBuilderWhereEqualToSimpleColumn('typeNumber', 3);
+  // genreSearch.queryBuilderWhereEqualToSimpleColumn(
+  //     'typeDate', DateTime(2022, 11, 26, 10));
   genreSearch.queryBuilderWhereNotEqualToSimpleColumn('typeBoolean', true);
   genreSearch.queryBuilderWhereNotEqualToSimpleColumn('typeString', 'Genre02');
   genreSearch.queryBuilderWhereNotEqualToSimpleColumn('typeNumber', 3);
@@ -65,4 +65,5 @@ void genrePage() {
   genreSearch.queryBuilderWhereContainedIn('typeArray', ['a', '3']);
   genreSearch.queryBuilderWhereArrayContainsAll('typeArray', ['a', '1']);
   genreSearch.queryBuilderOr();
+  // genreSearch.queryBuilderCustom();
 }
