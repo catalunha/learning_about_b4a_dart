@@ -9,7 +9,8 @@ import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class BookRepository {
   addAll() async {
-    removeAll();
+    log('+++ addAll +++');
+    await removeAll();
     var authorModelList = <BookModel>[];
     authorModelList.addAll([
       BookModel(
@@ -26,6 +27,7 @@ class BookRepository {
         typeNumber: 2,
         typeDateTime: DateTime(2022, 11, 26, 12).add(Duration(hours: 1)),
         typeArray: ['b', '2'],
+        typePointerPublisher: PublisherModel(objectId: 'kyCtliyFaK'),
       ),
       BookModel(
         typeString: 'Book03',
@@ -33,6 +35,7 @@ class BookRepository {
         typeNumber: 3,
         typeDateTime: DateTime.now().add(Duration(hours: 2)),
         typeArray: ['c', '3'],
+        typePointerPublisher: PublisherModel(objectId: 'kyCtliyFaK'),
       ),
     ]);
     for (var authorModel in authorModelList) {
@@ -66,15 +69,6 @@ class BookRepository {
     parseObjectPublisher03.objectId = 'aPqY5rvjzd';
     parseObjectBook03.set('typePointerPublisher', parseObjectPublisher03);
     await parseObjectBook03.save();
-
-    log('addPointer 04');
-    final parseObjectBook04 = ParseObject(BookEntity.className);
-    parseObjectBook04.objectId = 'feuMyNi2QR';
-    parseObjectBook04.set(
-        'typePointerPublisher',
-        (ParseObject(PublisherEntity.className)..objectId = 'kZWvjCE3xz')
-            .toPointer());
-    await parseObjectBook04.save();
   }
 
   addRelations() async {
@@ -97,6 +91,16 @@ class BookRepository {
     parseObjectBook02.addRelation(
         'typeRelationAuthor', [parseObjectAuthor01, parseObjectAuthor02]);
     await parseObjectBook02.save();
+  }
+
+  removeRelations() async {
+    log(' +++ removeRelations +++');
+    final parseObjectBook = ParseObject(BookEntity.className);
+    parseObjectBook.objectId = 'gkotvO6IKI';
+    final parseObjectAuthor = ParseObject(AuthorEntity.className);
+    parseObjectAuthor.objectId = 'ETwKYOAMh2';
+    parseObjectBook.removeRelation('typeRelationAuthor', [parseObjectAuthor]);
+    await parseObjectBook.save();
   }
 
   add() async {
@@ -144,7 +148,7 @@ class BookRepository {
     await parseObject.delete();
   }
 
-  removeAll() async {
+  Future<void> removeAll() async {
     final apiResponse = await ParseObject(BookEntity.className).getAll();
 
     if (apiResponse.success && apiResponse.results != null) {

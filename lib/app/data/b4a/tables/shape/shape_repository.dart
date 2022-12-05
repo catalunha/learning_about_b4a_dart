@@ -6,8 +6,12 @@ import 'package:learning_about_b4a_dart/app/data/b4a/entity/shape_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class ShapeRepository {
+  ShapeRepository() {
+    log('=== ShapeRepository ===');
+  }
   addAll() async {
-    removeAll();
+    log('+++ addAll +++');
+    await removeAll();
     var shapeModelList = <ShapeModel>[];
     shapeModelList.addAll([
       ShapeModel(
@@ -22,7 +26,7 @@ class ShapeRepository {
         typeString: 'Shape02',
         typeBoolean: false,
         typeNumber: 2,
-        typeDateTime: DateTime(2022, 11, 26, 12).add(Duration(hours: 1)),
+        typeDateTime: DateTime.now().add(Duration(hours: 1)),
         typeArray: ['b', '2'],
         typeObject: {"key2": "value2"},
       ),
@@ -38,6 +42,23 @@ class ShapeRepository {
     for (var shapeModel in shapeModelList) {
       ParseObject shapeParseObject = ShapeEntity().toParse(shapeModel);
       await shapeParseObject.save();
+    }
+  }
+
+  addFile(String pathFile, String shapeId) async {
+    log('+++ addFile +++');
+    ParseFileBase? parseFileBase = ParseFile(File(pathFile));
+    final ParseResponse parseResponseFile = await parseFileBase.save();
+    if (parseResponseFile.success && parseResponseFile.results != null) {
+      final parseObject = ParseObject(ShapeEntity.className);
+      parseObject.objectId = shapeId;
+      parseObject.set('typeFile', parseFileBase);
+      final ParseResponse responseParseObject = await parseObject.save();
+      if (responseParseObject.success && responseParseObject.results != null) {
+        log('File $pathFile save in ${ShapeEntity.className}.$shapeId');
+      } else {
+        log('Problem in save file');
+      }
     }
   }
 
@@ -68,24 +89,6 @@ class ShapeRepository {
     await shapeParseObject.save();
   }
 
-  addFile(String pathFile, String publisherId) async {
-    // String dataFile = 'readmes/files/uml.jpg';
-    // String objectId = '5iLu1JOO9x';
-    ParseFileBase? parseFileBase = ParseFile(File(pathFile));
-    final ParseResponse parseResponseFile = await parseFileBase.save();
-    if (parseResponseFile.success && parseResponseFile.results != null) {
-      final parseObject = ParseObject(ShapeEntity.className);
-      parseObject.objectId = publisherId;
-      parseObject.set('typeFile', parseFileBase);
-      final ParseResponse responseParseObject = await parseObject.save();
-      if (responseParseObject.success && responseParseObject.results != null) {
-        log('File $pathFile save in ${ShapeEntity.className}.$publisherId');
-      } else {
-        log('Problem in save file');
-      }
-    }
-  }
-
   unset(String objectId, String columnName) async {
     final parseObject = ParseObject(ShapeEntity.className);
     parseObject.objectId = objectId;
@@ -106,7 +109,7 @@ class ShapeRepository {
     await parseObject.delete();
   }
 
-  removeAll() async {
+  Future<void> removeAll() async {
     final apiResponse = await ParseObject(ShapeEntity.className).getAll();
 
     if (apiResponse.success && apiResponse.results != null) {

@@ -68,14 +68,22 @@ class BookEntity {
       parseObject.set('typeNumber', model.typeNumber);
     }
     if (model.typeDateTime != null) {
-      parseObject.set('typeDateTime', model.typeDateTime);
+      parseObject.set(
+          'typeDateTime',
+          DateTime(
+            model.typeDateTime!.year,
+            model.typeDateTime!.month,
+            model.typeDateTime!.day,
+            model.typeDateTime!.hour,
+            model.typeDateTime!.minute,
+          ));
     }
     if (model.typeArray != null) {
       parseObject.set('typeArray', model.typeArray);
     }
     if (model.typePointerPublisher != null) {
       parseObject.set(
-          'typePointer',
+          'typePointerPublisher',
           (ParseObject(PublisherEntity.className)
                 ..objectId = model.typePointerPublisher!.objectId)
               .toPointer());
@@ -94,7 +102,7 @@ class BookEntity {
     return parseObject;
   }
 
-  ParseObject? toParseUpdateRelationInTypeRelation({
+  ParseObject? toParseUpdateRelationInTypeRelationAuthor({
     required String objectId,
     required List<String> modelIdList,
     required bool add,
@@ -102,12 +110,12 @@ class BookEntity {
     final parseObject = ParseObject(BookEntity.className);
     parseObject.objectId = objectId;
     if (modelIdList.isEmpty) {
-      parseObject.unset('typeRelation');
+      parseObject.unset('typeRelationAuthor');
       return parseObject;
     }
     if (add) {
       parseObject.addRelation(
-        'typeRelation',
+        'typeRelationAuthor',
         modelIdList
             .map(
               (element) =>
@@ -117,7 +125,7 @@ class BookEntity {
       );
     } else {
       parseObject.removeRelation(
-          'typeRelation',
+          'typeRelationAuthor',
           modelIdList
               .map((element) =>
                   ParseObject(AuthorEntity.className)..objectId = element)

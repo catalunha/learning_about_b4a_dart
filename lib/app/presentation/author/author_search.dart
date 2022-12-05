@@ -5,9 +5,9 @@ import 'package:learning_about_b4a_dart/app/data/b4a/entity/author_entity.dart';
 import 'package:learning_about_b4a_dart/app/data/b4a/entity/genre_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
-class AuthorView {
-  AuthorView() {
-    log('=== AuthorView ===');
+class AuthorSearch {
+  AuthorSearch() {
+    log('=== AuthorSearch ===');
   }
 
   /// Constroi a consulta incluindo todos os atributos da class ligada pelo ponteiro.
@@ -40,7 +40,7 @@ class AuthorView {
     var list = <AuthorModel>[];
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
-    queryBuilder.whereEqualTo('typePointer',
+    queryBuilder.whereEqualTo(columnName,
         (ParseObject(pointerClassName)..objectId = pointerId).toPointer());
     var apiResponse = await queryBuilder.query();
 
@@ -60,7 +60,7 @@ class AuthorView {
   /// Lembre-se que a class Author tem um ponteiro, typePointerGenre, para uma class Genre
   /// Então filtramos com qualquer condição desejada os objectIds em Genre.
   /// Este é meu pointerQueryBuilder
-  /// Agora eu desejo filtrar minha class Author pelo atributo typePointer
+  /// Agora eu desejo filtrar minha class Author pelo atributo typePointerGenre
   /// onde o valor deste seja igual a qualquer um dos objectIds encontrados no filtro de Genre
   /// que esta em pointerQueryBuilder
   void queryBuilderWhereMatchesQuery() async {
@@ -73,8 +73,8 @@ class AuthorView {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
 
-    queryBuilder.whereMatchesQuery('typePointer', pointerQueryBuilder);
-    queryBuilder.includeObject(['typePointer']);
+    queryBuilder.whereMatchesQuery('typePointerGenre', pointerQueryBuilder);
+    queryBuilder.includeObject(['typePointerGenre']);
     var apiResponse = await queryBuilder.query();
 
     if (apiResponse.success && apiResponse.results != null) {
@@ -100,8 +100,8 @@ class AuthorView {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
 
-    queryBuilder.whereDoesNotMatchQuery('typePointer', otherQueryBuilder);
-    queryBuilder.includeObject(['typePointer']);
+    queryBuilder.whereDoesNotMatchQuery('typePointerGenre', otherQueryBuilder);
+    queryBuilder.includeObject(['typePointerGenre']);
     var apiResponse = await queryBuilder.query();
 
     if (apiResponse.success && apiResponse.results != null) {

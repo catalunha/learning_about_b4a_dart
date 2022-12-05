@@ -6,22 +6,22 @@ import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class ShapeSearch {
   ShapeSearch() {
-    log('=== ShapeView ===');
+    log('=== ShapeSearch ===');
   }
   void getObject(String objectId) async {
     log('+++ getObject +++');
-    ShapeModel? genreModel;
+    ShapeModel? shapeModel;
     final parseResponse =
         await ParseObject(ShapeEntity.className).getObject(objectId);
 
     if (parseResponse.success && parseResponse.results != null) {
-      genreModel = ShapeEntity().toModel(parseResponse.results!.first);
+      shapeModel = ShapeEntity().toModel(parseResponse.results!.first);
     }
     log('... getObject ...');
-    if (genreModel == null) {
+    if (shapeModel == null) {
       log('null');
     } else {
-      log(genreModel.toString());
+      log(shapeModel.toString());
     }
     log('--- getObject ---');
   }

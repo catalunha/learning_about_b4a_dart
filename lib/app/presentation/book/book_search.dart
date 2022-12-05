@@ -5,10 +5,11 @@ import 'package:learning_about_b4a_dart/app/data/b4a/entity/author_entity.dart';
 import 'package:learning_about_b4a_dart/app/data/b4a/entity/book_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
-class BookView {
-  BookView() {
-    log('=== BookView ===');
+class BookSearch {
+  BookSearch() {
+    log('=== BookSearch ===');
   }
+
   Future<void> queryBuilderIncludeObject(List<String> columnsName) async {
     log('+++ queryBuilderIncludeObject +++');
     var list = <BookModel>[];
@@ -35,7 +36,7 @@ class BookView {
     var list = <BookModel>[];
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject(BookEntity.className));
-    queryBuilder.whereEqualTo('typeRelation',
+    queryBuilder.whereEqualTo('typeRelationAuthor',
         (ParseObject(relationClassName)..objectId = relationId).toPointer());
     var apiResponse = await queryBuilder.query();
 
@@ -61,7 +62,7 @@ class BookView {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject(BookEntity.className));
 
-    queryBuilder.whereMatchesQuery('typeRelation', otherQueryBuilder);
+    queryBuilder.whereMatchesQuery('typeRelationAuthor', otherQueryBuilder);
     var apiResponse = await queryBuilder.query();
 
     if (apiResponse.success && apiResponse.results != null) {
@@ -86,7 +87,8 @@ class BookView {
     QueryBuilder<ParseObject> queryBuilder =
         QueryBuilder<ParseObject>(ParseObject(BookEntity.className));
 
-    queryBuilder.whereDoesNotMatchQuery('typeRelation', otherQueryBuilder);
+    queryBuilder.whereDoesNotMatchQuery(
+        'typeRelationAuthor', otherQueryBuilder);
     var apiResponse = await queryBuilder.query();
 
     if (apiResponse.success && apiResponse.results != null) {

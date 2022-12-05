@@ -20,7 +20,7 @@ class AuthorEntity {
           : null,
       typePointerGenre: parseObject.get('typePointerGenre') != null
           ? GenreEntity()
-              .toModel(parseObject.get('typePointerGenre') as ParseObject)
+              .toModel(parseObject.get<ParseObject>('typePointerGenre')!)
           : null,
     );
     return model;
@@ -42,7 +42,15 @@ class AuthorEntity {
       parseObject.set('typeNumber', model.typeNumber);
     }
     if (model.typeDateTime != null) {
-      parseObject.set('typeDateTime', model.typeDateTime);
+      parseObject.set(
+          'typeDateTime',
+          DateTime(
+            model.typeDateTime!.year,
+            model.typeDateTime!.month,
+            model.typeDateTime!.day,
+            model.typeDateTime!.hour,
+            model.typeDateTime!.minute,
+          ));
     }
 
     if (model.typeArray != null) {
@@ -58,14 +66,12 @@ class AuthorEntity {
     return parseObject;
   }
 
-  ParseObject toParseUnset(String objectId, List<String> unsetFields) {
+  Future<void> toParseUnset(String objectId, List<String> unsetFields) async {
     final parseObject = ParseObject(AuthorEntity.className);
     parseObject.objectId = objectId;
 
     for (var field in unsetFields) {
       parseObject.unset(field);
     }
-
-    return parseObject;
   }
 }

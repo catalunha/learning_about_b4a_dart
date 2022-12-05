@@ -42,7 +42,15 @@ class PublisherEntity {
       parseObject.set('typeNumber', model.typeNumber);
     }
     if (model.typeDateTime != null) {
-      parseObject.set('typeDateTime', model.typeDateTime);
+      parseObject.set(
+          'typeDateTime',
+          DateTime(
+            model.typeDateTime!.year,
+            model.typeDateTime!.month,
+            model.typeDateTime!.day,
+            model.typeDateTime!.hour,
+            model.typeDateTime!.minute,
+          ));
     }
 
     if (model.typeArray != null) {

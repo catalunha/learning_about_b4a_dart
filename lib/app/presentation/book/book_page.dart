@@ -1,18 +1,22 @@
+import 'package:learning_about_b4a_dart/app/data/b4a/tables/book/book_repository.dart';
+import 'package:learning_about_b4a_dart/app/presentation/book/book_search.dart';
+
 void bookPage() {
   // // Book
-  // BookRepository bookRepository = BookRepository();
+  BookRepository bookRepository = BookRepository();
   // bookRepository.addAll();
+  bookRepository.addRelations();
+  bookRepository.removeRelations();
   // bookRepository.addPointer();
-  // bookRepository.addRelations();
   // bookRepository.add();
   // bookRepository.update();
   // bookRepository.unset('I9npZLFtqI', 'typeString');
   // bookRepository.delete('I9npZLFtqI');
   // bookRepository.removeAll();
-  // BookView bookView = BookView();
-  // bookView.queryBuilderIncludeObject(
-  //     ['typePointerPublisher', 'typePointerPublisher.typePointerGenre']);
-  // bookView.queryBuilderWhereEqualToRelation('Author', 'VUDROrC3iK');
-  // bookView.queryBuilderWhereMatchesQuery();
-  // bookView.queryBuilderWhereDoesNotMatchQuery();
+  BookSearch bookSearch = BookSearch();
+  bookSearch.queryBuilderIncludeObject(
+      ['typePointerPublisher', 'typePointerPublisher.typePointerShape']);
+  bookSearch.queryBuilderWhereEqualToRelation('Author', 'VUDROrC3iK');
+  bookSearch.queryBuilderWhereMatchesQuery();
+  bookSearch.queryBuilderWhereDoesNotMatchQuery();
 }

@@ -8,7 +8,7 @@ import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class PublisherRepository {
   addAll() async {
-    removeAll();
+    await removeAll();
     var authorModelList = <PublisherModel>[];
     authorModelList.addAll([
       PublisherModel(
@@ -25,7 +25,7 @@ class PublisherRepository {
         typeNumber: 2,
         typeDateTime: DateTime(2022, 11, 26, 12).add(Duration(hours: 1)),
         typeArray: ['b', '2'],
-        // typePointerShape: ShapeModel(objectId: 'mrsMiyXeuP'),
+        typePointerShape: ShapeModel(objectId: 'mrsMiyXeuP'),
       ),
       PublisherModel(
         typeString: 'Publisher03',
@@ -33,7 +33,7 @@ class PublisherRepository {
         typeNumber: 3,
         typeDateTime: DateTime.now().add(Duration(hours: 2)),
         typeArray: ['c', '3'],
-        // typePointerShape: ShapeModel(objectId: 'w7n72uFBv2'),
+        typePointerShape: ShapeModel(objectId: 'w7n72uFBv2'),
       ),
     ]);
     for (var authorModel in authorModelList) {
@@ -127,7 +127,7 @@ class PublisherRepository {
     await parseObject.delete();
   }
 
-  removeAll() async {
+  Future<void> removeAll() async {
     final apiResponse = await ParseObject(PublisherEntity.className).getAll();
 
     if (apiResponse.success && apiResponse.results != null) {

@@ -8,7 +8,7 @@ import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class AuthorRepository {
   addAll() async {
-    removeAll();
+    await removeAll();
     var authorModelList = <AuthorModel>[];
     authorModelList.addAll([
       AuthorModel(
@@ -68,15 +68,6 @@ class AuthorRepository {
     parseObjectGenre03.objectId = 'w7n72uFBv2';
     parseObjectAuthor03.set('typePointerGenre', parseObjectGenre03);
     await parseObjectAuthor03.save();
-
-    log('addPointer 04');
-    final parseObjectAuthor04 = ParseObject(AuthorEntity.className);
-    parseObjectAuthor04.objectId = 'Os6PbtVoms';
-    parseObjectAuthor04.set(
-        'typePointerGenre',
-        (ParseObject(GenreEntity.className)..objectId = 'bxirK4sWKU')
-            .toPointer());
-    await parseObjectAuthor04.save();
   }
 
   add() async {
@@ -126,7 +117,7 @@ class AuthorRepository {
     await parseObject.delete();
   }
 
-  removeAll() async {
+  Future<void> removeAll() async {
     final apiResponse = await ParseObject(AuthorEntity.className).getAll();
 
     if (apiResponse.success && apiResponse.results != null) {
