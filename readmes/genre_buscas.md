@@ -1,6 +1,6 @@
 # Buscas em Genre via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/n52yn52uavQ
 
 Bora codar...
 

@@ -1,7 +1,6 @@
 # Buscas em Book via App Dart
 
-
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/97g5ZL51thA
 
 Veremos sobre:
 * buscas

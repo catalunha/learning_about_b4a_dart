@@ -1,7 +1,7 @@
 
 # Apresentação do projeto Dart/Flutter deste tutorial
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/RM3gYIrJjrY
 
 ## Dart 
 

@@ -1,6 +1,6 @@
 # Dados em Author via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/4bcg90pIoGo
 
 Bora codar...
 

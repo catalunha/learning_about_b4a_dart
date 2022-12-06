@@ -1,36 +1,22 @@
-# learning_about_b4a_dart
 
-Meu maior motivador em construir este repositório é meu desejo em compartilhar com vocês o que venho aprendendo sobre tudo isto. Este pequeno projeto, usando puro Dart, servirá também para alguns testes com back4app.com no que envolve database. 
+Parabéns Felipe Deschamps, e demais devs, pela história que vocês estão contruindo no Brasil.
 
-Este texto é um roteiro para os vídeos desta playlist ??. E com a ajuda de vocês vou acrescentando o que for necessário neste texto e atualizando nos vídeos.
-
-Antes de começar talvez voĉe se pergunte. Porque back4app ? Ou ate mesmo. O que é back4app ?
-
-Em rápidas palavras foi assim... 
-
-Ao iniciar meus estudos em Dart/Flutter fui logo para o Firebase. Então analisando melhor a documentação vi que o Firebase é openCredCard, ou seja, você cadastra seu cartão de crédito e se sua aplicação crescer, ou for atacado ou cometer um erro de loop o Firebase não quer saber. Vai te cobrar e pronto. 
-
-Ai buscando outras alternativas, meu grande amigo Paulo Roberto Cruz, me indicou esta solução completa para um backend que outrora foi iniciativa do Facebook mas agora esta nas boas mãos da comunidade.
-
-E aqui estou eu. Após várias cabeçadas compartilhando com vocês o que aprendi. E espero ajudar alguns. E aceito ajuda de todos. Neste repo trato apenas de banco de dados os demais tópicos deixarei indicado meus repos de aprendizado no referido assunto.
+Gostaria de compartilhar o que tenho aprendido ao usar o back4app.com como meu backend para alguns projetos. Ele tem recursos interessante para várias linguagens e cenários. Com um SDK bacana para Dart e Flutter.
 
 No back4app.com encontramos:
-1. Autenticação
-2. Banco de dados
+1. Banco de dados
+2. Autenticação
 3. Hospedagem
 4. Funções em nuvem
 5. E outras coisas...
 
-Este conteúdo será compartilhado no tabnews https://www.tabnews.com.br/catalunha
+Neste [repositório](https://github.com/catalunha/learning_about_b4a_dart) apresento todos os detalhes do Database do back4app.com em uma aplicação em Dart, que manterei atualizado lá, com a ajuda de vocês é claro, sobre o que vou aprendendo com back4app.com e banco de dados. 
 
-E sobre tudo isto vamos conversando no chat do tabnews ou neste discord https://discord.com/channels/766282533292998691/766282694967296030
+Assim que terminar os outros repositórios sobre back4app vou compartilhando. Estes repos também servirão para alguns testes em nossos batepapos aqui e neste [discord]( https://discord.com/channels/766282533292998691/766282694967296030).
 
-Este texto é melhor detalhado neste vídeo: https://youtu.be/btNzdAqjcHc
+Para cada item do sumário, a seguir, produzi um vídeo que esta nesta [playlist](https://www.youtube.com/playlist?list=PL-rdGqWQhUzjox1WRqMOLiPE9njvgZbuZ).
 
-Você pode assiste aos vídeos do sumário nesta [playlist](https://www.youtube.com/playlist?list=PL-rdGqWQhUzjox1WRqMOLiPE9njvgZbuZ)
-
-<a id="sumario"></a>
-## Sumário dos Posts
+## Sumário do repositório
 1. [Introdução](https://github.com/catalunha/learning_about_b4a_dart#introducao)
    1. Vídeo: https://youtu.be/btNzdAqjcHc
 2. [Apresentação do projeto Dart/Flutter](https://github.com/catalunha/learning_about_b4a_dart#apresentacao)
@@ -136,4 +122,8 @@ Você pode assiste aos vídeos do sumário nesta [playlist](https://www.youtube.
     3. queryBuilder_WhereEqualToRelation
     4. queryBuilder_WhereMatchesQuery
     5. queryBuilder_WhereDoesNotMatchQuery
+
+Bora codar e depois compartilhar...
+
+Um abraço a todos.
 

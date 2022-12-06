@@ -1,6 +1,6 @@
 # Dados em Publisher via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/qtd7MRriJbs
 
 Bora codar...
 

@@ -1,6 +1,6 @@
 # Criando o database no back4app.com
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/SQ5sUlg8wgU
 
 Veremos sobre:
   * criação das tabelas

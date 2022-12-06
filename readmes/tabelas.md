@@ -1,7 +1,7 @@
 
 # As tabelas, seus campos, e suas relações.
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/pkNyrW2Xg58 
 
 Bora codar...
 

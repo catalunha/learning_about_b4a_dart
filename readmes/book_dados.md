@@ -1,6 +1,6 @@
 # Dados em Book via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/Ha8ffU5bxP4
 
 Bora codar... 
 

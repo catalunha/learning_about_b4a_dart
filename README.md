@@ -1,116 +1,143 @@
 <a id="introducao"></a>
 # learning_about_b4a_dart
 
-Este repositório é um pequeno projeto para eu aprender um pouco mais sobre back4app usando puro Dart. Outro motivador em construir este repostorio é meu desejo de compartilhar com vocês o que venho aprendendo.
+Meu maior motivador em construir este repositório é meu desejo em compartilhar com vocês o que venho aprendendo sobre tudo isto. Este pequeno projeto, usando puro Dart, servirá também para alguns testes com back4app.com no que envolve database. 
 
-Este texto é apenas um roteiro, detalhamento, ou correção do que vou compartilhando nesta playlist: 
+Este texto é um roteiro para os vídeos desta playlist ??. E com a ajuda de vocês vou acrescentando o que for necessário neste texto e atualizando nos vídeos.
 
-Antes de começar talvez vc se pergunte. Porque back4app ? Ou ate mesmo. O que é back4app ?
+Antes de começar talvez voĉe se pergunte. Porque back4app ? Ou ate mesmo. O que é back4app ?
 
-Em rapidas palavras foi assim... 
+Em rápidas palavras foi assim... 
 
-Eu estava muito feliz com o Firebase. Mas comecei a crescer e bater nos limites. Então analisando melhor a documentação vi que o Firebase é open card, ou seja, vc cadastra seu cartão de crédito e se sua aplicação crescer, ou for atacado ou cometer um erro de loop o Firebase não quer saber. Vai te cobrar e pronto. 
+Ao iniciar meus estudos em Dart/Flutter fui logo para o Firebase. Então analisando melhor a documentação vi que o Firebase é openCredCard, ou seja, você cadastra seu cartão de crédito e se sua aplicação crescer, ou for atacado ou cometer um erro de loop o Firebase não quer saber. Vai te cobrar e pronto. 
 
 Ai buscando outras alternativas, meu grande amigo Paulo Roberto Cruz, me indicou esta solução completa para um backend que outrora foi iniciativa do Facebook mas agora esta nas boas mãos da comunidade.
 
-E aqui esto eu. Após várias cabeçadas compartilhando com vcs o que aprendi. E espero ajudar alguns.
+E aqui estou eu. Após várias cabeçadas compartilhando com vocês o que aprendi. E espero ajudar alguns. E aceito ajuda de todos. Neste repo trato apenas de banco de dados os demais tópicos deixarei indicado meus repos de aprendizado no referido assunto.
 
-# Posts e Forum
-Os artigos serão escritos em markdown, salvos aqui e compartilhados no tabnews https://www.tabnews.com.br/catalunha
+No back4app.com encontramos:
+1. Autenticação
+2. Banco de dados
+3. Hospedagem
+4. Funções em nuvem
+5. E outras coisas...
 
-No restante do tutorial tentarei manter o maximo de coisas que eu já fiz com as que vou refazendo pra compartilhar com vc. Se algo estiver a frente ou a trás do que falo ou faço tentarei explicar no video ou atualizar via texto aqui. 
-E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://discord.com/channels/766282533292998691/766282694967296030
+Este conteúdo será compartilhado no tabnews https://www.tabnews.com.br/catalunha
+
+E sobre tudo isto vamos conversando no chat do tabnews ou neste discord https://discord.com/channels/766282533292998691/766282694967296030
+
+Este texto é melhor detalhado neste vídeo: https://youtu.be/btNzdAqjcHc
+
+Você pode assiste aos vídeos do sumário nesta [playlist](https://www.youtube.com/playlist?list=PL-rdGqWQhUzjox1WRqMOLiPE9njvgZbuZ)
+
 <a id="sumario"></a>
 ## Sumário dos Posts
-1. [Apresentação do projeto Dart/Flutter](#apresentacao)
-    1. Dart (ok)
-    2. Flutter (em construção)
-2. [As tabelas, seus campos, e suas relações.](#tabelas)
-    1. Relações num DataBase b4a
-    2. Tipos comuns em b4a
-    3. json objects
-3. [Criando o database no back4app.com](#database)
-    1. Genre
-    2. Author
-    3. Shape
-    4. Publisher
-    5. Book
-4. [Criando o app Dart e Conexão do app com a b4a](#app)
-    1. app console dart
-5. [Dados em Genre via App Dart](#genre_dados)
-   1. typeString
-   2. typeBoolean
-   3. typeNumber
-   4. typeDateTime
-   5.  typeArray
-   6.  add
-   7.  addAll
-   8.  update
-   9.  unset
-   10. delete
-   11. removeAll
-   12. typeNumberIncrement
-   13. typeNumberDecrement
-   14. typeArraySetAdd
-   15. typeArraySetAddUnique
-   16. typeArraySetAddAll
-   17. typeArraySetAddAllUnique
-   18. typeArraySetRemove
-   19. typeArraySetRemoveAll
-   20. lib/data/b4a/tables/genre/genre_repository.dart
-   21. lib/core/models/genre_model.dart
-   22. lib/data/b4a/entity/genre_entity.dart
-   23. lib/app/presentation/genre/genre_page.dart
-   24. lib/app/presentation/genre/genre_view.dart
-   25. lib/app/presentation/genre/genre_controller.dart
-6.  [Buscas em Genre via App Dart](#genre_buscas)
-    1. count
-    2. getObject
-    3. getAll
-    4. queryBuilder
-    5. queryBuilder_OrderByAscending
-    6. queryBuilder_OrderByDescending
-    7. queryBuilder_ExcludeKeys
-    8. queryBuilder_KeysToReturn
-    9.  queryBuilder_Pagination
-    10. queryBuilder_WhereEqualToSimpleColumn
-    11. queryBuilder_WhereNotEqualToSimpleColumn
-    12. queryBuilder_WhereGreaterThan
-    13. queryBuilder_WhereGreaterThanOrEqualsTo
-    14. queryBuilder_WhereLessThan
-    15. queryBuilder_WhereLessThanOrEqualTo
-    16. queryBuilder_WhereValueExists
-    17. queryBuilder_WhereStartsWith
-    18. queryBuilder_WhereEndsWith
-    19. queryBuilder_WhereContains
-    20. queryBuilder_WhereContainedIn
-    21. queryBuilder_WhereArrayContainsAll
-    22. queryBuilder_Or
-7.  [Dados em Author via App Dart](#author_dados)
-    1. typePointer to Genre
-8.  [Buscas em Author via App Dart](#author_buscas)
-    1. queryBuilder_IncludeObject
-    2. queryBuilder_WhereEqualToPointer
-    3. queryBuilder_WhereMatchesQuery
-    4. queryBuilder_WhereDoesNotMatchQuery
-    5. queryBuilder_WhereMatchesKeyInQuery
-    6. queryBuilder_WhereDoesNotMatchKeyInQuery
-9.  [Dados em Shape via App Dart](#shape_dados)
-    1. typeFile
-    2. typeObject
-10. [Buscas em Shape via App Dart](#shape_buscas)
-11. [Dados em Publisher via App Dart](#publisher_dados)
-    1. typePointer to Shape
-12. [Buscas em Publisher via App Dart](#publisher_buscas)
-13. [Dados em Book via App Dart](#book_dados)
-    1. typePointer to Publisher
-    2. typeRelation to Author
-14. [Buscas em Book via App Dart](#book_buscas)
-    1. queryBuilder_IncludeObject
-    2. queryBuilder_WhereEqualToRelation
-    3. queryBuilder_WhereMatchesQuery
-    4. queryBuilder_WhereDoesNotMatchQuery
-15. [issues, tickets, etc](#issues)
+1. [Introdução](https://github.com/catalunha/learning_about_b4a_dart#introducao)
+   1. Vídeo: https://youtu.be/btNzdAqjcHc
+2. [Apresentação do projeto Dart/Flutter](https://github.com/catalunha/learning_about_b4a_dart#apresentacao)
+   1. Vídeo: https://youtu.be/RM3gYIrJjrY
+   2. Dart (ok)
+   3. Flutter (em construção)
+3. [As tabelas, seus campos, e suas relações.](https://github.com/catalunha/learning_about_b4a_dart#tabelas)
+   1. Vídeo: https://youtu.be/pkNyrW2Xg58
+   2. Relações num DataBase b4a
+   3. Tipos comuns em b4a
+   4. json objects
+   5. DateTime e UTC
+4. [Criando o database no back4app.com](https://github.com/catalunha/learning_about_b4a_dart#database)
+   1. Vídeo: https://youtu.be/SQ5sUlg8wgU
+   2. Genre
+   3. Author
+   4. Shape
+   5. Publisher
+   6. Book
+5.  [Criando o app Dart e Conexão do app com a b4a](https://github.com/catalunha/learning_about_b4a_dart#app)
+    1. Vídeo: https://youtu.be/IqQ2nke4Ot0
+    2.  app console dart
+6.  [Dados em Genre via App Dart](https://github.com/catalunha/learning_about_b4a_dart#genre_dados)
+    1. Vídeo: https://youtu.be/joj68zuxlgE
+    2. typeString
+    3. typeBoolean
+    4.  typeNumber
+    5.  typeDateTime
+    6.  typeArray
+    7.  add
+    8.  addAll
+    9.  update
+    10. unset
+    11. delete
+    12. removeAll
+    13. typeNumberIncrement
+    14. typeNumberDecrement
+    15. typeArraySetAdd
+    16. typeArraySetAddUnique
+    17. typeArraySetAddAll
+    18. typeArraySetAddAllUnique
+    19. typeArraySetRemove
+    20. typeArraySetRemoveAll
+    21. lib/data/b4a/tables/genre/genre_repository.dart
+    22. lib/core/models/genre_model.dart
+    23. lib/data/b4a/entity/genre_entity.dart
+    24. lib/app/presentation/genre/genre_page.dart
+    25. lib/app/presentation/genre/genre_view.dart
+    26. lib/app/presentation/genre/genre_controller.dart
+7.  [Buscas em Genre via App Dart](https://github.com/catalunha/learning_about_b4a_dart#genre_buscas)
+    1. Vídeo: https://youtu.be/n52yn52uavQ
+    2. count
+    3. getObject
+    4. getAll
+    5. queryBuilder
+    6. queryBuilder_OrderByAscending
+    7. queryBuilder_OrderByDescending
+    8. queryBuilder_ExcludeKeys
+    9. queryBuilder_KeysToReturn
+    10. queryBuilder_Pagination
+    11. queryBuilder_WhereEqualToSimpleColumn
+    12. queryBuilder_WhereNotEqualToSimpleColumn
+    13. queryBuilder_WhereGreaterThan
+    14. queryBuilder_WhereGreaterThanOrEqualsTo
+    15. queryBuilder_WhereLessThan
+    16. queryBuilder_WhereLessThanOrEqualTo
+    17. queryBuilder_WhereValueExists
+    18. queryBuilder_WhereStartsWith
+    19. queryBuilder_WhereEndsWith
+    20. queryBuilder_WhereContains
+    21. queryBuilder_WhereContainedIn
+    22. queryBuilder_WhereArrayContainsAll
+    23. queryBuilder_Or
+8.  [Dados em Author via App Dart](https://github.com/catalunha/learning_about_b4a_dart#author_dados)
+    1. Vídeo: https://youtu.be/4bcg90pIoGo
+    2. typePointer to Genre
+9.  [Buscas em Author via App Dart](https://github.com/catalunha/learning_about_b4a_dart#author_buscas)
+    1. Vídeo: https://youtu.be/0vf6yp_2lWs
+    2. queryBuilder_IncludeObject
+    3. queryBuilder_WhereEqualToPointer
+    4. queryBuilder_WhereMatchesQuery
+    5. queryBuilder_WhereDoesNotMatchQuery
+    6. queryBuilder_WhereMatchesKeyInQuery
+    7. queryBuilder_WhereDoesNotMatchKeyInQuery
+10. [Dados em Shape via App Dart](https://github.com/catalunha/learning_about_b4a_dart#shape_dados)
+    1. Vídeo: https://youtu.be/oRga5HqokXc
+    2. typeFile
+    3. typeObject
+11. [Buscas em Shape via App Dart](https://github.com/catalunha/learning_about_b4a_dart#shape_buscas)
+    1. Vídeo: https://youtu.be/dgOddus97PQ
+12. [Dados em Publisher via App Dart](https://github.com/catalunha/learning_about_b4a_dart#publisher_dados)
+    1. Vídeo: https://youtu.be/qtd7MRriJbs
+    2. typePointer to Shape
+13. [Buscas em Publisher via App Dart](https://github.com/catalunha/learning_about_b4a_dart#publisher_buscas)
+    1. Vídeo: https://youtu.be/8kGgIJc8p9Q
+14. [Dados em Book via App Dart](https://github.com/catalunha/learning_about_b4a_dart#book_dados)
+    1. Vídeo: https://youtu.be/Ha8ffU5bxP4
+    2. typePointer to Publisher
+    3. typeRelation to Author
+15. [Buscas em Book via App Dart](https://github.com/catalunha/learning_about_b4a_dart#book_buscas)
+    1. Vídeo: https://youtu.be/97g5ZL51thA
+    2. queryBuilder_IncludeObject
+    3. queryBuilder_WhereEqualToRelation
+    4. queryBuilder_WhereMatchesQuery
+    5. queryBuilder_WhereDoesNotMatchQuery
+
 
 [Voltar ao sumário](#sumario)
 
@@ -120,7 +147,7 @@ E sobre tudo isto vamos conversar no chat do tabnews ou neste discord https://di
 
 # Apresentação do projeto Dart/Flutter deste tutorial
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/RM3gYIrJjrY
 
 ## Dart 
 
@@ -150,7 +177,7 @@ Faremos o deploy da aplicação em Flutter Web no b4a.
 
 # As tabelas, seus campos, e suas relações.
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/pkNyrW2Xg58 
 
 Bora codar...
 
@@ -272,7 +299,7 @@ DateTime em sua aplicação | DateTime no b4a
 <a id="database"></a>
 # Criando o database no back4app.com
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/SQ5sUlg8wgU
 
 Veremos sobre:
   * criação das tabelas
@@ -414,7 +441,7 @@ reveja o post/video sobre as relações entre elas para que apartir dagora você
 
 # Criando o app Dart e Conexão do app com a b4a
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/IqQ2nke4Ot0
 
 Bora codar...
 
@@ -485,7 +512,6 @@ app/
 │               └── shape_repository.dart
 └── presentation
     ├── author
-    │   ├── author_controller.dart
     │   ├── author_page.dart
     │   └── author_view.dart
     ├── book
@@ -493,18 +519,14 @@ app/
     │   ├── book_page.dart
     │   └── book_view.dart
     ├── genre
-    │   ├── genre_controller.dart
     │   ├── genre_page.dart
-    │   └── genre_view.dart
+    │   └── genre_search.dart
     ├── publisher
-    │   ├── publisher_controller.dart
     │   ├── publisher_page.dart
-    │   └── publisher_view.dart
+    │   └── publisher_search.dart
     └── shape
-        ├── shape_controller.dart
         ├── shape_page.dart
-        └── shape_view.dart
-
+        └── shape_search.dart
 ```
 
 Execute o app em modo Debug para pegar as saídas dos log().
@@ -517,7 +539,7 @@ Não esqueça de enviar este projeto ao seu github como privado enquanto vc dese
 <a id="genre_dados"></a>
 # Dados em Genre via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/joj68zuxlgE
 
 Trataremos apenas dos seguintes campos
 1. typeString
@@ -565,7 +587,7 @@ Esta será a etapa mais trabalhosa, pois será a referencia para todas as outras
 <a id="genre_buscas"></a>
 # Buscas em Genre via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/n52yn52uavQ
 
 Bora codar...
 
@@ -600,7 +622,7 @@ As buscas na tabela Genre serão:
 <a id="author_dados"></a>
 # Dados em Author via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/4bcg90pIoGo
 
 Bora codar...
 
@@ -619,7 +641,7 @@ A manipulação de dados nesta tabela envolverá:
 <a id="author_buscas"></a>
 # Buscas em Author via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/0vf6yp_2lWs
 
 Bora codar...
 
@@ -638,7 +660,7 @@ As buscas na tabela Author serão:
 <a id="shape_dados"></a>
 # Dados em Shape via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/oRga5HqokXc
 
 Bora codar...
 
@@ -657,7 +679,7 @@ A manipulação de dados nesta tabela envolverá:
 <a id="shape_buscas"></a>
 # Buscas em Shape via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/dgOddus97PQ
 
 Bora codar...
 
@@ -671,7 +693,7 @@ As buscas na tabela Shape serão:
 <a id="publisher_dados"></a>
 # Dados em Publisher via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/qtd7MRriJbs
 
 Bora codar...
 
@@ -690,7 +712,7 @@ A manipulação de dados nesta tabela envolverá:
 <a id="publisher_buscas"></a>
 # Buscas em Publisher via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/8kGgIJc8p9Q
 
 Bora codar... 
 
@@ -704,7 +726,7 @@ As buscas na tabela Publisher serão:
 <a id="book_dados"></a>
 # Dados em Book via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/Ha8ffU5bxP4
 
 Bora codar... 
 
@@ -723,8 +745,7 @@ A manipulação de dados nesta tabela envolverá:
 <a id="book_buscas"></a>
 # Buscas em Book via App Dart
 
-
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/97g5ZL51thA
 
 Veremos sobre:
 * buscas
@@ -736,34 +757,6 @@ As buscas na tabela Book serão:
 2. queryBuilderWhereEqualToRelation
 3. queryBuilderWhereMatchesQuery
 4. queryBuilderWhereDoesNotMatchQuery
-
-[Voltar ao sumário](#sumario)
-
----
----
-<a id="issues"></a>
-
-# issues, tickets, etc
-
-## issues
-As seguintes issues foram geradas ao longo dos estudos.
-
-* https://github.com/parse-community/Parse-SDK-Flutter/issues/799
-* https://github.com/parse-community/Parse-SDK-Flutter/issues/803
-* https://github.com/parse-community/Parse-SDK-Flutter/issues/801
-
-## b4a Support
-Os seguintes tickets no suport da b4a foram geradas ao longo dos estudos.
-
-* https://help.back4app.com/hc/en-us/requests/31976
-* https://help.back4app.com/hc/en-us/requests/31978
-* https://help.back4app.com/hc/en-us/requests/31980
-* https://help.back4app.com/hc/en-us/requests/31983
-* https://help.back4app.com/hc/en-us/requests/31985
-
-Acessar meus tickets:
-* https://help.back4app.com/hc/en-us/requests
-* https://help.back4app.com/hc/en-us/requests/new
 
 [Voltar ao sumário](#sumario)
 

@@ -1,6 +1,6 @@
 # Buscas em Publisher via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/8kGgIJc8p9Q
 
 Bora codar... 
 

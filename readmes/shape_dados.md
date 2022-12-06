@@ -1,6 +1,6 @@
 # Dados em Shape via App Dart
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/oRga5HqokXc
 
 Bora codar...
 

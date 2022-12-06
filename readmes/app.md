@@ -1,7 +1,7 @@
 
 # Criando o app Dart e Conexão do app com a b4a
 
-Este texto a seguir é melhor detalhado neste video: 
+Este texto é melhor detalhado neste vídeo: https://youtu.be/IqQ2nke4Ot0
 
 Bora codar...
 
