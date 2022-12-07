@@ -1,4 +1,6 @@
 
+Atualizações estarão neste repositório: https://github.com/catalunha/learning_about_b4a_dart
+
 back4app.com - Database - Dart - Introdução | https://youtu.be/btNzdAqjcHc
 back4app.com - Database - Dart - Apresentação | https://youtu.be/RM3gYIrJjrY
 back4app.com - Database - Dart - Tabelas | https://youtu.be/pkNyrW2Xg58
