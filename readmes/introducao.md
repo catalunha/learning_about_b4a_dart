@@ -21,7 +21,11 @@ No back4app.com encontramos:
 4. Funções em nuvem
 5. E outras coisas...
 
-Este conteúdo será compartilhado no tabnews https://www.tabnews.com.br/catalunha
+Este conteúdo será compartilhado:
+
+no tabnews https://www.tabnews.com.br/catalunha
+
+na udemy: https://www.udemy.com/course/back4app-um-backend-completo-para-dartflutter-database/
 
 E sobre tudo isto vamos conversando no chat do tabnews ou neste discord https://discord.com/channels/766282533292998691/766282694967296030
 
