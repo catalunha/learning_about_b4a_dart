@@ -20,7 +20,7 @@ No back4app.com encontramos:
 2. Banco de dados
 3. Hospedagem
 4. Funções em nuvem
-5. E outras coisas...
+5. E outras coisas ...
 
 Este conteúdo será compartilhado no tabnews https://www.tabnews.com.br/catalunha
 
