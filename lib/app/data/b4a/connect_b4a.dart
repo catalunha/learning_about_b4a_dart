@@ -22,7 +22,6 @@ class ConnectB4A {
       serverUrl,
       clientKey: _clientKey,
       debug: debug,
-      // hideCompletAppIdAndClientKey: true,
     );
     await healthCheck();
   }
@@ -36,19 +35,19 @@ class ConnectB4A {
   /// Pra resolver isto envolvi com um try...catch
 
   Future<void> healthCheck() async {
-    try {
-      if ((await Parse().healthCheck()).success) {
-        log('Back4app Connected.');
-      } else {
-        log('Back4app NOT Connected.');
-        log('Exit app.');
-        exit(0);
-      }
-    } catch (e) {
-      log('Parse().healthCheck() with erros.');
+    // try {
+    if ((await Parse().healthCheck()).success) {
+      log('Back4app Connected.');
+    } else {
       log('Back4app NOT Connected.');
       log('Exit app.');
       exit(0);
     }
+    // } catch (e) {
+    //   log('Parse().healthCheck() with erros.');
+    //   log('Back4app NOT Connected.');
+    //   log('Exit app.');
+    //   exit(0);
+    // }
   }
 }
