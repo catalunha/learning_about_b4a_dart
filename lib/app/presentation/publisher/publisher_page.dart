@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:learning_about_b4a_dart/app/data/b4a/tables/publisher/publisher_repository.dart';
 import 'package:learning_about_b4a_dart/app/presentation/publisher/publisher_search.dart';
 
-void publisherPage() {
+void publisherPage() async {
   // // Publisher
   PublisherRepository publisherRepository = PublisherRepository();
   publisherRepository.addAll();
@@ -12,5 +14,10 @@ void publisherPage() {
   // publisherRepository.delete('I9npZLFtqI');
   // publisherRepository.removeAll();
   PublisherSearch publisherSearch = PublisherSearch();
-  publisherSearch.getObject('5iLu1JOO9x');
+  var dataList = <String>[];
+
+  dataList = await publisherSearch.getAll();
+  for (var item in dataList) {
+    log('${item.toString()}\n');
+  }
 }

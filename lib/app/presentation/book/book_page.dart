@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:learning_about_b4a_dart/app/data/b4a/tables/book/book_repository.dart';
 import 'package:learning_about_b4a_dart/app/presentation/book/book_search.dart';
 
-void bookPage() {
+void bookPage() async {
   // // Book
   BookRepository bookRepository = BookRepository();
   // bookRepository.addAll();
@@ -14,9 +16,15 @@ void bookPage() {
   // bookRepository.delete('I9npZLFtqI');
   // bookRepository.removeAll();
   BookSearch bookSearch = BookSearch();
-  bookSearch.queryBuilderIncludeObject(
-      ['typePointerPublisher', 'typePointerPublisher.typePointerShape']);
-  bookSearch.queryBuilderWhereEqualToRelation('Author', 'VUDROrC3iK');
-  bookSearch.queryBuilderWhereMatchesQuery();
-  bookSearch.queryBuilderWhereDoesNotMatchQuery();
+  var dataList = <String>[];
+
+  // dataList = await bookSearch.queryBuilderIncludeObject(
+  // ['typePointerPublisher', 'typePointerPublisher.typePointerShape'])
+  dataList =
+      await bookSearch.queryBuilderWhereEqualToRelation('Author', 'VUDROrC3iK');
+  // dataList = await bookSearch.queryBuilderWhereMatchesQuery();
+  // dataList = await bookSearch.queryBuilderWhereDoesNotMatchQuery();
+  for (var item in dataList) {
+    log('${item.toString()}\n');
+  }
 }

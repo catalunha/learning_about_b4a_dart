@@ -12,7 +12,8 @@ class AuthorSearch {
 
   /// Constroi a consulta incluindo todos os atributos da class ligada pelo ponteiro.
   /// Se não colocar [includeObject] o response traz apenas o objectId do objeto ligado pelo ponteiro
-  void queryBuilderIncludeObject(List<String> columnsName) async {
+  Future<List<String>> queryBuilderIncludeObject(
+      List<String> columnsName) async {
     log('+++ queryBuilderIncludeObject +++');
     var list = <AuthorModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -25,16 +26,13 @@ class AuthorSearch {
         list.add(AuthorEntity().toModel(element));
       }
     }
-    log('... queryBuilderIncludeObject ...');
-    for (var item in list) {
-      log('${item.toString()}\n');
-    }
     log('--- queryBuilderIncludeObject ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde todos os objetos são iguais ao objectId do ponteiro informado.
   /// E o mesmo que um whereEqualTo('typeString',"a") mas aplicado a um ponteiro.
-  void queryBuilderWhereEqualToPointer(
+  Future<List<String>> queryBuilderWhereEqualToPointer(
       String columnName, String pointerClassName, String pointerId) async {
     log('+++ queryBuilderWhereEqualToPointer +++');
     var list = <AuthorModel>[];
@@ -49,11 +47,8 @@ class AuthorSearch {
         list.add(AuthorEntity().toModel(element));
       }
     }
-    log('... queryBuilderWhereEqualToPointer ...');
-    for (var item in list) {
-      log('${item.toString()}\n');
-    }
     log('--- queryBuilderWhereEqualToPointer ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Envolve apenas uma coluna typePointer e sua query
@@ -63,7 +58,7 @@ class AuthorSearch {
   /// Agora eu desejo filtrar minha class Author pelo atributo typePointerGenre
   /// onde o valor deste seja igual a qualquer um dos objectIds encontrados no filtro de Genre
   /// que esta em pointerQueryBuilder
-  void queryBuilderWhereMatchesQuery() async {
+  Future<List<String>> queryBuilderWhereMatchesQuery() async {
     log('+++ queryBuilderWhereMatchesQuery +++');
     var list = <AuthorModel>[];
     QueryBuilder<ParseObject> pointerQueryBuilder =
@@ -82,15 +77,12 @@ class AuthorSearch {
         list.add(AuthorEntity().toModel(element));
       }
     }
-    log('... queryBuilderWhereMatchesQuery ...');
-    for (var item in list) {
-      log('${item.toString()}\n');
-    }
     log('--- queryBuilderWhereMatchesQuery ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// o inverto do whereMatchesQuery
-  void queryBuilderWhereDoesNotMatchQuery() async {
+  Future<List<String>> queryBuilderWhereDoesNotMatchQuery() async {
     log('+++ queryBuilderWhereDoesNotMatchQuery +++');
     var list = <AuthorModel>[];
     QueryBuilder<ParseObject> otherQueryBuilder =
@@ -109,11 +101,8 @@ class AuthorSearch {
         list.add(AuthorEntity().toModel(element));
       }
     }
-    log('... queryBuilderWhereDoesNotMatchQuery ...');
-    for (var item in list) {
-      log('${item.toString()}\n');
-    }
     log('--- queryBuilderWhereDoesNotMatchQuery ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Envolver quaisquer duas colunas
@@ -123,7 +112,7 @@ class AuthorSearch {
   /// Este é meu otherQueryBuilder
   /// Agora eu desejo os objetos de Author em que a coluna typeNumber seja igual
   /// em valor a coluna typeNumber de Genre de acordo com o filtro feito em Genre.
-  void queryBuilderWhereMatchesKeyInQuery() async {
+  Future<List<String>> queryBuilderWhereMatchesKeyInQuery() async {
     log('+++ queryBuilderWhereMatchesKeyInQuery +++');
     var list = <AuthorModel>[];
     QueryBuilder<ParseObject> otherQueryBuilder =
@@ -142,15 +131,12 @@ class AuthorSearch {
         list.add(AuthorEntity().toModel(element));
       }
     }
-    log('... queryBuilderWhereMatchesKeyInQuery ...');
-    for (var item in list) {
-      log('${item.toString()}\n');
-    }
     log('--- queryBuilderWhereMatchesKeyInQuery ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// O inverso de whereMatchesKeyInQuery
-  void queryBuilderWhereDoesNotMatchKeyInQuery() async {
+  Future<List<String>> queryBuilderWhereDoesNotMatchKeyInQuery() async {
     log('+++ queryBuilderWhereDoesNotMatchKeyInQuery +++');
     var list = <AuthorModel>[];
     QueryBuilder<ParseObject> otherQueryBuilder =
@@ -169,10 +155,7 @@ class AuthorSearch {
         list.add(AuthorEntity().toModel(element));
       }
     }
-    log('... queryBuilderWhereDoesNotMatchKeyInQuery ...');
-    for (var item in list) {
-      log('${item.toString()}\n');
-    }
     log('--- queryBuilderWhereDoesNotMatchKeyInQuery ---');
+    return list.map((e) => e.toString()).toList();
   }
 }

@@ -1,6 +1,8 @@
+import 'dart:developer';
+
 import 'package:learning_about_b4a_dart/app/presentation/genre/genre_search.dart';
 
-void genrePage() {
+void genrePage() async {
   // Genre repo
   // GenreRepository genreRepository = GenreRepository();
   // genreRepository.addAll();
@@ -19,51 +21,76 @@ void genrePage() {
   // genreRepository.typeArraySetRemoveAll('3PplSH1UZd', ['aa', 'd', 'g']);
   // Genre View
   GenreSearch genreSearch = GenreSearch();
-  // genreSearch.getObject('3xILA8Wjyp');
-  // genreSearch.getAll();
-  // genreSearch.queryBuilderCount();
-  // genreSearch.queryBuilder();
-  // genreSearch.queryBuilderOrderByAscending('typeString');
-  // genreSearch.queryBuilderOrderByDescending('typeString');
-  // genreSearch.queryBuilderExcludeKeys(['typeString']);
-  // genreSearch.queryBuilderKeysToReturn(['typeString']);
-  // genreSearch.queryBuilderPagination(1, 2);
-  // genreSearch.queryBuilderPagination(2, 2);
-  // genreSearch.queryBuilderWhereEqualToSimpleColumn('typeBoolean', false);
-  // genreSearch.queryBuilderWhereEqualToSimpleColumn('typeString', 'Genre01');
-  // genreSearch.queryBuilderWhereEqualToSimpleColumn('typeNumber', 3);
-  // genreSearch.queryBuilderWhereEqualToSimpleColumn(
+  var dataList = <String>[];
+  // dataList = await genreSearch.getObject('3xILA8Wjyp');
+  dataList = await genreSearch.getAll();
+  // dataList = await genreSearch.queryBuilderCount();
+  // dataList = await genreSearch.queryBuilder();
+  // dataList = await genreSearch.queryBuilderOrderByAscending('typeString');
+  // dataList = await genreSearch.queryBuilderOrderByDescending('typeString');
+  // dataList = await genreSearch.queryBuilderExcludeKeys(['typeString']);
+  // dataList = await genreSearch.queryBuilderKeysToReturn(['typeString']);
+  // dataList = await genreSearch.queryBuilderPagination(1, 2);
+  // dataList = await genreSearch.queryBuilderPagination(2, 2);
+  // dataList = await genreSearch.queryBuilderWhereEqualToSimpleColumn(
+  //     'typeBoolean', false);
+  // dataList = await genreSearch.queryBuilderWhereEqualToSimpleColumn(
+  //     'typeString', 'Genre01');
+  // dataList =
+  //     await genreSearch.queryBuilderWhereEqualToSimpleColumn('typeNumber', 3);
+  // dataList = await genreSearch.queryBuilderWhereEqualToSimpleColumn(
   //     'typeDate', DateTime(2022, 11, 26, 10));
-  genreSearch.queryBuilderWhereNotEqualToSimpleColumn('typeBoolean', true);
-  genreSearch.queryBuilderWhereNotEqualToSimpleColumn('typeString', 'Genre02');
-  genreSearch.queryBuilderWhereNotEqualToSimpleColumn('typeNumber', 3);
-  genreSearch.queryBuilderWhereEqualToSimpleColumn(
-      'typeDateTime', DateTime(2022, 12, 02, 16, 42, 36));
-  genreSearch.queryBuilderWhereGreaterThan('typeBoolean', false);
-  genreSearch.queryBuilderWhereGreaterThan('typeString', 'Genre02');
-  genreSearch.queryBuilderWhereGreaterThan('typeNumber', 3);
-  genreSearch.queryBuilderWhereGreaterThan(
-      'typeDate', DateTime(2022, 11, 25, 10));
-  genreSearch.queryBuilderWhereGreaterThanOrEqualsTo('typeBoolean', true);
-  genreSearch.queryBuilderWhereGreaterThanOrEqualsTo('typeString', 'Genre02');
-  genreSearch.queryBuilderWhereGreaterThanOrEqualsTo('typeNumber', 3);
-  genreSearch.queryBuilderWhereGreaterThanOrEqualsTo(
-      'typeDate', DateTime(2022, 11, 25, 10));
-  genreSearch.queryBuilderWhereLessThan('typeBoolean', true);
-  genreSearch.queryBuilderWhereLessThan('typeString', 'Genre02');
-  genreSearch.queryBuilderWhereLessThan('typeNumber', 3);
-  genreSearch.queryBuilderWhereLessThan('typeDate', DateTime(2022, 11, 25, 10));
-  genreSearch.queryBuilderWhereLessThanOrEqualTo('typeBoolean', true);
-  genreSearch.queryBuilderWhereLessThanOrEqualTo('typeString', 'Genre02');
-  genreSearch.queryBuilderWhereLessThanOrEqualTo('typeNumber', 3);
-  genreSearch.queryBuilderWhereLessThanOrEqualTo(
-      'typeDate', DateTime(2022, 11, 25, 10));
-  genreSearch.queryBuilderWhereValueExists('typeString', false);
-  genreSearch.queryBuilderWhereStartsWith('typeString', 'g');
-  genreSearch.queryBuilderWhereEndsWith('typeString', '2');
-  genreSearch.queryBuilderWhereContains('typeString', '0');
-  genreSearch.queryBuilderWhereContainedIn('typeArray', ['a', '3']);
-  genreSearch.queryBuilderWhereArrayContainsAll('typeArray', ['a', '1']);
-  genreSearch.queryBuilderOr();
-  // genreSearch.queryBuilderCustom();
+  // dataList = await genreSearch.queryBuilderWhereNotEqualToSimpleColumn(
+  //     'typeBoolean', true);
+  // dataList = await genreSearch.queryBuilderWhereNotEqualToSimpleColumn(
+  //     'typeString', 'Genre02');
+  // dataList = await genreSearch.queryBuilderWhereNotEqualToSimpleColumn(
+  //     'typeNumber', 3);
+  // dataList = await genreSearch.queryBuilderWhereEqualToSimpleColumn(
+  //     'typeDateTime', DateTime(2022, 12, 02, 16, 42, 36));
+  // dataList =
+  //     await genreSearch.queryBuilderWhereGreaterThan('typeBoolean', false);
+  // dataList =
+  //     await genreSearch.queryBuilderWhereGreaterThan('typeString', 'Genre02');
+  // dataList = await genreSearch.queryBuilderWhereGreaterThan('typeNumber', 3);
+  // dataList = await genreSearch.queryBuilderWhereGreaterThan(
+  //     'typeDate', DateTime(2022, 11, 25, 10));
+  // dataList = await genreSearch.queryBuilderWhereGreaterThanOrEqualsTo(
+  //     'typeBoolean', true);
+  // dataList = await genreSearch.queryBuilderWhereGreaterThanOrEqualsTo(
+  //     'typeString', 'Genre02');
+  // dataList = await genreSearch.queryBuilderWhereGreaterThanOrEqualsTo(
+  //     'typeNumber', 3);
+  // dataList = await genreSearch.queryBuilderWhereGreaterThanOrEqualsTo(
+  //     'typeDate', DateTime(2022, 11, 25, 10));
+  // dataList = await genreSearch.queryBuilderWhereLessThan('typeBoolean', true);
+  // dataList =
+  //     await genreSearch.queryBuilderWhereLessThan('typeString', 'Genre02');
+  // dataList = await genreSearch.queryBuilderWhereLessThan('typeNumber', 3);
+  // dataList = await genreSearch.queryBuilderWhereLessThan(
+  //     'typeDate', DateTime(2022, 11, 25, 10));
+  // dataList = await genreSearch.queryBuilderWhereLessThanOrEqualTo(
+  //     'typeBoolean', true);
+  // dataList = await genreSearch.queryBuilderWhereLessThanOrEqualTo(
+  //     'typeString', 'Genre02');
+  // dataList =
+  //     await genreSearch.queryBuilderWhereLessThanOrEqualTo('typeNumber', 3);
+  // dataList = await genreSearch.queryBuilderWhereLessThanOrEqualTo(
+  //     'typeDate', DateTime(2022, 11, 25, 10));
+  // dataList =
+  //     await genreSearch.queryBuilderWhereValueExists('typeString', false);
+  // dataList = await genreSearch.queryBuilderWhereStartsWith('typeString', 'g');
+  // dataList = await genreSearch.queryBuilderWhereEndsWith('typeString', '2');
+  // dataList = await genreSearch.queryBuilderWhereContains('typeString', '0');
+  // dataList =
+  //     await genreSearch.queryBuilderWhereContainedIn('typeArray', ['a', '3']);
+  // dataList = await genreSearch
+  //     .queryBuilderWhereArrayContainsAll('typeArray', ['a', '1']);
+  // dataList = await genreSearch.queryBuilderOr();
+  // dataList = await genreSearch.queryBuilderCustom();
+
+  // dataList = await genreSearch.queryBuilderCount();
+  for (var item in dataList) {
+    log('${item.toString()}\n');
+  }
 }

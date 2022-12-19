@@ -8,21 +8,20 @@ class ShapeSearch {
   ShapeSearch() {
     log('=== ShapeSearch ===');
   }
-  void getObject(String objectId) async {
-    log('+++ getObject +++');
-    ShapeModel? shapeModel;
-    final parseResponse =
-        await ParseObject(ShapeEntity.className).getObject(objectId);
+
+  /// Retorna todos os objetos da class
+  Future<List<String>> getAll() async {
+    log('+++ getAll +++');
+    var list = <ShapeModel>[];
+    final parseResponse = await ParseObject(ShapeEntity.className).getAll();
 
     if (parseResponse.success && parseResponse.results != null) {
-      shapeModel = ShapeEntity().toModel(parseResponse.results!.first);
+      for (var element in parseResponse.results!) {
+        list.add(ShapeEntity().toModel(element));
+      }
     }
-    log('... getObject ...');
-    if (shapeModel == null) {
-      log('null');
-    } else {
-      log(shapeModel.toString());
-    }
-    log('--- getObject ---');
+
+    log('--- getAll ---');
+    return list.map((e) => e.toString()).toList();
   }
 }

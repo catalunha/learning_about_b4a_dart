@@ -8,21 +8,19 @@ class PublisherSearch {
   PublisherSearch() {
     log('=== PublisherView ===');
   }
-  void getObject(String objectId) async {
-    log('+++ getObject +++');
-    PublisherModel? genreModel;
-    final parseResponse =
-        await ParseObject(PublisherEntity.className).getObject(objectId);
+
+  /// Retorna todos os objetos da class
+  Future<List<String>> getAll() async {
+    log('+++ getAll +++');
+    var list = <PublisherModel>[];
+    final parseResponse = await ParseObject(PublisherEntity.className).getAll();
 
     if (parseResponse.success && parseResponse.results != null) {
-      genreModel = PublisherEntity().toModel(parseResponse.results!.first);
+      for (var element in parseResponse.results!) {
+        list.add(PublisherEntity().toModel(element));
+      }
     }
-    log('... getObject ...');
-    if (genreModel == null) {
-      log('null');
-    } else {
-      log(genreModel.toString());
-    }
-    log('--- getObject ---');
+    log('--- getAll ---');
+    return list.map((e) => e.toString()).toList();
   }
 }

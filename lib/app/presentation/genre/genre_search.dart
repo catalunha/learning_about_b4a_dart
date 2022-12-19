@@ -10,7 +10,7 @@ class GenreSearch {
   }
 
   /// Retorna um objeto da class baseado no seu [objectId]
-  void getObject(String objectId) async {
+  Future<List<String>> getObject(String objectId) async {
     // GenreController genreController = GenreController();
     // GenreModel? genreModel = await genreController.getObject(objectId);
     log('+++ getObject +++');
@@ -23,14 +23,17 @@ class GenreSearch {
     log('... getObject ...');
     if (genreModel == null) {
       log('null');
+      log('--- getObject ---');
+      return [''];
     } else {
       log(genreModel.toString());
+      log('--- getObject ---');
+      return [genreModel.toString()];
     }
-    log('--- getObject ---');
   }
 
   /// Retorna todos os objetos da class
-  void getAll() async {
+  Future<List<String>> getAll() async {
     log('+++ getAll +++');
     var list = <GenreModel>[];
     final parseResponse = await ParseObject(GenreEntity.className).getAll();
@@ -40,15 +43,12 @@ class GenreSearch {
         list.add(GenreEntity().toModel(element));
       }
     }
-    log('... getAll ...');
-    for (var item in list) {
-      log('${item.toString()}\n');
-    }
     log('--- getAll ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Retorna a quantidade de objetos da query
-  void queryBuilderCount() async {
+  Future<List<String>> queryBuilderCount() async {
     log('+++ count +++');
     int result = -1;
     QueryBuilder<ParseObject> queryBuilder =
@@ -61,11 +61,12 @@ class GenreSearch {
     log('... count ...');
     log(result.toString());
     log('--- count ---');
+    return [result.toString()];
   }
 
   /// Constroi a consulta com todos os objetos da class
   /// Pois neste caso a queryBuilder não tem restrições
-  void queryBuilder() async {
+  Future<List<String>> queryBuilder() async {
     log('+++ queryBuilder +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -81,11 +82,13 @@ class GenreSearch {
     for (var item in list) {
       log('${item.toString()}\n');
     }
+    return list.map((e) => e.toString()).toList();
+
     log('--- queryBuilder ---');
   }
 
   /// Constroi a consulta em ordem crescente para este atributo
-  void queryBuilderOrderByAscending(String columnName) async {
+  Future<List<String>> queryBuilderOrderByAscending(String columnName) async {
     log('+++ queryBuilderOrderByAscending +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -103,10 +106,11 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderOrderByAscending ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta em ordem decrescente para este atributo
-  void queryBuilderOrderByDescending(String columnName) async {
+  Future<List<String>> queryBuilderOrderByDescending(String columnName) async {
     log('+++ queryBuilderOrderByDescending +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -124,10 +128,11 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderOrderByDescending ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta excluindo esta lista de atributos nos objetos retornados
-  void queryBuilderExcludeKeys(List<String> columnsName) async {
+  Future<List<String>> queryBuilderExcludeKeys(List<String> columnsName) async {
     log('+++ queryBuilderExcludeKeys +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -145,10 +150,12 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderExcludeKeys ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta com apenas esta lista de atributos nos objetos retornados
-  void queryBuilderKeysToReturn(List<String> columnsName) async {
+  Future<List<String>> queryBuilderKeysToReturn(
+      List<String> columnsName) async {
     log('+++ queryBuilderKeysToReturn +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -166,12 +173,13 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderKeysToReturn ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta com uma quantidade de objetos após saltar certa
   /// quantidade de objetos.
   /// A junção destas faz a paginação dos objetos retornados.
-  void queryBuilderPagination(int page, int limit) async {
+  Future<List<String>> queryBuilderPagination(int page, int limit) async {
     log('+++ queryBuilderPagination +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -190,10 +198,11 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderPagination ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde um [atributo] é igual a um [valor]
-  void queryBuilderWhereEqualToSimpleColumn(
+  Future<List<String>> queryBuilderWhereEqualToSimpleColumn(
       String columnName, dynamic value) async {
     log('+++ queryBuilderWhereEqualToSimpleColumn +++');
     var list = <GenreModel>[];
@@ -214,12 +223,13 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereEqualToSimpleColumn ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde um [atributo] não é igual a um [valor]
   /// Se coluna for DateTime cuidar para valor ser exato até millisecond
   /// Informe DateTime local que ele compara em UTC no Back4app. Ou seja +3h
-  void queryBuilderWhereNotEqualToSimpleColumn(
+  Future<List<String>> queryBuilderWhereNotEqualToSimpleColumn(
       String columnName, dynamic value) async {
     log('+++ queryBuilderWhereNotEqualToSimpleColumn +++');
     var list = <GenreModel>[];
@@ -240,6 +250,7 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereNotEqualToSimpleColumn ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde um [atributo] é maior que um determinado [valor]
@@ -247,7 +258,8 @@ class GenreSearch {
   /// Funciona como ordem alfabética
   /// Se coluna for DateTime cuidar para valor ser exato até millisecond
   /// Informe DateTime local que ele compara em UTC no Back4app. Ou seja +3h
-  void queryBuilderWhereGreaterThan(String columnName, dynamic value) async {
+  Future<List<String>> queryBuilderWhereGreaterThan(
+      String columnName, dynamic value) async {
     log('+++ queryBuilderWhereGreaterThan +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -267,10 +279,11 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereGreaterThan ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde um [atributo] é maior ou igual a um determinado [valor]
-  void queryBuilderWhereGreaterThanOrEqualsTo(
+  Future<List<String>> queryBuilderWhereGreaterThanOrEqualsTo(
       String columnName, dynamic value) async {
     log('+++ queryBuilderWhereGreaterThanOrEqualsTo +++');
     var list = <GenreModel>[];
@@ -291,10 +304,12 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereGreaterThanOrEqualsTo ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde um [atributo] é menor que um determinado [valor]
-  void queryBuilderWhereLessThan(String columnName, dynamic value) async {
+  Future<List<String>> queryBuilderWhereLessThan(
+      String columnName, dynamic value) async {
     log('+++ queryBuilderWhereLessThan +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -314,10 +329,11 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereLessThan ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde um [atributo] é menor ou igual a um determinado [valor]
-  void queryBuilderWhereLessThanOrEqualTo(
+  Future<List<String>> queryBuilderWhereLessThanOrEqualTo(
       String columnName, dynamic value) async {
     log('+++ queryBuilderWhereLessThanOrEqualTo +++');
     var list = <GenreModel>[];
@@ -338,12 +354,13 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereLessThanOrEqualTo ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde
   /// whereValueExists('anyType', true) o [atributo] é diferente de undefined
   /// whereValueExists('anyType', false) o [atributo] é undefined
-  void queryBuilderWhereValueExists(
+  Future<List<String>> queryBuilderWhereValueExists(
       String columnName, bool containValue) async {
     log('+++ queryBuilderWhereValueExists +++');
     var list = <GenreModel>[];
@@ -362,10 +379,12 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereValueExists ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde o [atributo] do tipo String inicia com este [text]
-  void queryBuilderWhereStartsWith(String columnName, String text) async {
+  Future<List<String>> queryBuilderWhereStartsWith(
+      String columnName, String text) async {
     log('+++ queryBuilderWhereStartsWith +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -383,10 +402,12 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereStartsWith ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde o [atributo] do tipo String finaliza com este [text]
-  void queryBuilderWhereEndsWith(String columnName, String text) async {
+  Future<List<String>> queryBuilderWhereEndsWith(
+      String columnName, String text) async {
     log('+++ queryBuilderWhereEndsWith +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -404,10 +425,12 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereEndsWith ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde o [atributo] do tipo String contem em qualquer parte este [text]
-  void queryBuilderWhereContains(String columnName, String text) async {
+  Future<List<String>> queryBuilderWhereContains(
+      String columnName, String text) async {
     log('+++ queryBuilderWhereContains +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -425,6 +448,7 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereContains ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde qualquer objeto com [atributo] typeArray contem
@@ -432,7 +456,7 @@ class GenreSearch {
   /// Por exemplo: atributo vale ["a","1"] e busca que contem ["a","3"] o retorno é true
   /// Por exemplo: atributo vale ["b","2"] e busca que contem ["a","3"] o retorno é false
   /// Por exemplo: atributo vale ["c","3"] e busca que contem ["a","3"] o retorno é true
-  void queryBuilderWhereContainedIn(
+  Future<List<String>> queryBuilderWhereContainedIn(
       String columnName, List<dynamic> values) async {
     log('+++ queryBuilderWhereContainedIn +++');
     var list = <GenreModel>[];
@@ -451,6 +475,7 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereContainedIn ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde qualquer objeto com [atributo] typeArray contem
@@ -458,7 +483,7 @@ class GenreSearch {
   /// Por exemplo: atributo vale ["a","1","4"] e busca que contem ["a","1"] o retorno é true
   /// Por exemplo: atributo vale ["b","2"] e busca que contem ["a","1"] o retorno é false
   /// Por exemplo: atributo vale ["c","3"] e busca que contem ["a","1"] o retorno é false
-  void queryBuilderWhereArrayContainsAll(
+  Future<List<String>> queryBuilderWhereArrayContainsAll(
       String columnName, List<dynamic> values) async {
     log('+++ queryBuilderWhereArrayContainsAll +++');
     var list = <GenreModel>[];
@@ -477,11 +502,12 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderWhereArrayContainsAll ---');
+    return list.map((e) => e.toString()).toList();
   }
 
   /// Constroi a consulta onde os objetos retornados são a junção de qualquer
   /// resultado das consultas individuais
-  void queryBuilderOr() async {
+  Future<List<String>> queryBuilderOr() async {
     log('+++ queryBuilderOr +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder1 =
@@ -506,9 +532,10 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderOr ---');
+    return list.map((e) => e.toString()).toList();
   }
 
-  void queryBuilderCustom() async {
+  Future<List<String>> queryBuilderCustom() async {
     log('+++ queryBuilderCustom +++');
     var list = <GenreModel>[];
     QueryBuilder<ParseObject> queryBuilder =
@@ -566,5 +593,6 @@ class GenreSearch {
       log('${item.toString()}\n');
     }
     log('--- queryBuilderCustom ---');
+    return list.map((e) => e.toString()).toList();
   }
 }

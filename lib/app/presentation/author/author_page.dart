@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:learning_about_b4a_dart/app/data/b4a/tables/author/author_repository.dart';
 import 'package:learning_about_b4a_dart/app/presentation/author/author_search.dart';
 
-void authorPage() {
+void authorPage() async {
   // // Author
   AuthorRepository authorRepository = AuthorRepository();
   authorRepository.addAll();
@@ -12,11 +14,15 @@ void authorPage() {
   // authorRepository.delete('I9npZLFtqI');
   // authorRepository.removeAll();
   AuthorSearch authorSearch = AuthorSearch();
-  // authorSearch.queryBuilderIncludeObject(['typePointerGenre']);
-  // authorSearch.queryBuilderWhereEqualToPointer(
+  var dataList = <String>[];
+  dataList = await authorSearch.queryBuilderIncludeObject(['typePointerGenre']);
+  // dataList = await authorSearch.queryBuilderWhereEqualToPointer(
   //     'typePointerGenre', 'Genre', 'mrsMiyXeuP');
-  // authorSearch.queryBuilderWhereMatchesQuery();
-  // authorSearch.queryBuilderWhereDoesNotMatchQuery();
-  // authorSearch.queryBuilderWhereMatchesKeyInQuery();
-  // authorSearch.queryBuilderWhereDoesNotMatchKeyInQuery();
+  // dataList = await authorSearch.queryBuilderWhereMatchesQuery();
+  // dataList = await authorSearch.queryBuilderWhereDoesNotMatchQuery();
+  // dataList = await authorSearch.queryBuilderWhereMatchesKeyInQuery();
+  // dataList = await authorSearch.queryBuilderWhereDoesNotMatchKeyInQuery();
+  for (var item in dataList) {
+    log('${item.toString()}\n');
+  }
 }
