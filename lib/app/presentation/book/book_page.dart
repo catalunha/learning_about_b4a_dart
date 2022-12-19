@@ -17,11 +17,12 @@ void bookPage() async {
   // bookRepository.removeAll();
   BookSearch bookSearch = BookSearch();
   var dataList = <String>[];
+  dataList = await bookSearch.getAll();
 
   // dataList = await bookSearch.queryBuilderIncludeObject(
   // ['typePointerPublisher', 'typePointerPublisher.typePointerShape'])
-  dataList =
-      await bookSearch.queryBuilderWhereEqualToRelation('Author', 'VUDROrC3iK');
+  // dataList =
+  //     await bookSearch.queryBuilderWhereEqualToRelation('Author', 'VUDROrC3iK');
   // dataList = await bookSearch.queryBuilderWhereMatchesQuery();
   // dataList = await bookSearch.queryBuilderWhereDoesNotMatchQuery();
   for (var item in dataList) {

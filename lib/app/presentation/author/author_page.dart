@@ -15,6 +15,8 @@ void authorPage() async {
   // authorRepository.removeAll();
   AuthorSearch authorSearch = AuthorSearch();
   var dataList = <String>[];
+  dataList = await authorSearch.getAll();
+
   dataList = await authorSearch.queryBuilderIncludeObject(['typePointerGenre']);
   // dataList = await authorSearch.queryBuilderWhereEqualToPointer(
   //     'typePointerGenre', 'Genre', 'mrsMiyXeuP');

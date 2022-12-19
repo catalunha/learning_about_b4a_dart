@@ -10,6 +10,21 @@ class AuthorSearch {
     log('=== AuthorSearch ===');
   }
 
+  /// Retorna todos os objetos da class
+  Future<List<String>> getAll() async {
+    log('+++ getAll +++');
+    var list = <AuthorModel>[];
+    final parseResponse = await ParseObject(GenreEntity.className).getAll();
+
+    if (parseResponse.success && parseResponse.results != null) {
+      for (var element in parseResponse.results!) {
+        list.add(AuthorEntity().toModel(element));
+      }
+    }
+    log('--- getAll ---');
+    return list.map((e) => e.toString()).toList();
+  }
+
   /// Constroi a consulta incluindo todos os atributos da class ligada pelo ponteiro.
   /// Se não colocar [includeObject] o response traz apenas o objectId do objeto ligado pelo ponteiro
   Future<List<String>> queryBuilderIncludeObject(

@@ -10,6 +10,21 @@ class BookSearch {
     log('=== BookSearch ===');
   }
 
+  /// Retorna todos os objetos da class
+  Future<List<String>> getAll() async {
+    log('+++ getAll +++');
+    var list = <BookModel>[];
+    final parseResponse = await ParseObject(BookEntity.className).getAll();
+
+    if (parseResponse.success && parseResponse.results != null) {
+      for (var element in parseResponse.results!) {
+        list.add(await BookEntity().toModel(element));
+      }
+    }
+    log('--- getAll ---');
+    return list.map((e) => e.toString()).toList();
+  }
+
   Future<List<String>> queryBuilderIncludeObject(
       List<String> columnsName) async {
     log('+++ queryBuilderIncludeObject +++');
