@@ -22,6 +22,7 @@ void joinPostsInReadme() {
   ];
   for (var part in parts) {
     String pathPart = 'readmes/$part.md';
+    print('Montando: $pathPart');
     var dataPart = File(pathPart).readAsStringSync();
     fileREADME.writeln('<a id="$part"></a>');
     fileREADME.writeln(dataPart);
