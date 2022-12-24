@@ -48,9 +48,7 @@ class ShapeRepository {
   addFile(String pathFile, String shapeId) async {
     log('+++ addFile +++');
     ParseFileBase? parseFileBase = ParseFile(File(pathFile));
-    // parseFileBase.progressCallback((count, total) {
-    //   print("total=$total | count=$count");
-    // });
+
     // //progressCallback example
     final ParseResponse parseResponseFile = await parseFileBase.upload(
         progressCallback: (int count, int total) =>
