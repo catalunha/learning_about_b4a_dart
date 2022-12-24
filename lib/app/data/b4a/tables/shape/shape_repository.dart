@@ -48,7 +48,14 @@ class ShapeRepository {
   addFile(String pathFile, String shapeId) async {
     log('+++ addFile +++');
     ParseFileBase? parseFileBase = ParseFile(File(pathFile));
-    final ParseResponse parseResponseFile = await parseFileBase.save();
+    // parseFileBase.progressCallback((count, total) {
+    //   print("total=$total | count=$count");
+    // });
+    // //progressCallback example
+    final ParseResponse parseResponseFile = await parseFileBase.upload(
+        progressCallback: (int count, int total) =>
+            print("$count ========of======= $total"));
+    // final ParseResponse parseResponseFile = await parseFileBase.save();
     if (parseResponseFile.success && parseResponseFile.results != null) {
       final parseObject = ParseObject(ShapeEntity.className);
       parseObject.objectId = shapeId;
@@ -60,6 +67,7 @@ class ShapeRepository {
         log('Problem in save file');
       }
     }
+    log('--- addFile ---');
   }
 
   add() async {

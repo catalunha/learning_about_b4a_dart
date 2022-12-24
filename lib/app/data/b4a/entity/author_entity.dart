@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:learning_about_b4a_dart/app/core/models/author_model.dart';
 import 'package:learning_about_b4a_dart/app/data/b4a/entity/genre_entity.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
@@ -6,6 +8,8 @@ class AuthorEntity {
   static const String className = 'Author';
 
   AuthorModel toModel(ParseObject parseObject) {
+    log('parseObject.toJson ${parseObject.toJson()}',
+        name: 'AuthorModel toModel');
     AuthorModel model = AuthorModel(
       objectId: parseObject.objectId!,
       typeString: parseObject.get<String>('typeString'),
@@ -63,6 +67,8 @@ class AuthorEntity {
                 ..objectId = model.typePointerGenre!.objectId)
               .toPointer());
     }
+    log('parseObject.toJson ${parseObject.toJson()}',
+        name: 'AuthorModel toParse');
     return parseObject;
   }
 

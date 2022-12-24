@@ -1,5 +1,5 @@
 import 'package:learning_about_b4a_dart/app/data/b4a/connect_b4a.dart';
-import 'package:learning_about_b4a_dart/app/presentation/author/author_page.dart';
+import 'package:learning_about_b4a_dart/app/presentation/shape/shape_page.dart';
 
 void app() async {
   ConnectB4A connectB4A = ConnectB4A();
@@ -7,8 +7,8 @@ void app() async {
   await connectB4A.initialize(debug: true);
 
   // genrePage();
-  authorPage();
-  // shapePage();
+  // authorPage();
+  shapePage();
   // publisherPage();
   // bookPage();
 }
