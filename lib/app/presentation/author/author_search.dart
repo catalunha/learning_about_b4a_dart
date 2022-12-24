@@ -25,6 +25,30 @@ class AuthorSearch {
     return list.map((e) => e.toString()).toList();
   }
 
+  /// Retorna um objeto da class baseado no seu [objectId]
+  Future<List<String>> getObject(
+      {required String objectId, bool withPointer = false}) async {
+    log('+++ getObject +++');
+    AuthorModel? authorModel;
+    ParseResponse parseResponse;
+    if (withPointer) {
+      parseResponse = await ParseObject(AuthorEntity.className)
+          .getObject(objectId, include: ['typePointerGenre']);
+    } else {
+      parseResponse =
+          await ParseObject(AuthorEntity.className).getObject(objectId);
+    }
+    if (parseResponse.success && parseResponse.results != null) {
+      authorModel = AuthorEntity().toModel(parseResponse.results!.first);
+    }
+    log('--- getObject ---');
+    if (authorModel == null) {
+      return [];
+    } else {
+      return [authorModel.toString()];
+    }
+  }
+
   /// Constroi a consulta incluindo todos os atributos da class ligada pelo ponteiro.
   /// Se não colocar [includeObject] o response traz apenas o objectId do objeto ligado pelo ponteiro
   Future<List<String>> queryBuilderIncludeObject(

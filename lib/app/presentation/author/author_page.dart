@@ -1,12 +1,11 @@
 import 'dart:developer';
 
-import 'package:learning_about_b4a_dart/app/data/b4a/tables/author/author_repository.dart';
 import 'package:learning_about_b4a_dart/app/presentation/author/author_search.dart';
 
 void authorPage() async {
   // // Author
-  AuthorRepository authorRepository = AuthorRepository();
-  authorRepository.addAll();
+  // AuthorRepository authorRepository = AuthorRepository();
+  // authorRepository.addAll();
   // authorRepository.addPointer();
   // authorRepository.add();
   // authorRepository.update();
@@ -15,9 +14,11 @@ void authorPage() async {
   // authorRepository.removeAll();
   AuthorSearch authorSearch = AuthorSearch();
   var dataList = <String>[];
-  dataList = await authorSearch.getAll();
+  // dataList = await authorSearch.getAll();
+  dataList =
+      await authorSearch.getObject(objectId: 'wumssuy5eQ', withPointer: true);
 
-  dataList = await authorSearch.queryBuilderIncludeObject(['typePointerGenre']);
+  // dataList = await authorSearch.queryBuilderIncludeObject(['typePointerGenre']);
   // dataList = await authorSearch.queryBuilderWhereEqualToPointer(
   //     'typePointerGenre', 'Genre', 'mrsMiyXeuP');
   // dataList = await authorSearch.queryBuilderWhereMatchesQuery();

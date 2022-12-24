@@ -17,7 +17,7 @@ class AuthorRepository {
         typeNumber: 1,
         typeDateTime: DateTime.now(),
         typeArray: ['a', '1'],
-        typePointerGenre: GenreModel(objectId: 'kyCtliyFaK'),
+        typePointerGenre: GenreModel(objectId: 'KinHJTTxv5'),
       ),
       AuthorModel(
         typeString: 'Author02',
@@ -25,7 +25,7 @@ class AuthorRepository {
         typeNumber: 2,
         typeDateTime: DateTime(2022, 11, 26, 12).add(Duration(hours: 1)),
         typeArray: ['b', '2'],
-        // typePointerGenre: GenreModel(objectId: 'mrsMiyXeuP'),
+        typePointerGenre: GenreModel(objectId: 'Twv7hnpF9E'),
       ),
       AuthorModel(
         typeString: 'Author03',
@@ -33,7 +33,7 @@ class AuthorRepository {
         typeNumber: 3,
         typeDateTime: DateTime.now().add(Duration(hours: 2)),
         typeArray: ['c', '3'],
-        // typePointerGenre: GenreModel(objectId: 'w7n72uFBv2'),
+        typePointerGenre: GenreModel(objectId: 'IKGxFAScET'),
       ),
     ]);
     for (var authorModel in authorModelList) {

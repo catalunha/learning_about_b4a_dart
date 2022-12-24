@@ -1,8 +1,6 @@
 <a id="introducao"></a>
 # learning_about_b4a_dart
 
-Deixe uma issue com suas sugestões e,ou criticas sobre este material. Ajudará muito na remodelagem deste e construção de outros.
-
 Meu maior motivador em construir este repositório é meu desejo em compartilhar com vocês o que venho aprendendo sobre tudo isto. Este pequeno projeto, usando puro Dart, servirá também para alguns testes com back4app.com no que envolve database. 
 
 Este texto é um roteiro para os vídeos desta playlist ??. E com a ajuda de vocês vou acrescentando o que for necessário neste texto e atualizando nos vídeos.
