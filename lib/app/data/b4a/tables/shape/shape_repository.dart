@@ -47,17 +47,16 @@ class ShapeRepository {
 
   addFile(String pathFile, String shapeId) async {
     log('+++ addFile +++');
-    ParseFileBase? parseFileBase = ParseFile(File(pathFile));
+    ParseFile? parseFile = ParseFile(File(pathFile));
 
     // //progressCallback example
-    final ParseResponse parseResponseFile = await parseFileBase.upload(
-        progressCallback: (int count, int total) =>
-            print("$count ========of======= $total"));
+    final ParseResponse parseResponseFile = await parseFile.upload(
+        progressCallback: (int count, int total) => print("$count of $total"));
     // final ParseResponse parseResponseFile = await parseFileBase.save();
     if (parseResponseFile.success && parseResponseFile.results != null) {
       final parseObject = ParseObject(ShapeEntity.className);
       parseObject.objectId = shapeId;
-      parseObject.set('typeFile', parseFileBase);
+      parseObject.set('typeFile', parseFile);
       final ParseResponse responseParseObject = await parseObject.save();
       if (responseParseObject.success && responseParseObject.results != null) {
         log('File $pathFile save in ${ShapeEntity.className}.$shapeId');
