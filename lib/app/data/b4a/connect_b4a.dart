@@ -21,7 +21,7 @@ class ConnectB4A {
       _appId,
       serverUrl,
       clientKey: _clientKey,
-      debug: true,
+      debug: false,
       //para usar progressCallback é necessario habilitar clientCreator com DIO
       // clientCreator: (
       //         {bool? sendSessionId, SecurityContext? securityContext}) =>
