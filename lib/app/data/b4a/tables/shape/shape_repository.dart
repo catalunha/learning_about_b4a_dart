@@ -48,9 +48,9 @@ class ShapeRepository {
   addFile(String pathFile, String shapeId) async {
     log('+++ addFile +++');
     ParseFile? parseFile = ParseFile(File(pathFile));
-    //progressCallback example
-    parseFile.upload(
-        progressCallback: (int count, int total) => print("$count of $total"));
+    //para usar progressCallback é necessario habilitar clientCreator com DIO
+    // parseFile.upload(
+    //     progressCallback: (int count, int total) => print("$count of $total"));
     // final ParseResponse parseResponse = await parseFile.save();
     // if (parseResponse.success && parseResponse.results != null) {
     final parseObject = ParseObject(ShapeEntity.className);

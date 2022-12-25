@@ -22,9 +22,10 @@ class ConnectB4A {
       serverUrl,
       clientKey: _clientKey,
       debug: true,
-      clientCreator: (
-              {bool? sendSessionId, SecurityContext? securityContext}) =>
-          ParseDioClient(sendSessionId: true, securityContext: securityContext),
+      //para usar progressCallback é necessario habilitar clientCreator com DIO
+      // clientCreator: (
+      //         {bool? sendSessionId, SecurityContext? securityContext}) =>
+      //     ParseDioClient(sendSessionId: true, securityContext: securityContext),
     );
     await healthCheck();
   }
