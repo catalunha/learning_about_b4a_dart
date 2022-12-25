@@ -1,14 +1,13 @@
 import 'dart:developer';
 
-import 'package:learning_about_b4a_dart/app/data/b4a/tables/book/book_repository.dart';
 import 'package:learning_about_b4a_dart/app/presentation/book/book_search.dart';
 
 void bookPage() async {
   // // Book
-  BookRepository bookRepository = BookRepository();
+  // BookRepository bookRepository = BookRepository();
   // bookRepository.addAll();
-  bookRepository.addRelations();
-  bookRepository.removeRelations();
+  // bookRepository.addRelations();
+  // bookRepository.removeRelations();
   // bookRepository.addPointer();
   // bookRepository.add();
   // bookRepository.update();
@@ -17,7 +16,11 @@ void bookPage() async {
   // bookRepository.removeAll();
   BookSearch bookSearch = BookSearch();
   var dataList = <String>[];
-  dataList = await bookSearch.getAll();
+  // dataList = await bookSearch.getAll();
+  dataList = await bookSearch.getObject(objectId: '7CjAR0CGul', include: [
+    'typePointerPublisher',
+    'typePointerPublisher.typePointerShape'
+  ]);
 
   // dataList = await bookSearch.queryBuilderIncludeObject(
   // ['typePointerPublisher', 'typePointerPublisher.typePointerShape'])

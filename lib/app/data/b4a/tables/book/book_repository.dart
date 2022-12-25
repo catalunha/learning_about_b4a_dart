@@ -19,7 +19,7 @@ class BookRepository {
         typeNumber: 1,
         typeDateTime: DateTime.now(),
         typeArray: ['a', '1'],
-        typePointerPublisher: PublisherModel(objectId: 'kyCtliyFaK'),
+        typePointerPublisher: PublisherModel(objectId: 'SCayOAj8A1'),
       ),
       BookModel(
         typeString: 'Book02',
@@ -27,7 +27,7 @@ class BookRepository {
         typeNumber: 2,
         typeDateTime: DateTime(2022, 11, 26, 12).add(Duration(hours: 1)),
         typeArray: ['b', '2'],
-        typePointerPublisher: PublisherModel(objectId: 'kyCtliyFaK'),
+        typePointerPublisher: PublisherModel(objectId: 'HnRTwlj7p5'),
       ),
       BookModel(
         typeString: 'Book03',
@@ -35,7 +35,7 @@ class BookRepository {
         typeNumber: 3,
         typeDateTime: DateTime.now().add(Duration(hours: 2)),
         typeArray: ['c', '3'],
-        typePointerPublisher: PublisherModel(objectId: 'kyCtliyFaK'),
+        typePointerPublisher: PublisherModel(objectId: 'xRbr9Z1v5U'),
       ),
     ]);
     for (var authorModel in authorModelList) {

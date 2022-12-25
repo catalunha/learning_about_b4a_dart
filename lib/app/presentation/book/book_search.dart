@@ -25,6 +25,25 @@ class BookSearch {
     return list.map((e) => e.toString()).toList();
   }
 
+  /// Retorna um objeto da class baseado no seu [objectId]
+  Future<List<String>> getObject(
+      {required String objectId, List<String>? include}) async {
+    log('+++ getObject +++');
+    BookModel? bookModel;
+    ParseResponse parseResponse;
+    parseResponse = await ParseObject(BookEntity.className)
+        .getObject(objectId, include: include);
+    if (parseResponse.success && parseResponse.results != null) {
+      bookModel = await BookEntity().toModel(parseResponse.results!.first);
+    }
+    log('--- getObject ---');
+    if (bookModel == null) {
+      return [];
+    } else {
+      return [bookModel.toString()];
+    }
+  }
+
   Future<List<String>> queryBuilderIncludeObject(
       List<String> columnsName) async {
     log('+++ queryBuilderIncludeObject +++');

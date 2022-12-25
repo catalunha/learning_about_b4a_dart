@@ -27,17 +27,12 @@ class AuthorSearch {
 
   /// Retorna um objeto da class baseado no seu [objectId]
   Future<List<String>> getObject(
-      {required String objectId, bool withPointer = false}) async {
+      {required String objectId, List<String>? include}) async {
     log('+++ getObject +++');
     AuthorModel? authorModel;
     ParseResponse parseResponse;
-    if (withPointer) {
-      parseResponse = await ParseObject(AuthorEntity.className)
-          .getObject(objectId, include: ['typePointerGenre']);
-    } else {
-      parseResponse =
-          await ParseObject(AuthorEntity.className).getObject(objectId);
-    }
+    parseResponse = await ParseObject(AuthorEntity.className)
+        .getObject(objectId, include: include);
     if (parseResponse.success && parseResponse.results != null) {
       authorModel = AuthorEntity().toModel(parseResponse.results!.first);
     }

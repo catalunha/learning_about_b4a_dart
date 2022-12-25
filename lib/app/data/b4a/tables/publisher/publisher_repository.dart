@@ -17,7 +17,7 @@ class PublisherRepository {
         typeNumber: 1,
         typeDateTime: DateTime.now(),
         typeArray: ['a', '1'],
-        typePointerShape: ShapeModel(objectId: 'kyCtliyFaK'),
+        typePointerShape: ShapeModel(objectId: 'VpIHBBFdEZ'),
       ),
       PublisherModel(
         typeString: 'Publisher02',
@@ -25,7 +25,7 @@ class PublisherRepository {
         typeNumber: 2,
         typeDateTime: DateTime(2022, 11, 26, 12).add(Duration(hours: 1)),
         typeArray: ['b', '2'],
-        typePointerShape: ShapeModel(objectId: 'mrsMiyXeuP'),
+        typePointerShape: ShapeModel(objectId: 'Z268kUKIV9'),
       ),
       PublisherModel(
         typeString: 'Publisher03',
@@ -33,7 +33,7 @@ class PublisherRepository {
         typeNumber: 3,
         typeDateTime: DateTime.now().add(Duration(hours: 2)),
         typeArray: ['c', '3'],
-        typePointerShape: ShapeModel(objectId: 'w7n72uFBv2'),
+        typePointerShape: ShapeModel(objectId: '0IEpXAuhwa'),
       ),
     ]);
     for (var authorModel in authorModelList) {
