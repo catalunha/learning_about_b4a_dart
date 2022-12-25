@@ -21,10 +21,10 @@ class ConnectB4A {
       _appId,
       serverUrl,
       clientKey: _clientKey,
-      debug: false,
+      debug: true,
       clientCreator: (
               {bool? sendSessionId, SecurityContext? securityContext}) =>
-          ParseDioClient(),
+          ParseDioClient(sendSessionId: true, securityContext: securityContext),
     );
     await healthCheck();
   }
