@@ -16,7 +16,7 @@ void authorPage() async {
   var dataList = <String>[];
   // dataList = await authorSearch.getAll();
   dataList =
-      await authorSearch.getObject(objectId: 'wumssuy5eQ', withPointer: false);
+      await authorSearch.getObject(objectId: 'wumssuy5eQ', withPointer: true);
 
   // dataList = await authorSearch.queryBuilderIncludeObject(['typePointerGenre']);
   // dataList = await authorSearch.queryBuilderWhereEqualToPointer(
