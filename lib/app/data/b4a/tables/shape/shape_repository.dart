@@ -48,23 +48,28 @@ class ShapeRepository {
   addFile(String pathFile, String shapeId) async {
     log('+++ addFile +++');
     ParseFile? parseFile = ParseFile(File(pathFile));
-
-    // //progressCallback example
-    final ParseResponse parseResponseFile = await parseFile.upload(
+    //progressCallback example
+    parseFile.upload(
         progressCallback: (int count, int total) => print("$count of $total"));
-    // final ParseResponse parseResponseFile = await parseFileBase.save();
-    if (parseResponseFile.success && parseResponseFile.results != null) {
-      final parseObject = ParseObject(ShapeEntity.className);
-      parseObject.objectId = shapeId;
-      parseObject.set('typeFile', parseFile);
-      final ParseResponse responseParseObject = await parseObject.save();
-      if (responseParseObject.success && responseParseObject.results != null) {
-        log('File $pathFile save in ${ShapeEntity.className}.$shapeId');
-      } else {
-        log('Problem in save file');
-      }
+    // final ParseResponse parseResponse = await parseFile.save();
+    // if (parseResponse.success && parseResponse.results != null) {
+    final parseObject = ParseObject(ShapeEntity.className);
+    parseObject.objectId = shapeId;
+    parseObject.set('typeFile', parseFile);
+    final ParseResponse responseParseObject = await parseObject.save();
+    if (responseParseObject.success && responseParseObject.results != null) {
+      log('File $pathFile save in ${ShapeEntity.className}.$shapeId');
+    } else {
+      log('Problem in save file');
     }
+    // }
     log('--- addFile ---');
+  }
+
+  downloadFile() async {
+    ParseFile? parseFile = ParseFile(File(''));
+
+    await parseFile.download();
   }
 
   add() async {

@@ -14,14 +14,17 @@ class ConnectB4A {
     _clientKey = env['clientKey'] ?? _clientKey;
   }
 
-  Future<void> initialize({bool debug = false}) async {
+  Future<void> initialize() async {
     getCredentials();
     String serverUrl = 'https://parseapi.back4app.com';
     await Parse().initialize(
       _appId,
       serverUrl,
       clientKey: _clientKey,
-      debug: debug,
+      debug: false,
+      clientCreator: (
+              {bool? sendSessionId, SecurityContext? securityContext}) =>
+          ParseDioClient(),
     );
     await healthCheck();
   }
