@@ -85,7 +85,7 @@ class AuthorSearch {
     return list.map((e) => e.toString()).toList();
   }
 
-  /// Envolve apenas uma coluna typePointer e sua query
+  /// Envolve apenas uma coluna typePointer e uma query com ids daquele tipo
   /// Lembre-se que a class Author tem um ponteiro, typePointerGenre, para uma class Genre
   /// Então filtramos com qualquer condição desejada os objectIds em Genre.
   /// Este é meu pointerQueryBuilder
@@ -103,6 +103,9 @@ class AuthorSearch {
         QueryBuilder<ParseObject>(ParseObject(AuthorEntity.className));
 
     queryBuilder.whereMatchesQuery('typePointerGenre', pointerQueryBuilder);
+    // O parametro column deve ser apenas do tipo pointer
+    // O parametro query contem ids que pode ser iguais aos ids de column
+    // Todos os ids de column que estiverem na lista de query serão validos
     queryBuilder.includeObject(['typePointerGenre']);
     var apiResponse = await queryBuilder.query();
 

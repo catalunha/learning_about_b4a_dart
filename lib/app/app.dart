@@ -1,12 +1,16 @@
-import 'package:learning_about_b4a_dart/app/data/b4a/connect_b4a.dart';
+import 'dart:io';
 
-import 'presentation/genre/genre_page.dart';
+import 'data/b4a/connect_b4a.dart';
 
 void app() async {
-  ConnectB4A connectB4A = ConnectB4A();
-  await connectB4A.initialize();
-
-  genrePage();
+  final isInitialized = await initB4A();
+  if (!isInitialized) {
+    print('B4A not conected...');
+    exit(0);
+  } else {
+    print('B4A conected...');
+  }
+  // genrePage();
   // authorPage();
   // shapePage();
   // publisherPage();

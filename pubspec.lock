@@ -77,18 +77,10 @@ packages:
     dependency: transitive
     description:
       name: dio
-      sha256: "7d328c4d898a61efc3cd93655a0955858e29a0aa647f0f9e02d59b3bb275e2e8"
+      sha256: a9d76e72985d7087eb7c5e7903224ae52b337131518d127c554b9405936752b8
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.6"
-  dotenv:
-    dependency: "direct main"
-    description:
-      name: dotenv
-      sha256: e169b516bc7b88801919e1c508772bcb8e3d0d1776a43f74ab692c57e741cd8a
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.1.0"
+    version: "5.2.1+1"
   file:
     dependency: transitive
     description:
@@ -229,10 +221,10 @@ packages:
     dependency: "direct main"
     description:
       name: parse_server_sdk
-      sha256: "0fd3c0111720329577cc8bd34a89edec6ca1d7d70d3d8702af8164acb083a75a"
+      sha256: bf85c1a807849efc380432b8f6c3e91597b6283e7fbbf0151db244de3bef0a5e
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.15"
+    version: "5.1.2"
   path:
     dependency: "direct main"
     description:
@@ -409,6 +401,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
+  universal_io:
+    dependency: transitive
+    description:
+      name: universal_io
+      sha256: "1722b2dcc462b4b2f3ee7d188dad008b6eb4c40bbd03a3de451d82c78bba9aad"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.2"
   uuid:
     dependency: transitive
     description:
@@ -466,4 +466,4 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.0 <3.0.0"
+  dart: ">=2.19.0 <4.0.0"

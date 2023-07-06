@@ -8,7 +8,11 @@
             "name": "learning_about_b4a_dart",
             "request": "launch",
             "type": "dart",
-            "program": "bin/learning_about_b4a_dart.dart"
+            "program": "bin/learning_about_b4a_dart.dart",
+            "toolArgs": [
+                "--define=ApplicationId=x4uHx8hJECtAPiKo4Z2f8IK9OUKRtcuUBBaUBHM9",
+                "--define=ClientKey=GoHjfXQ1fIClRQ6K9Gg9hc1dpKj90HJGRXcHeSrs"
+              ]
         }
     ]
 }
